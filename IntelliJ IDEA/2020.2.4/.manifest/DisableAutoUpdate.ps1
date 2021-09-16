@@ -14,7 +14,6 @@ if ($null -eq $prop) {
 	$prop.name = "CHECK_NEEDED"
 	$null = $c.AppendChild($prop)
 }
-if ($prop.value -eq "false") {return $false}
+if ($prop.value -eq "false") {return}
 $prop.value = "false"
 $null = $d.Save($File)
-return $true

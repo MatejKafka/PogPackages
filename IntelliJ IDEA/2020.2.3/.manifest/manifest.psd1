@@ -3,13 +3,11 @@
 	Architecture = @("x64", "x86")
 
 	Version = "2020.2.3"
-	# found at https://download.jetbrains.com/idea/ideaIU-$Version.win.zip.sha256
-	_Hash = "49AF7A3C9EFBC622D62684A5C0BEEDD476D1C535B10ED466903E85A15D522012"
-
+	_Hash = "49af7a3c9efbc622d62684a5c0beedd476d1c535b10ed466903e85a15d522012"
+	
 	Install = {
-		$Version = $this.Version
-		$Url = "https://download.jetbrains.com/idea/ideaIU-$Version.win.zip"
-		Install-FromUrl $Url -NoSubdirectory -ExpectedHash $this._Hash
+		$Url = "https://download.jetbrains.com/idea/ideaIU-$($this.Version).win.zip"
+		Install-FromUrl $Url -ExpectedHash $this._Hash
 	}
 	
 	Enable = {
@@ -53,3 +51,5 @@ _UpdatesXml = @'
 </application>
 '@
 }
+
+
