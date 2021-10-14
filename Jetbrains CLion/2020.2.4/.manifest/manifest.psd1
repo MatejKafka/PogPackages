@@ -3,13 +3,11 @@
 	Architecture = "x64"
 
 	Version = "2020.2.4"
-	# found at https://download.jetbrains.com/cpp/CLion-$Version.win.zip.sha256
-	_Hash = "A7EBDB775ED0909A30EA56B3ADAEB7246F5BF1EB6BF2AD4B101A20D2CCF24123"
+	_Hash = "a7ebdb775ed0909a30ea56b3adaeb7246f5bf1eb6bf2ad4b101a20d2ccf24123"
 
 	Install = {
-		$Version = $this.Version
-		$Url = "https://download.jetbrains.com/cpp/CLion-$Version.win.zip"
-		Install-FromUrl $Url -NoSubdirectory -ExpectedHash $this._Hash
+		$Url = "https://download.jetbrains.com/cpp/CLion-$($this.Version).win.zip"
+		Install-FromUrl $Url -ExpectedHash $this._Hash
 	}
 	
 	Enable = {
@@ -27,7 +25,7 @@
 		# ensure auto-updates are disabled
 		Assert-File "./config/config/options/updates.xml" {$this._UpdatesXml} "./.manifest/DisableAutoUpdate.ps1"
 
-		Export-Shortcut "CLion $($this.Version)" "./.manifest/clion_shortcut.cmd" -IconPath "./app/bin/clion.ico"
+		Export-Shortcut "CLion" "./.manifest/clion_shortcut.cmd" -IconPath "./app/bin/clion.ico"
 		Export-Command "clion" "./.manifest/clion_command.cmd" -NoSymlink
 	}
 

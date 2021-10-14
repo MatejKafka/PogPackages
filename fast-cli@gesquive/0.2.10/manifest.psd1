@@ -8,7 +8,7 @@
 	Install = {
 		$Version = $this.Version
 		$Url = "https://github.com/gesquive/fast-cli/releases/download/v${Version}/fast-cli-v${Version}-windows-amd64.zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash -NoSubdirectory
+		Install-FromUrl $Url -ExpectedHash $this._Hash
 	}
 	
 	Enable = {

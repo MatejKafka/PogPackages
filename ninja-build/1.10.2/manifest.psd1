@@ -7,7 +7,7 @@
 	
 	Install = {
 		$Url = "https://github.com/ninja-build/ninja/releases/download/v$($this.Version)/ninja-win.zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash -NoSubdirectory
+		Install-FromUrl $Url -ExpectedHash $this._Hash
 	}
 	
 	Enable = {

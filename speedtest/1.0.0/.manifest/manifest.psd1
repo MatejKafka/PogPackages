@@ -7,7 +7,7 @@
 	
 	Install = {
 		$Url = "https://bintray.com/ookla/download/download_file?file_path=ookla-speedtest-$($this.Version)-win64.zip"
-		Install-FromUrl $Url -NoSubdirectory -ExpectedHash $this._Hash
+		Install-FromUrl $Url -ExpectedHash $this._Hash
 	}
 	
 	Enable = {

@@ -5,7 +5,7 @@
 	
 	Install = {
 		$URL = "https://download.mobatek.net/2032020060430358/MobaXterm_Portable_v20.3.zip"
-		Install-FromUrl $URL -NoSubdirectory
+		Install-FromUrl $URL
 	}
 	
 	Enable = {

@@ -10,7 +10,7 @@
 		# WinSCP authors don't want people to automate downloads directly from WinSCP site, and are trying to block it
 		#  with generated one-time download URLs, so we'll use sourceforge instead
 		$Url = "https://downloads.sourceforge.net/project/winscp/WinSCP/${Version}/WinSCP-${Version}-Portable.zip"
-		Install-FromUrl $Url -NoSubdirectory -ExpectedHash $this._Hash -UserAgent Wget
+		Install-FromUrl $Url -ExpectedHash $this._Hash -UserAgent Wget
 	}
 	
 	Enable = {

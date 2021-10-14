@@ -8,12 +8,11 @@
 	# but I couldn't figure out how to pull out the hash for a given version
 	# TODO: check hash
 	
-	Install = {
-		$Version = $Pkg_Manifest.Version
-		$Url = "https://update.code.visualstudio.com/$Version/win32-x64-archive/stable"
-		Install-FromUrl $Url -NoSubdirectory
+	Install = @{
+		Url = {"https://update.code.visualstudio.com/$($this.Version)/win32-x64-archive/stable"}
+		Hash = "C16E589C60BC4FC33113C14D8D1B46E8E26A23716BD7ED3DBE6A38C9D435EE04"
 	}
-	
+
 	Enable = {
 		Assert-Directory "./data"
 		Assert-Directory "./config"

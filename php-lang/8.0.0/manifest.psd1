@@ -8,7 +8,7 @@
 	Install = {
 		# https://windows.php.net/download
 		$Url = "https://windows.php.net/downloads/releases/php-$($this.Version)-Win32-vs16-x64.zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash -NoSubdirectory
+		Install-FromUrl $Url -ExpectedHash $this._Hash
 	}
 	
 	Enable = {

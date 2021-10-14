@@ -3,9 +3,9 @@
 	Version = "2.28.0"
 	Architecture = "x64"
 	Install = {
-		$Version = $Pkg_Manifest.Version
+		$Version = $this.Version
 		$Url = "https://github.com/git-for-windows/git/releases/download/v${Version}.windows.1/PortableGit-${Version}-64-bit.7z.exe"
-		Install-FromUrl $Url -NoSubdirectory
+		Install-FromUrl $Url
 	}
 	
 	Enable = {

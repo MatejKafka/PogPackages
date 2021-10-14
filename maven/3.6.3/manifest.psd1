@@ -34,3 +34,4 @@
 		Export-Command "mvn" "./app/bin/mvn.cmd" -NoSymlink
 	}
 }
+

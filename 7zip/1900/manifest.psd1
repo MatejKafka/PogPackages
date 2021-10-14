@@ -8,7 +8,7 @@
 	Install = {
 		$Version = $this.Version
 		$Url = "https://www.7-zip.org/a/7z$Version-x64.exe"
-		Install-FromUrl $Url -NoSubdirectory -ExpectedHash $this._Hash
+		Install-FromUrl $Url -ExpectedHash $this._Hash
 	}
 	
 	Enable = {

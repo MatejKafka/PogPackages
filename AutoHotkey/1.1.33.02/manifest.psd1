@@ -6,7 +6,7 @@
 	Install = {
 		$Version = $this.Version
 		$Url = "https://www.autohotkey.com/download/1.1/AutoHotkey_$Version.zip"
-		Install-FromUrl $Url -NoSubdirectory
+		Install-FromUrl $Url
 	}
 	
 	Enable = {
@@ -21,3 +21,4 @@
 		Export-Command "Ahk2Exe" "./app/Compiler/Ahk2Exe.exe" -NoSymlink
 	}
 }
+

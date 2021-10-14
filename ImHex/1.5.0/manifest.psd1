@@ -8,7 +8,7 @@
 	Install = {
 		$Version = $this.Version
 		$Url = "https://github.com/WerWolv/ImHex/releases/download/v${Version}/ImHex_${Version}_Windows.zip"
-		Install-FromUrl $Url -NoSubdirectory -ExpectedHash $this._Hash
+		Install-FromUrl $Url -ExpectedHash $this._Hash
 	}
 	
 	Enable = {

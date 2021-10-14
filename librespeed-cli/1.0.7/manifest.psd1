@@ -8,7 +8,7 @@
 	Install = {
 		$Version = $this.Version
 		$Url = "https://github.com/librespeed/speedtest-cli/releases/download/v${Version}/librespeed-cli_${Version}_windows_amd64.zip"
-		Install-FromUrl $Url -NoSubdirectory -ExpectedHash $this._Hash
+		Install-FromUrl $Url -ExpectedHash $this._Hash
 	}
 	
 	Enable = {

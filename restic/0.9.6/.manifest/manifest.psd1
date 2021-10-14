@@ -9,7 +9,7 @@
 	Install = {
 		$Version = $this.Version
 		$Url = "https://github.com/restic/restic/releases/download/v${Version}/restic_${Version}_windows_amd64.zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash -NoSubdirectory
+		Install-FromUrl $Url -ExpectedHash $this._Hash
 
 		$AppFiles = ls ./app
 		if (@($AppFiles).Count -ne 1) {
@@ -25,4 +25,5 @@
 		Export-Command "restic" "./.manifest/restic_wrapper.cmd" -NoSymlink
 	}
 }
+
 

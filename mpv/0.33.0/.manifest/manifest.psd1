@@ -9,12 +9,12 @@
 	Install = {
 		$Url = "https://downloads.sourceforge.net/project/mpv-player-windows/stable/mpv-$($this.Version)-x86_64.7z"
 		# use wget UA, otherwise we are redirected to a HTML page, as sourceforge thinks we're an interactive browser
-		Install-FromUrl $Url -ExpectedHash $this._Hash -UserAgent Wget -NoSubdirectory
+		Install-FromUrl $Url -ExpectedHash $this._Hash -UserAgent Wget
 	}
 	
 	Enable = {
 		Assert-Directory "./config"
-		Assert-Directory "./data/watch_later"
+		Assert-Directory "./cache/watch_later"
 		Assert-Directory "./logs"
 		
 		Export-Command "mpv" "./.manifest/mpv_cmd_wrapper.cmd" -NoSymlink

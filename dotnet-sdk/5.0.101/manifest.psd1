@@ -8,7 +8,7 @@
 	Install = {
 		$Version = $this.Version
 		$Url = "https://dotnetcli.azureedge.net/dotnet/Sdk/$Version/dotnet-sdk-$Version-win-x64.zip"
-		Install-FromUrl $Url -NoSubdirectory -ExpectedHash $this._Hash
+		Install-FromUrl $Url -ExpectedHash $this._Hash
 	}
 	
 	Enable = {

@@ -6,7 +6,7 @@
 	Install = {
 		$Version = $this.Version
 		$Url = "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v$Version/npp.$Version.portable.x64.zip"
-		Install-FromUrl $Url -NoSubdirectory
+		Install-FromUrl $Url
 	}
 	
 	Enable = {
@@ -56,4 +56,5 @@
 		}
 	}
 }
+
 

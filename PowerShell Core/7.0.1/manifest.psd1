@@ -7,8 +7,9 @@
 		$Version = $this.Version
 		$Arch = $this.Architecture
 		$Url = "https://github.com/PowerShell/PowerShell/releases/download/v$Version/PowerShell-$Version-win-$Architecture.zip"
-		Install-FromUrl $Url -NoSubdirectory
+		Install-FromUrl $Url
 	}
 
 	# currently, we cannot enable, as pwsh has hardcoded config paths
 }
+

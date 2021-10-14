@@ -8,7 +8,7 @@
 	Install = {
 		$Version = $this.Version
 		$Url = "https://github.com/texstudio-org/texstudio/releases/download/${Version}/texstudio-${Version}-win-portable-qt5.zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash -NoSubdirectory
+		Install-FromUrl $Url -ExpectedHash $this._Hash
 	}
 	
 	Enable = {

@@ -11,7 +11,8 @@
 	
 	Enable = {
 		Assert-Directory "./cache"
-	
+
+		# FIXME: zig cc still stores cache data in LocalAppData
 		Export-Command "zig" "./.manifest/zig_wrapper.cmd" -NoSymlink
 	}
 }

@@ -7,7 +7,7 @@
 	
 	Install = {
 		$Url = "https://www.flos-freeware.ch/zip/notepad2_4.2.25_x64.zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash -NoSubdirectory
+		Install-FromUrl $Url -ExpectedHash $this._Hash
 	}
 	
 	Enable = {

@@ -19,4 +19,3 @@
 		Export-Command "go" "./.manifest/go_wrapper.cmd" -NoSymlink
 	}
 }
-

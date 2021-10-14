@@ -9,7 +9,7 @@
 	Install = {
 		$Version = $this.Version
 		$Url = "https://github.com/gohugoio/hugo/releases/download/v${Version}/hugo_${Version}_Windows-64bit.zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash -NoSubdirectory
+		Install-FromUrl $Url -ExpectedHash $this._Hash
 	}
 	
 	Enable = {

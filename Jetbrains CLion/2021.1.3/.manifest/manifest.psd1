@@ -25,7 +25,7 @@
 		# ensure auto-updates are disabled
 		Assert-File "./config/config/options/updates.xml" {$this._UpdatesXml} "./.manifest/DisableAutoUpdate.ps1"
 
-		Export-Shortcut "CLion $($this.Version)" "./.manifest/clion_shortcut.cmd" -IconPath "./app/bin/clion.ico"
+		Export-Shortcut "CLion" "./.manifest/clion_shortcut.cmd" -IconPath "./app/bin/clion.ico"
 		Export-Command "clion" "./.manifest/clion_command.cmd" -NoSymlink
 	}
 
@@ -51,5 +51,3 @@ _UpdatesXml = @'
 </application>
 '@
 }
-
-

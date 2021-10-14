@@ -7,7 +7,7 @@
 	
 	Install = {
 		$Url = "https://cancel.fm/dl/Ripcord_Win_$($this.Version).zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash -NoSubdirectory
+		Install-FromUrl $Url -ExpectedHash $this._Hash
 	}
 	
 	Enable = {
