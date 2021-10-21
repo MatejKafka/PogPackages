@@ -1,7 +1,7 @@
 @{
 	Name = "nim-lang"
 	Architecture = "x64"
-	Version = "1.2.0"
+	Version = "1.2.10"
 
 	Description = @"
 Nim is a statically typed compiled systems programming language. It combines successful
@@ -17,7 +17,7 @@ expressiveness, and elegance (in that order of priority).
 	Install = @{
 		Url = {"https://nim-lang.org/download/nim-$($this.Version)_x64.zip"}
 		# https://nim-lang.org/download/nim-$($this.Version)_x64.zip.sha256
-		Hash = "0e231dd44648f4ecb43ad8068dfa8d1cd1b86e807704c6475fc0d7c4f1341913"
+		Hash = "032748b0ff1dee5e58bf2af2c39063db60b99a2ec477a716dda1cfccf2f4fb6c"
 	}
 
 	Enable = {
