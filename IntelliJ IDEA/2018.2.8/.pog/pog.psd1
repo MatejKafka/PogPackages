@@ -4,12 +4,12 @@
 
 	Version = "2018.2.8"
 	_Hash = "257753e68c83877605989a4d0c6a9ff868dd5562d6a06c060df63239da0062e0"
-	
+
 	Install = {
 		$Url = "https://download.jetbrains.com/idea/ideaIU-$($this.Version).win.zip"
 		Install-FromUrl $Url -ExpectedHash $this._Hash
 	}
-	
+
 	Enable = {
 		Assert-Directory "./config"
 		Assert-Directory "./config/config"
@@ -23,10 +23,10 @@
 		Assert-File "./config/idea64.exe.vmoptions" {Get-Content -Raw "./app/bin/idea64.exe.vmoptions"}
 		Assert-File "./config/idea.exe.vmoptions" {Get-Content -Raw "./app/bin/idea.exe.vmoptions"}
 		# ensure auto-updates are disabled
-		Assert-File "./config/config/options/updates.xml" {$this._UpdatesXml} "./.pog/DisableAutoUpdate.ps1"
+		Assert-File "./config/config/options/updates.xml" {$this._UpdatesXml} "$ManifestRoot/DisableAutoUpdate.ps1"
 
-		Export-Shortcut "IntelliJ IDEA" "./.pog/idea_shortcut.cmd" -IconPath "./app/bin/idea.ico"
-		Export-Command "idea" "./.pog/idea_command.cmd" -NoSymlink
+		Export-Shortcut "IntelliJ IDEA" "$ManifestRoot/idea_shortcut.cmd" -IconPath "./app/bin/idea.ico"
+		Export-Command "idea" "$ManifestRoot/idea_command.cmd" -NoSymlink
 	}
 
 # content of generated idea.properties
