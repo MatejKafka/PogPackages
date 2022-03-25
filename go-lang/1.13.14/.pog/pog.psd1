@@ -6,7 +6,7 @@
 	_Hash = "5822f61016ace183bc5f90b58223fa76a5a998b38240846186934954a2e555eb"
 
 	Install = {
-		$Url = "https://golang.org/dl/go$($this.Version).windows-amd64.zip"
+		$Url = "https://go.dev/dl/go$($this.Version).windows-amd64.zip"
 		Install-FromUrl $Url -ExpectedHash $this._Hash
 	}
 

@@ -10,6 +10,7 @@
 
 	Enable = {
 		Export-Command "iperf" "./app/iperf3.exe" -NoSymlink -SetWorkingDirectory
+		Export-Command "iperf3" "./app/iperf3.exe" -NoSymlink -SetWorkingDirectory
 	}
 }
 
