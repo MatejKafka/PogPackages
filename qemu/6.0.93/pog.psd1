@@ -20,5 +20,6 @@
 		}
 
 		# TODO: export the -w.exe GUI versions of binaries as shortcuts
+		#  update: is that really a good idea?
 	}
 }
