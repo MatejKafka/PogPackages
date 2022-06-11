@@ -1,6 +1,6 @@
 @{
 	Name = "IntelliJ IDEA"
-	Architecture = @("x64", "x86")
+	Architecture = "x64"
 
 	Version = "2022.1"
 	_Hash = "388a4b5a6fa022e23eee4743994f9bd8312f6beea2cac9252da7f121568ddb39"
@@ -21,7 +21,7 @@
 		# TODO: check content for existing file
 		Assert-File "./config/idea.properties" {$this._IdeaProperties}
 		Assert-File "./config/idea64.exe.vmoptions" {Get-Content -Raw "./app/bin/idea64.exe.vmoptions"}
-		Assert-File "./config/idea.exe.vmoptions" {Get-Content -Raw "./app/bin/idea.exe.vmoptions"}
+
 		# ensure auto-updates are disabled
 		Assert-File "./config/config/options/updates.xml" {$this._UpdatesXml} "$ManifestRoot/DisableAutoUpdate.ps1"
 

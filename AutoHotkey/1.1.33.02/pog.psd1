@@ -1,12 +1,11 @@
 @{
 	Name = "AutoHotkey"
-	Version = "1.1.33.02"
 	Architecture = @("x64", "x86")
+	Version = "1.1.33.02"
 	
-	Install = {
-		$Version = $this.Version
-		$Url = "https://www.autohotkey.com/download/1.1/AutoHotkey_$Version.zip"
-		Install-FromUrl $Url
+	Install = @{
+		Url = {"https://www.autohotkey.com/download/1.1/AutoHotkey_$($this.Version).zip"}
+		Hash = "8A78C784D590737431167F35667FA6580F88B543AEDE43B13F64A1A23780BF22"
 	}
 	
 	Enable = {

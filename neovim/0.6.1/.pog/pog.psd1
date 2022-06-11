@@ -11,6 +11,8 @@
 	}
 	
 	Enable = {
+		Write-Warning "nvim-qt writes window geometry data to registry (HKCU\Software\nvim-qt)."
+
 		Assert-Directory "./config"
 		Assert-Directory "./data"
 		

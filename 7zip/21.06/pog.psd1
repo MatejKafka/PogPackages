@@ -1,11 +1,11 @@
 @{
 	Name = "7zip"
 	Architecture = "x64"
-	Version = "2107" # 21.07
+	Version = "21.06"
 	
 	Install = @{
-		Url = {"https://www.7-zip.org/a/7z$($this.Version)-x64.exe"}
-		Hash = "0B461F0A0ECCFC4F39733A80D70FD1210FDD69F600FB6B657E03940A734E5FC1"
+		Url = "https://www.7-zip.org/a/7z2106-x64.exe"
+		Hash = "7E7436175B708D60816B186B7AFB72F2F000334A77E7636460630C895B2A75FF"
 	}
 
 	Enable = {
