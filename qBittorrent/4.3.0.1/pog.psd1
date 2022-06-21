@@ -1,15 +1,14 @@
 @{
 	Name = "qBittorrent"
 	Architecture = "x64"
-
 	Version = "4.3.0.1"
-	_Hash = "BB28F60F33D0ED0ACB4C7F665077F8531E40649D2D0CF3C3D1043627CF99C480"
 
-	Install = {
-		$Version = $this.Version
-		$Url = "https://downloads.sourceforge.net/project/qbittorrent/qbittorrent-win32/" +`
-			"qbittorrent-${Version}/qbittorrent_${Version}_x64_setup.exe"
-		Install-FromUrl $Url -ExpectedHash $this._Hash -NsisInstaller -UserAgent Wget
+	Install = @{
+		Url = {$V = $this.Version; "https://downloads.sourceforge.net/project/qbittorrent/qbittorrent-win32/" +`
+			"qbittorrent-${Version}/qbittorrent_${Version}_x64_setup.exe"}
+		Hash = "BB28F60F33D0ED0ACB4C7F665077F8531E40649D2D0CF3C3D1043627CF99C480"
+		UserAgent = "Wget"
+		NsisInstaller = $true
 	}
 
 	Enable = {
@@ -26,4 +25,3 @@
 		#  because it fails after reinstall, as it thinks it already asked for firewall permission)
 	}
 }
-

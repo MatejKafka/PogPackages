@@ -13,6 +13,6 @@
 	}
 
 	Enable = {
-		Export-Command "julia" "$ManifestRoot/julia.cmd" -NoSymlink
+		Export-Command "julia" "./.pog/julia.cmd" -NoSymlink
 	}
 }

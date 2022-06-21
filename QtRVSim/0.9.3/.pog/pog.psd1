@@ -11,7 +11,8 @@
 	Enable = {
 		Assert-Directory "./data"
 
-		Export-Shortcut "QtRVSim" "$ManifestRoot/qtrvsim_gui.cmd"
+		Export-Shortcut "QtRVSim" "./.pog/qtrvsim_gui.cmd"
+		# qtrvsim commands don't access the config, no need to override
 		Export-Command "qtrvsim" "./app/qtrvsim_cli.exe" -NoSymlink
 		Export-Command "qtrvsim_cli" "./app/qtrvsim_cli.exe" -NoSymlink
 	}

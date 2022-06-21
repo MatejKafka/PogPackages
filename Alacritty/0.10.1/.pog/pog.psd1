@@ -18,6 +18,6 @@
 		# TODO: when multiple sources are implemented, also download the default config file from the Release page
 		Assert-File "./config/alacritty.yml"
 
-		Export-Shortcut "Alacritty" "$ManifestRoot/Alacritty_wrapper.cmd" -Icon "./app/Alacritty.exe"
+		Export-Shortcut "Alacritty" "./.pog/Alacritty_wrapper.cmd" -Icon "./app/Alacritty.exe"
 	}
 }

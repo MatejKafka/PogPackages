@@ -1,15 +1,14 @@
 @{
 	Name = "qBittorrent"
 	Architecture = "x64"
-
 	Version = "4.3.9"
-	_Hash = "E1C63B0B1B1EA646BAD7BB844426FAB55C7178DE167268AC8D76190CCFEBF1C8"
 
-	Install = {
-		$Version = $this.Version
-		$Url = "https://downloads.sourceforge.net/project/qbittorrent/qbittorrent-win32/" +`
-			"qbittorrent-${Version}/qbittorrent_${Version}_x64_setup.exe"
-		Install-FromUrl $Url -ExpectedHash $this._Hash -NsisInstaller -UserAgent Wget
+	Install = @{
+		Url = {$V = $this.Version; "https://downloads.sourceforge.net/project/qbittorrent/qbittorrent-win32/" +`
+			"qbittorrent-${Version}/qbittorrent_${Version}_x64_setup.exe"}
+		Hash = "E1C63B0B1B1EA646BAD7BB844426FAB55C7178DE167268AC8D76190CCFEBF1C8"
+		UserAgent = "Wget"
+		NsisInstaller = $true
 	}
 
 	Enable = {

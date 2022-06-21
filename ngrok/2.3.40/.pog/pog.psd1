@@ -12,7 +12,7 @@
 	Enable = {
 		Assert-Directory "./config"
 		Assert-File "./config/ngrok.yml"
-		Export-Command "ngrok" "$ManifestRoot/ngrok_wrapper.cmd" -NoSymlink
+		Export-Command "ngrok" "./.pog/ngrok_wrapper.cmd" -NoSymlink
 	}
 }
 

@@ -10,6 +10,6 @@
 	}
 	
 	Enable = {
-		Export-Shortcut "jPDF Tweak" "$ManifestRoot/jPDF Tweak.cmd" -Icon "./app/icon.ico"
+		Export-Shortcut "jPDF Tweak" "./.pog/jPDF Tweak.cmd" -Icon "./app/icon.ico"
 	}
 }

@@ -12,6 +12,6 @@
 		Assert-Directory "./data"
 		Assert-Directory "./cache"
 
-		Export-Shortcut "Inkscape" "$ManifestRoot/Inkscape-shortcut.cmd" -Icon "./app/bin/inkscape.exe"
+		Export-Shortcut "Inkscape" "./.pog/Inkscape-shortcut.cmd" -Icon "./app/bin/inkscape.exe"
 	}
 }

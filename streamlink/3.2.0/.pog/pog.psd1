@@ -12,6 +12,6 @@
 		Assert-Directory "./config"
 		Assert-Directory "./config/plugins"
 		
-		Export-Command "streamlink" "$ManifestRoot/streamlink.cmd" -NoSymlink
+		Export-Command "streamlink" "./.pog/streamlink.cmd" -NoSymlink
 	}
 }
