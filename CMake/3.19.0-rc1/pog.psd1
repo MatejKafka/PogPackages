@@ -1,12 +1,11 @@
 @{
 	Name = "CMake"
-	Version = "3.19.0-rc1"
 	Architecture = "x64"
+	Version = "3.19.0-rc1"
 	
-	Install = {
-		$Version = $this.Version
-		$Url = "https://github.com/Kitware/CMake/releases/download/v$Version/cmake-$Version-win64-x64.zip"
-		Install-FromUrl $Url
+	Install = @{
+		Url = {$V = $this.Version; "https://github.com/Kitware/CMake/releases/download/v${V}/cmake-${V}-win64-x64.zip"}
+		Hash = "1FCAF9300055AFA6AC40BC5FC2864F1170D2281E93FDBA3EDF59F96A955C45FD"
 	}
 	
 	Enable = {

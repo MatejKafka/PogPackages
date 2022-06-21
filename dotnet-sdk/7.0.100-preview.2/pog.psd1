@@ -2,7 +2,6 @@
 @{
 	Name = "dotnet-sdk"
 	Architecture = "x64"
-
 	Version = "7.0.100-preview.2"
 
 	Install = @{
