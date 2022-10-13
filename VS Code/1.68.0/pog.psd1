@@ -15,7 +15,6 @@
 	Enable = {
 		Assert-Directory "./data"
 		Assert-Directory "./config"
-		Assert-Directory "./logs"
 
 		# ensure auto-update is disabled
 		Assert-File "./data/user-data/User/settings.json" {'{"update.mode": "none"}'} {
@@ -31,6 +30,7 @@
 
 		Set-SymlinkedPath "./data/user-data/User/keybindings.json" "./config/keybindings.json" File
 		Set-SymlinkedPath "./data/user-data/User/settings.json" "./config/settings.json" File
+		Set-SymlinkedPath "./data/user-data/logs" "./logs" Directory
 
 		Export-Command "Code" "./.pog/vscode_wrapper_command.cmd" -NoSymlink
 		Export-Shortcut "Visual Studio Code (VS Code)" "./.pog/vscode_wrapper.cmd" -IconPath "./app/Code.exe"

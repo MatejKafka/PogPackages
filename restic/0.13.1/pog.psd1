@@ -7,8 +7,7 @@
 		Url = {$V = $this.Version; "https://github.com/restic/restic/releases/download/v${V}/restic_${V}_windows_amd64.zip"}
 		Hash = "3E8A768889DD85D952FC7160D196C68866C9155383B0347C4049D079C8AE2CDD"
 		SetupScript = {
-			param($AppDir)
-			$AppFiles = ls $AppDir
+			$AppFiles = ls
 			if (@($AppFiles).Count -ne 1) {
 				Write-Warning "Expected the archive to contain a single exe, but multiple items are present."
 				return

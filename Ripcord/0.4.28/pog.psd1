@@ -1,13 +1,11 @@
 @{
 	Name = "Ripcord"
 	Architecture = "x64"
-	
 	Version = "0.4.28"
-	_Hash = "8BE721D23424701E289B1145273C67E6D22517DB5C501BD0AAA3CC0390B9E41A"
 	
-	Install = {
-		$Url = "https://cancel.fm/dl/Ripcord_Win_$($this.Version).zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash
+	Install = @{
+		Url = {"https://cancel.fm/dl/Ripcord_Win_$($this.Version).zip"}
+		Hash = "8BE721D23424701E289B1145273C67E6D22517DB5C501BD0AAA3CC0390B9E41A"
 	}
 	
 	Enable = {

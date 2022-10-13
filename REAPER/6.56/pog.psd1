@@ -7,9 +7,8 @@
 		Url = "https://www.reaper.fm/files/6.x/reaper656_x64-install.exe"
 		Hash = "1EAC4B8D53FD40CBB5A439285360A66BD07531635B7F15511AEE7020C15AD91A"
 		SetupScript = {
-			param($AppDir)
-			ls $AppDir'/$INSTDIR$_8_' | mv -Destination $AppDir
-			rm -Recurse $AppDir'/$COMMONFILES64', $AppDir'/$PLUGINSDIR', $AppDir'/$INSTDIR$_8_', $AppDir'/Uninstall.exe'
+			ls './$INSTDIR$_8_' | mv -Destination .
+			rm -Recurse './$COMMONFILES64', './$PLUGINSDIR', './$INSTDIR$_8_', './Uninstall.exe'
 		}
 	}
 	

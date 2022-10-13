@@ -8,9 +8,8 @@
 		Hash = "9DFC25B2C41275B88F0DE24591139F62D9D5E8EAD5A3E07E6442F75B446F7C5E"
 		NoArchive = $true
 		SetupScript = {
-			param($AppDir)
 			# name of the executable contains the version; it would be non-trivial to find the file name in the wrapper, so we rename it
-			Rename-Item $AppDir/* "Alacritty.exe"
+			Rename-Item ./* "Alacritty.exe"
 		}
 	}
 	

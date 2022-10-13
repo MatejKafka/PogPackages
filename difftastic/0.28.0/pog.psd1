@@ -9,6 +9,6 @@
 	}
 	
 	Enable = {
-		Export-Command "difft" "./app/difft.exe" # Symlink
+		Export-Command "difft" "./app/difft.exe" -Symlink
 	}
 }
