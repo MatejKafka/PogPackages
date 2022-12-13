@@ -16,7 +16,7 @@ set _tail=%*
 call set _tail=%%_tail:*%1=%%
 
 :: add mingw to PATH
-set PATH=%PATH%;%package_root%\..\mingw64\app\bin\
+set PATH=%PATH%;%package_root%\..\mingw64@niXman\app\bin\
 "%package_root%\app\bin\nim.exe" %1 --clearNimblePath "--NimblePath:%package_root%\data\nimble\pkgs" "--nimcache:%package_root%\cache" %_tail%
 
 endlocal
