@@ -1,14 +1,11 @@
 @{
 	Name = "Telegram"
 	Architecture = "x86"
-	
 	Version = "2.4.7"
-	_Hash = "8DF10352FFA08798389146E88F61ED7042CEEE1E031B72BAA2B9200F7868C595"
 	
-	Install = {
-		$Version = $this.Version
-		$Url = "https://github.com/telegramdesktop/tdesktop/releases/download/v$Version/tportable.$Version.zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash
+	Install = @{
+		Url = {$V = $this.Version; "https://github.com/telegramdesktop/tdesktop/releases/download/v${V}/tportable.${V}.zip"}
+		Hash = "8DF10352FFA08798389146E88F61ED7042CEEE1E031B72BAA2B9200F7868C595"
 	}
 	
 	Enable = {

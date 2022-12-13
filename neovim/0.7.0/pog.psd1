@@ -1,13 +1,11 @@
 @{
 	Name = "neovim"
 	Architecture = "x64"
-
 	Version = "0.7.0"
-	_Hash = "A72A90E2897EA296B777C325A37C981A0B51E2FE0C8B8735E3366B65E958CDDC"
 	
-	Install = {
-		$Url = "https://github.com/neovim/neovim/releases/download/v$($this.Version)/nvim-win64.zip"
-		Install-Fromurl $Url -ExpectedHash $this._Hash
+	Install = @{
+		Url = {"https://github.com/neovim/neovim/releases/download/v$($this.Version)/nvim-win64.zip"}
+		Hash = "A72A90E2897EA296B777C325A37C981A0B51E2FE0C8B8735E3366B65E958CDDC"
 	}
 	
 	Enable = {

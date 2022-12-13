@@ -3,9 +3,9 @@
 	Version = "4.0.3"
 	Architecture = "x64"
 	
-	Install = {
-		$URL = "http://xpra.org/dists/windows/Xpra-Client-Python3-x86_64_4.0.3-r27086.zip"
-		Install-FromUrl $URL
+	Install = @{
+		Url = "http://xpra.org/dists/windows/Xpra-Client-Python3-x86_64_4.0.3-r27086.zip"
+		Hash = "ECB97E10DFF23FD0B73C2E57A3DC520B673498A6DCBC76F43E70408CFFEAFF17"
 	}
 	
 	Enable = {

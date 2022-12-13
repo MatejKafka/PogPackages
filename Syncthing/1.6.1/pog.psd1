@@ -1,14 +1,11 @@
 @{
 	Name = "Syncthing"
 	Architecture = "x64"
-	
 	Version = "1.6.1"
-	_Hash = "CA336AF48100B52B70A5419165AFB2F104E45AC206F75D70DDEF5B9A458F1B78"
 	
-	Install = {
-		$Version = $this.Version
-		$Url = "https://github.com/syncthing/syncthing/releases/download/v$Version/syncthing-windows-amd64-v$Version.zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash
+	Install = @{
+		Url = {$V = $this.Version; "https://github.com/syncthing/syncthing/releases/download/v${V}/syncthing-windows-amd64-v${V}.zip"}
+		Hash = "CA336AF48100B52B70A5419165AFB2F104E45AC206F75D70DDEF5B9A458F1B78"
 	}
 	
 	Enable = {

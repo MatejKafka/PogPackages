@@ -1,13 +1,11 @@
 @{
 	Name = "IntelliJ IDEA"
 	Architecture = @("x64", "x86")
-
 	Version = "2021.1.2"
-	_Hash = "2ef2c5696266ceb1e9f9b7d68fe75820c879b865a1f0eeb835a4b6660c66d499"
 
-	Install = {
-		$Url = "https://download.jetbrains.com/idea/ideaIU-$($this.Version).win.zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash
+	Install = @{
+		Url = {"https://download.jetbrains.com/idea/ideaIU-$($this.Version).win.zip"}
+		Hash = "2ef2c5696266ceb1e9f9b7d68fe75820c879b865a1f0eeb835a4b6660c66d499"
 	}
 
 	Enable = {
