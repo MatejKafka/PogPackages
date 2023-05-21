@@ -3,10 +3,9 @@
 	Version = "1.7.0"
 	Architecture = "x64"
 	
-	Install = {
-		$Version = $this.Version
-		$Url = "https://github.com/beardypig/streamlink-portable/releases/download/$Version/streamlink-portable-$Version-py3.6.5-amd64.zip"
-		Install-FromUrl $Url
+	Install = @{
+		Url = "https://github.com/beardypig/streamlink-portable/releases/download/1.7.0/streamlink-portable-1.7.0-py3.6.5-amd64.zip"
+		Hash = "CA757BB1C1D78049474A3577E067C136B8AC96D98777B9EBF25D19D337FEAAC6"
 	}
 	
 	Enable = {

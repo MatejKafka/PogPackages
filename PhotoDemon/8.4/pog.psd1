@@ -3,10 +3,9 @@
 	Version = "8.4"
 	Architecture = "x64"
 	
-	Install = {
-		$Version = $this.Version
-		$Url = "https://github.com/tannerhelland/PhotoDemon/releases/download/v$Version/PhotoDemon-$Version.zip"
-		Install-FromUrl $Url
+	Install = @{
+		Url = {$V = $this.Version; "https://github.com/tannerhelland/PhotoDemon/releases/download/v${V}/PhotoDemon-${V}.zip"}
+		Hash = "FB6DEBAA50C976D1A717E412FE0E5E3BD82EE3EA083014DA600AFE29E9093361"
 	}
 	
 	Enable = {

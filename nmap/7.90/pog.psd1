@@ -1,16 +1,13 @@
 @{
 	Name = "nmap"
 	Architecture = "x86"
-	
 	Version = "7.90"
-	# from https://nmap.org/dist/sigs/
-	_Hash = "0FDE4A846B120BDC2A7A91897DECEA4C99DAC5BEF90426A10CEC177948BC36DD"
 	
-	Install = {
-		# TODO: requires npcap, figure out how to enforce it
-		$Version = $this.Version
-		$Url = "https://nmap.org/dist/nmap-$Version-win32.zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash
+	# TODO: requires npcap, figure out how to enforce it
+	Install = @{
+		Url = {"https://nmap.org/dist/nmap-$($this.Version)-win32.zip"}
+		# from https://nmap.org/dist/sigs/
+		Hash = "0FDE4A846B120BDC2A7A91897DECEA4C99DAC5BEF90426A10CEC177948BC36DD"
 	}
 	
 	Enable = {

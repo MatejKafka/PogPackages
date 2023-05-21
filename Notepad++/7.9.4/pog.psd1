@@ -9,15 +9,6 @@
 	}
 	
 	Enable = {
-		param(
-				[switch]
-			$RedirectNotepad
-		)
-
-		if ($RedirectNotepad) {
-			Assert-Admin "Redirecting Notepad to Notepad++ requires administrator privileges."
-		}
-
 		Assert-Directory "./config"
 		Assert-Directory "./cache"
 
@@ -36,14 +27,8 @@
 
 		& .\.pog\UpdateThemePath.ps1
 
-		if ($RedirectNotepad) {
-			& .\.pog\RedirectNotepad.ps1
-		} else {
-			Write-Verbose "Skipping Notepad.exe redirect."
-		}
-
 		Disable-DisplayScaling "./app/notepad++.exe"
-		Export-Shortcut "Notepad++" "./app/notepad++.exe" -StartMaximized
+		Export-Shortcut "Notepad++" "./app/notepad++.exe"
 		Export-Command "notepad++" "./app/notepad++.exe" -NoSymlink
 	}
 }

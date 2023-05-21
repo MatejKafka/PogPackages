@@ -1,14 +1,11 @@
 @{
 	Name = "texstudio"
 	Architecture = "x64"
-	
 	Version = "3.0.4"
-	_Hash = "6F025170503EEC51FDCF5A5422430FD4B191CAE498A9111D1C541CEE31E4BDC2"
 	
-	Install = {
-		$Version = $this.Version
-		$Url = "https://github.com/texstudio-org/texstudio/releases/download/${Version}/texstudio-${Version}-win-portable-qt5.zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash
+	Install = @{
+		Url = {$V = $this.Version; "https://github.com/texstudio-org/texstudio/releases/download/${V}/texstudio-${V}-win-portable-qt5.zip"}
+		Hash = "6F025170503EEC51FDCF5A5422430FD4B191CAE498A9111D1C541CEE31E4BDC2"
 	}
 	
 	Enable = {

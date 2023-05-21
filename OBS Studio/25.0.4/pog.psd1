@@ -1,16 +1,12 @@
 @{
 	Name = "OBS Studio"
-	Architecture = @("x64", "x86")
-	
+	Architecture = "x64"
 	Version = "25.0.4"
-	_Hash = "DB6214DCE625F429369F6E537A86C48ADBFA2D123B204F3E347B02CEAACA1B93"
 	
-	Install = {
-		# FIXME: the hash is incorrect for x86
-		$Version = $this.Version
-		$Arch = if ([Environment]::Is64BitOperatingSystem) {"x64"} else {"x86"}
-		$Url = "https://github.com/obsproject/obs-studio/releases/download/$Version/OBS-Studio-$Version-Full-$Arch.zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash -NoSubdirectory
+	Install = @{
+		Url = {$V = $this.Version; "https://github.com/obsproject/obs-studio/releases/download/${V}/OBS-Studio-${V}-Full-x64.zip"}
+		Hash = "DB6214DCE625F429369F6E537A86C48ADBFA2D123B204F3E347B02CEAACA1B93"
+		NoSubdirectory = $true
 	}
 	
 	Enable = {

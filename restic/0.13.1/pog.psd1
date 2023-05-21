@@ -15,7 +15,7 @@
 			Rename-Item $AppFiles "restic.exe"
 		}
 	}
-	
+
 	Enable = {
 		Assert-Directory "./cache"
 	

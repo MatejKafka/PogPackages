@@ -3,7 +3,7 @@
 	Architecture = "x64"
 	Version = "0.5.0"
 	
-	Install = {
+	Install = @{
 		Url = {"https://github.com/neovim/neovim/releases/download/v$($this.Version)/nvim-win64.zip"}
 		Hash = "0064bd9f6b270158212ec0a55c1e7255562d4813ad3316592b1f74df041d3c06"
 	}

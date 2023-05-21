@@ -3,9 +3,9 @@
 	Version = "20.3.0"
 	Architecture = "x86"
 	
-	Install = {
-		$URL = "https://download.mobatek.net/2032020060430358/MobaXterm_Portable_v20.3.zip"
-		Install-FromUrl $URL
+	Install = @{
+		Url = "https://download.mobatek.net/2032020060430358/MobaXterm_Portable_v20.3.zip"
+		Hash = "5C4C6F3098C3E802657B27FF4E56EDA8AF7D33830450BE8D3C950D3469388439"
 	}
 	
 	Enable = {

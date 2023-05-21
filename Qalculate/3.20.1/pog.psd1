@@ -1,13 +1,11 @@
 @{
 	Name = "Qalculate"
 	Architecture = "x86"
-	
 	Version = "3.20.1"
-	_Hash = "E82CF15D322C496970752559DD45AFFB7D636B812E95A2DCDE711F8573E12EA9"
 	
-	Install = {
-		$Url = "https://github.com/Qalculate/qalculate-gtk/releases/download/v$($this.Version)/qalculate-$($this.Version)-i386.zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash
+	Install = @{
+		Url = {$V = $this.Version; "https://github.com/Qalculate/qalculate-gtk/releases/download/v${V}/qalculate-${V}-i386.zip"}
+		Hash = "E82CF15D322C496970752559DD45AFFB7D636B812E95A2DCDE711F8573E12EA9"
 	}
 	
 	Enable = {

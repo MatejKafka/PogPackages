@@ -5,7 +5,7 @@
 
 	Install = @{
 		Url = {$V = $this.Version; "https://downloads.sourceforge.net/project/qbittorrent/qbittorrent-win32/" +`
-			"qbittorrent-${Version}/qbittorrent_${Version}_x64_setup.exe"}
+			"qbittorrent-${V}/qbittorrent_${V}_x64_setup.exe"}
 		Hash = "BB28F60F33D0ED0ACB4C7F665077F8531E40649D2D0CF3C3D1043627CF99C480"
 		UserAgent = "Wget"
 		NsisInstaller = $true
@@ -16,11 +16,11 @@
 		Set-SymlinkedPath "./app/profile/qBittorrent/config" "./config" Directory
 		Set-SymlinkedPath "./app/profile/qBittorrent/data"   "./data"   Directory
 		Set-SymlinkedPath "./data/logs" "./logs" Directory
-		
+
 		Export-Shortcut "qBittorrent" "./app/qbittorrent.exe"
-		
+
 		# TODO: disable auto-update
-		
+
 		# TODO: open firewall for torrenting (otherwise the install is not really portable,
 		#  because it fails after reinstall, as it thinks it already asked for firewall permission)
 	}

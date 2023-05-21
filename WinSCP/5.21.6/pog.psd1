@@ -21,7 +21,7 @@
 	
 		# this cannot be symlink, otherwise WinSCP wouldn't find its config file
 		Export-Command "winscp" "./app/WinSCP.com" -NoSymlink
-		Export-Shortcut "WinSCP" "./app/WinSCP.exe" -StartMaximized
+		Export-Shortcut "WinSCP" "./app/WinSCP.exe"
 	}
 	
 	_DefaultConfig = @"

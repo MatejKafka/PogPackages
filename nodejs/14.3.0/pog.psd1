@@ -8,14 +8,11 @@
 @{
 	Name = "nodejs"
 	Architecture = "x64"
-	
 	Version = "14.3.0"
-	_Hash = "07bebc231dd8d773ab41cdcfbcb8b48e2336fbee20deb961b4300b9ba86afa04"
 	
-	Install = {
-		$Version = $this.Version
-		$Url = "https://nodejs.org/dist/v${Version}/node-v${Version}-win-x64.zip"
-		Install-FromUrl $Url -ExpectedHash $this._Hash
+	Install = @{
+		Url = {$V = $this.Version; "https://nodejs.org/dist/v${V}/node-v${V}-win-x64.zip"}
+		Hash = "07bebc231dd8d773ab41cdcfbcb8b48e2336fbee20deb961b4300b9ba86afa04"
 	}
 	
 	Enable = {
