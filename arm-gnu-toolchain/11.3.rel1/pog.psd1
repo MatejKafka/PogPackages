@@ -10,7 +10,7 @@
 	}
 
 	Enable = {
-		foreach ($c in (ls "./app/bin")) {
+		foreach ($c in (ls "./app/bin" -Filter *.exe)) {
 			Export-Command $c.BaseName "./app/bin/$($c.Name)"
 		}
 	}
