@@ -11,7 +11,7 @@
 	Enable = {
 		Set-SymlinkedPath "./app/user" "./data" Directory
 		
-		Export-Command qalc "./app/qalc.exe" -NoSymlink
+		Export-Command qalc "./app/qalc.exe"
 		Export-Shortcut Qalculate "./app/qalculate.exe"
 		Export-Shortcut Qalculate-Qt "./app/qalculate-qt.exe"
 	}

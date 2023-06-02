@@ -11,6 +11,6 @@
 	Enable = {
 		Assert-Directory "./config"
 		
-		Export-Command "lazygit" "./.pog/lazygit_wrapper.cmd" -NoSymlink
+		Export-Command "lazygit" "./.pog/lazygit_wrapper.cmd"
 	}
 }

@@ -9,6 +9,6 @@
 	}
 	
 	Enable = {
-		Export-Command "tracetcp" "./app/tracetcp.exe" # symlink
+		Export-Command "tracetcp" "./app/tracetcp.exe" -Symlink
 	}
 }

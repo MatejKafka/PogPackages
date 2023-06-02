@@ -9,6 +9,6 @@
 	}
 	
 	Enable = {
-		Export-Command "fast-cli" "./app/fast-cli.exe"
+		Export-Command "fast-cli" "./app/fast-cli.exe" -Symlink
 	}
 }

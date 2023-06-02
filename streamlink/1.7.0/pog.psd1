@@ -15,7 +15,7 @@
 		# overwrite launcher to use our config and plugin dir
 		$this._launcherStr > ./app/streamlink.bat
 		
-		Export-Command "streamlink" "./app/streamlink.bat" -NoSymlink
+		Export-Command "streamlink" "./app/streamlink.bat"
 	}
 	
 	_launcherStr = @"

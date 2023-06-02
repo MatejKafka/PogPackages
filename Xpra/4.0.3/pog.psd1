@@ -13,7 +13,7 @@
 		Assert-Directory .\logs
 		
 		Export-Shortcut "Xpra" "./.pog/xpra_shortcut.cmd" -IconPath "./app/Xpra.exe"
-		Export-Command "xpra" "./.pog/xpra_cmd.cmd" -NoSymlink
-		Export-Command "xpra-launcher" "./.pog/xpra_launcher.cmd" -NoSymlink
+		Export-Command "xpra" "./.pog/xpra_cmd.cmd"
+		Export-Command "xpra-launcher" "./.pog/xpra_launcher.cmd"
 	}
 }

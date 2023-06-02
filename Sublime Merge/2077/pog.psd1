@@ -15,8 +15,8 @@
 		Assert-Directory "./data"
 		Set-SymlinkedPath "./app/Data" (Resolve-Path "./data") Directory
 		
-		Export-Command "smerge" "./app/smerge.exe" -NoSymlink
-		Export-Command "ssh-askpass-sublime" "./app/ssh-askpass-sublime.exe" -NoSymlink
+		Export-Command "smerge" "./app/smerge.exe"
+		Export-Command "ssh-askpass-sublime" "./app/ssh-askpass-sublime.exe"
 		Export-Shortcut "Sublime Merge" "./app/sublime_merge.exe"
 	}
 }

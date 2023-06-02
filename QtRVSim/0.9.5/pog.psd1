@@ -13,7 +13,7 @@
 
 		Export-Shortcut "QtRVSim" "./.pog/qtrvsim_gui.cmd" -Icon "./app/qtrvsim_gui.exe"
 		# qtrvsim commands don't access the config, no need to override
-		Export-Command "qtrvsim" "./app/qtrvsim_cli.exe" -NoSymlink
-		Export-Command "qtrvsim_cli" "./app/qtrvsim_cli.exe" -NoSymlink
+		Export-Command "qtrvsim" "./app/qtrvsim_cli.exe"
+		Export-Command "qtrvsim_cli" "./app/qtrvsim_cli.exe"
 	}
 }

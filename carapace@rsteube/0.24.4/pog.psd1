@@ -12,6 +12,6 @@
 		Assert-Directory "./data"
 		Assert-Directory "./cache"
 
-		Export-Command "carapace" "./.pog/carapace.cmd" -NoSymlink
+		Export-Command "carapace" "./.pog/carapace.cmd"
 	}
 }

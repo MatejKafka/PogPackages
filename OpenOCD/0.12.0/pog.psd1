@@ -9,6 +9,6 @@
 	}
 
 	Enable = {
-		Export-Command "openocd" "./app/bin/openocd.exe" -NoSymlink
+		Export-Command "openocd" "./app/bin/openocd.exe"
 	}
 }

@@ -13,10 +13,10 @@
 		Assert-Directory "./cache/symcache"
 		Assert-Directory "./logs"
 
-		Export-Command "drmemory" "./.pog/drmemory.cmd" -NoSymlink
-		Export-Command "drltrace" "./.pog/drltrace.cmd" -NoSymlink
-		Export-Command "drstrace" "./.pog/drstrace.cmd" -NoSymlink
-		Export-Command "drconfig" "./.pog/drconfig.cmd" -NoSymlink
-		Export-Command "symquery" "./.pog/symquery.cmd" -NoSymlink
+		Export-Command "drmemory" "./.pog/drmemory.cmd"
+		Export-Command "drltrace" "./.pog/drltrace.cmd"
+		Export-Command "drstrace" "./.pog/drstrace.cmd"
+		Export-Command "drconfig" "./.pog/drconfig.cmd"
+		Export-Command "symquery" "./.pog/symquery.cmd"
 	}
 }

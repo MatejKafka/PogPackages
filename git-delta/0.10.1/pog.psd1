@@ -9,6 +9,6 @@
 	}
 
 	Enable = {
-		Export-Command "delta" "./app/delta.exe" # symlink
+		Export-Command "delta" "./app/delta.exe" -Symlink
 	}
 }

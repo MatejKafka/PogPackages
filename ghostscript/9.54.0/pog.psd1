@@ -13,6 +13,6 @@
 	}
 	
 	Enable = {
-		Export-Command "gs" "./app/bin/gswin64c.exe" -NoSymlink
+		Export-Command "gs" "./app/bin/gswin64c.exe"
 	}
 }

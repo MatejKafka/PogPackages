@@ -16,7 +16,7 @@
 		Assert-Directory "./cache/watch_later"
 		Assert-Directory "./logs"
 		
-		Export-Command "mpv" "./.pog/mpv_cmd_wrapper.cmd" -NoSymlink
+		Export-Command "mpv" "./.pog/mpv_cmd_wrapper.cmd"
 		Export-Shortcut "MPV Player" "./.pog/mpv_lnk_wrapper.cmd" -Icon "./app/mpv.exe"
 	}
 }

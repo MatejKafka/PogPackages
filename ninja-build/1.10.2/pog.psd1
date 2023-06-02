@@ -9,6 +9,6 @@
 	}
 	
 	Enable = {
-		Export-Command "ninja" "./app/ninja.exe"
+		Export-Command "ninja" "./app/ninja.exe" -Symlink
 	}
 }

@@ -16,7 +16,7 @@
 
 		# export all emulator binaries compiled for console (no -w sufix) as commands
 		ls ./app -File | ? {$_.Name -match "qemu-system-.+[^w]\.exe"} | % {
-			Export-Command $_.BaseName "./app/$($_.Name)" -NoSymlink
+			Export-Command $_.BaseName "./app/$($_.Name)"
 		}
 
 		# TODO: export the -w.exe GUI versions of binaries as shortcuts

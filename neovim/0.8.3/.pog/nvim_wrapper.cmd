@@ -12,3 +12,4 @@ set "XDG_STATE_HOME=%package_root%\data"
 "%package_root%\app\bin\nvim.exe" %*
 
 endlocal
+exit /b %errorlevel%

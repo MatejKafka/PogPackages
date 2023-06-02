@@ -10,6 +10,6 @@
 	}
 	
 	Enable = {
-		Export-Command "hugo" "./app/hugo.exe"
+		Export-Command "hugo" "./app/hugo.exe" -Symlink
 	}
 }

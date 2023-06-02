@@ -10,6 +10,6 @@
 	}
 	
 	Enable = {
-		Export-Command "less" "./app/less.exe" # symlink
+		Export-Command "less" "./app/less.exe" -Symlink
 	}
 }

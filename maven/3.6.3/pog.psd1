@@ -36,7 +36,7 @@
 			Write-Verbose "Setup local Maven package repository at ./data/repository."
 		}
 
-		Export-Command "mvn" "./app/bin/mvn.cmd" -NoSymlink
+		Export-Command "mvn" "./app/bin/mvn.cmd"
 	}
 }
 

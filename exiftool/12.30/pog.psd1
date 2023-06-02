@@ -9,6 +9,6 @@
 	}
 	
 	Enable = {
-		Export-Command "exiftool" "./app/ExifTool.exe" -NoSymlink
+		Export-Command "exiftool" "./app/ExifTool.exe"
 	}
 }

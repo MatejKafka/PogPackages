@@ -9,8 +9,8 @@
 	}
 
 	Enable = {
-		Export-Command "pypy" "./app/pypy3.exe" -NoSymlink
-		Export-Command "pypy3" "./app/pypy3.exe" -NoSymlink
+		Export-Command "pypy" "./app/pypy3.exe"
+		Export-Command "pypy3" "./app/pypy3.exe"
 	}
 }
 

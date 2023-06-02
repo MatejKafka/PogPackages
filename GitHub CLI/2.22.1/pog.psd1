@@ -12,6 +12,6 @@
 		Assert-Directory "./config"
 		Assert-Directory "./data"
 
-		Export-Command "gh" "./.pog/gh.cmd" -NoSymlink
+		Export-Command "gh" "./.pog/gh.cmd"
 	}
 }

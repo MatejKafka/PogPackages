@@ -21,9 +21,9 @@
 			else {Get-Content -Raw "./app/php.ini-development"}
 		}
 	
-		Export-Command "php" "./app/php.exe" -NoSymlink
-		Export-Command "php-cgi" "./app/php-cgi.exe" -NoSymlink
-		Export-Command "phpw" "./app/php-win.exe" -NoSymlink
+		Export-Command "php" "./app/php.exe"
+		Export-Command "php-cgi" "./app/php-cgi.exe"
+		Export-Command "phpw" "./app/php-win.exe"
 		
 		# TODO: when optional dependencies are implemented, detect apache and optionally setup PHP support
 	}

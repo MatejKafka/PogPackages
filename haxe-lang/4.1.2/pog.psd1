@@ -9,7 +9,7 @@
 	}
 
 	Enable = {
-		Export-Command "haxe" "./app/haxe.exe" -NoSymlink
+		Export-Command "haxe" "./app/haxe.exe"
 		# TODO: export haxelib binary
 	}
 }

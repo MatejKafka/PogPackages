@@ -9,6 +9,6 @@
 	}
 	
 	Enable = {
-		Export-Command "fzf" "./app/fzf.exe" # Symlink
+		Export-Command "fzf" "./app/fzf.exe" -Symlink
 	}
 }

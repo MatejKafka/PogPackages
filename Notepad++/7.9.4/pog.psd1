@@ -28,8 +28,8 @@
 		& .\.pog\UpdateThemePath.ps1
 
 		Disable-DisplayScaling "./app/notepad++.exe"
+		Export-Command "notepad++" "./app/notepad++.exe"
 		Export-Shortcut "Notepad++" "./app/notepad++.exe"
-		Export-Command "notepad++" "./app/notepad++.exe" -NoSymlink
 	}
 }
 

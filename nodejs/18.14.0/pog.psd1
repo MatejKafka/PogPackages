@@ -32,9 +32,9 @@
 			}
 		} $this._UpdateNpmrc
 		
-		Export-Command "node" "./.pog/node_wrapper.cmd" -NoSymlink
-		Export-Command "npm" "./.pog/npm_wrapper.cmd" -NoSymlink
-		Export-Command "npx" "./.pog/npx_wrapper.cmd" -NoSymlink
+		Export-Command "node" "./.pog/node_wrapper.cmd"
+		Export-Command "npm" "./.pog/npm_wrapper.cmd"
+		Export-Command "npx" "./.pog/npx_wrapper.cmd"
 	}
 	
 	_GetNpmrcSettings = {[ordered]@{

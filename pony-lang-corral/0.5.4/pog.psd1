@@ -9,6 +9,6 @@
 	}
 
 	Enable = {
-		Export-Command "corral" "./app/corral.exe" # Symlink
+		Export-Command "corral" "./app/corral.exe" -Symlink
 	}
 }

@@ -10,6 +10,6 @@
 
 	Enable = {
 		Assert-Directory "./config"
-		Export-Command "spicetify" "./.pog/spicetify.cmd" -NoSymlink
+		Export-Command "spicetify" "./.pog/spicetify.cmd"
 	}
 }

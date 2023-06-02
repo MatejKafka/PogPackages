@@ -19,6 +19,6 @@
 	Enable = {
 		Assert-Directory "./cache"
 	
-		Export-Command "restic" "./.pog/restic_wrapper.cmd" -NoSymlink
+		Export-Command "restic" "./.pog/restic_wrapper.cmd"
 	}
 }

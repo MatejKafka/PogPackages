@@ -13,7 +13,7 @@
 
 		Set-SymlinkedPath "./app/Data" "./data" Directory
 		
-		Export-Command "subl" "./app/subl.exe" -NoSymlink
+		Export-Command "subl" "./app/subl.exe"
 		Export-Shortcut "Sublime Text" "./app/sublime_text.exe"
 	}
 }

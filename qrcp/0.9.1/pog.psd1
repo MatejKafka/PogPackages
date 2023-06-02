@@ -13,6 +13,6 @@
 		# the config file must be a valid JSON (e.g. not empty)
 		Assert-File "./config/config.json" {"{}"}
 
-		Export-Command "qrcp" "./.pog/qrcp.cmd" -NoSymlink
+		Export-Command "qrcp" "./.pog/qrcp.cmd"
 	}
 }

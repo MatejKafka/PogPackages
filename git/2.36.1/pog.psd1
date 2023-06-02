@@ -22,7 +22,7 @@
 		Assert-Directory "./config"
 		
 		# no symlink, Nim doesn't support resolving symlinks on Windows (https://github.com/nim-lang/Nim/issues/3023)
-		Export-Command "git" "./.pog/git.exe" -NoSymlink
-		Export-Command "gitk" "./.pog/gitk_wrapper.cmd" -NoSymlink
+		Export-Command "git" "./.pog/git.exe"
+		Export-Command "gitk" "./.pog/gitk_wrapper.cmd"
 	}
 }

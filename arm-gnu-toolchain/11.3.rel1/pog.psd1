@@ -11,7 +11,7 @@
 
 	Enable = {
 		foreach ($c in (ls "./app/bin")) {
-			Export-Command $c.BaseName "./app/bin/$($c.Name)" -NoSymlink
+			Export-Command $c.BaseName "./app/bin/$($c.Name)"
 		}
 	}
 }

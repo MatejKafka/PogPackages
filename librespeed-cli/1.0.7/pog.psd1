@@ -9,6 +9,6 @@
 	}
 	
 	Enable = {
-		Export-Command "librespeed-cli" "./app/librespeed-cli.exe"
+		Export-Command "librespeed-cli" "./app/librespeed-cli.exe" -Symlink
 	}
 }

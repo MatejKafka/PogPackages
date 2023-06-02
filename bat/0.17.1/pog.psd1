@@ -11,6 +11,6 @@
 	}
 
 	Enable = {
-		Export-Command "bat" "./app/bat.exe"
+		Export-Command "bat" "./app/bat.exe" -Symlink
 	}
 }

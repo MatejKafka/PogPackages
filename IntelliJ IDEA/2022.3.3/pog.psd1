@@ -5,7 +5,7 @@
 
 	Install = @{
 		Url = {"https://download.jetbrains.com/idea/ideaIU-$($this.Version).win.zip"}
-		Hash = "adc87d5d883550d3f42e907980a07092d11e64325e8bf359edb0cee921bda8bd"
+		Hash = "cdf42f7ceafb01044dd36611753fe7f31054b3ef63bcf59cdd60aaf72e3e6066"
 	}
 
 	Enable = {
@@ -24,7 +24,7 @@
 		Assert-File "./config/config/options/updates.xml" {$this._UpdatesXml} "./.pog/DisableAutoUpdate.ps1"
 
 		Export-Shortcut "IntelliJ IDEA" "./.pog/idea_shortcut.cmd" -IconPath "./app/bin/idea.ico"
-		Export-Command "idea" "./.pog/idea_command.cmd" -NoSymlink
+		Export-Command "idea" "./.pog/idea_command.cmd"
 	}
 
 # content of generated idea.properties

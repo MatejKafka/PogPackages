@@ -32,7 +32,7 @@
 		Set-SymlinkedPath "./data/user-data/User/settings.json" "./config/settings.json" File
 		Set-SymlinkedPath "./data/user-data/logs" "./logs" Directory
 
-		Export-Command "Code" "./.pog/vscode_wrapper_command.cmd" -NoSymlink
+		Export-Command "Code" "./.pog/vscode_wrapper_command.cmd"
 		Export-Shortcut "Visual Studio Code (VS Code)" "./.pog/vscode_wrapper.cmd" -IconPath "./app/Code.exe"
 	}
 }

@@ -10,6 +10,6 @@
 	
 	Enable = {
 		Assert-Directory "./config"
-		Export-Command "speedtest" "./.pog/speedtest_wrapper.cmd" -NoSymlink
+		Export-Command "speedtest" "./.pog/speedtest_wrapper.cmd"
 	}
 }

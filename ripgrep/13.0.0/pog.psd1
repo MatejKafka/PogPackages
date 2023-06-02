@@ -9,7 +9,7 @@
 	}
 	
 	Enable = {
-		Export-Command "ripgrep" "./app/rg.exe" # Symlink
-		Export-Command "rg" "./app/rg.exe" # Symlink
+		Export-Command "ripgrep" "./app/rg.exe" -Symlink
+		Export-Command "rg" "./app/rg.exe" -Symlink
 	}
 }

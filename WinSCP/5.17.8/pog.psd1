@@ -20,7 +20,7 @@
 		Set-SymlinkedPath "./app/WinSCP.ini" "./config/WinSCP.ini" File
 	
 		# this cannot be symlink, otherwise WinSCP wouldn't find its config file
-		Export-Command "winscp" "./app/WinSCP.com" -NoSymlink
+		Export-Command "winscp" "./app/WinSCP.com"
 		Export-Shortcut "WinSCP" "./app/WinSCP.exe"
 	}
 	

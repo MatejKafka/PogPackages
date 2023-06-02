@@ -12,8 +12,8 @@
 		Assert-Directory "./config"
 		Assert-Directory "./data"
 		
-		Export-Command "vim" "./.pog/nvim_wrapper.cmd" -NoSymlink
-		Export-Command "nvim" "./.pog/nvim_wrapper.cmd" -NoSymlink
+		Export-Command "vim" "./.pog/nvim_wrapper.cmd"
+		Export-Command "nvim" "./.pog/nvim_wrapper.cmd"
 		Export-Shortcut "NeoVim" "./.pog/nvim-qt_wrapper.cmd" -Icon "./app/bin/nvim-qt.exe"
 	}
 }

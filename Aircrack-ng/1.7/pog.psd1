@@ -12,7 +12,7 @@
 	Enable = {
 		Export-Shortcut "Aircrack-ng" "./app/Aircrack-ng GUI.exe"
 		ls ./app/*.exe -File | ? Name -ne "Aircrack-ng GUI.exe" | % {
-			Export-Command ([IO.Path]::GetFileNameWithoutExtension($_)) (Resolve-Path -Relative $_) -NoSymlink
+			Export-Command ([IO.Path]::GetFileNameWithoutExtension($_)) (Resolve-Path -Relative $_)
 		}
 	}
 }

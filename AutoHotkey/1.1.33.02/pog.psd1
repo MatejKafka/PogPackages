@@ -11,13 +11,12 @@
 	Enable = {
 		# TODO: deal with UI Access on normal machines
 		if ([Environment]::Is64BitOperatingSystem) {
-			Export-Command "AutoHotkey" "./app/AutoHotkeyU64.exe"
+			Export-Command "AutoHotkey" "./app/AutoHotkeyU64.exe" -Symlink
 			Export-Shortcut "AutoHotkey" "./app/AutoHotkeyU64.exe"
 		} else {
-			Export-Command "AutoHotkey" "./app/AutoHotkeyU32.exe"
+			Export-Command "AutoHotkey" "./app/AutoHotkeyU32.exe" -Symlink
 			Export-Shortcut "AutoHotkey" "./app/AutoHotkeyU32.exe"
 		}
-		Export-Command "Ahk2Exe" "./app/Compiler/Ahk2Exe.exe" -NoSymlink
+		Export-Command "Ahk2Exe" "./app/Compiler/Ahk2Exe.exe"
 	}
 }
-

@@ -11,7 +11,7 @@
 	Enable = {
 		Set-SymlinkedPath "./app/config" "./config" -Type Directory
 		
-		Export-Command "TeXstudio" "./app/texstudio.exe" -NoSymlink
+		Export-Command "TeXstudio" "./app/texstudio.exe"
 		Export-Shortcut "TeXstudio" "./app/texstudio.exe"
 	}
 }

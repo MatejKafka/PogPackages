@@ -11,6 +11,6 @@
 	Enable = {
 		Assert-Directory "./config"
 		
-		Export-Command "croc" "./.pog/croc_wrapper.cmd" -NoSymlink
+		Export-Command "croc" "./.pog/croc_wrapper.cmd"
 	}
 }

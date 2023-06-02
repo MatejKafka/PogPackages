@@ -11,7 +11,7 @@
 	Enable = {
 		Set-SymlinkedPath "./app/USBDeview.cfg" "./config/USBDeview.cfg" File
 
-		Export-Command "USBDeview" "./app/USBDeview.exe" -NoSymlink
+		Export-Command "USBDeview" "./app/USBDeview.exe"
 		Export-Shortcut "USBDeview" "./app/USBDeview.exe"
 	}
 }

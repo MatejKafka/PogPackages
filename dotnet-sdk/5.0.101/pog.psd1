@@ -11,6 +11,6 @@
 	Enable = {
 		# FIXME: ...
 		Write-Warning "'dotnet' writes to '%localappdata%\Microsoft\dotnet\optimizationdata\5.0.101\win10-x64\dotnet' (and possibly other dirs)."
-		Export-Command "dotnet" "./app/dotnet.exe" -NoSymlink
+		Export-Command "dotnet" "./app/dotnet.exe"
 	}
 }

@@ -12,6 +12,6 @@
 	Enable = {
 		Assert-Directory "./config"
 	
-		Export-Command "micro" "./.pog/micro_wrapper.cmd" -NoSymlink
+		Export-Command "micro" "./.pog/micro_wrapper.cmd"
 	}
 }

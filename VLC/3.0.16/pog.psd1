@@ -12,7 +12,7 @@
 		Set-SymlinkedPath "./app/portable" "./data" Directory
 		Assert-File "./data/vlcrc" {$this._DefaultVlcrc}
 
-		Export-Command "vlc" "./app/vlc.exe" -NoSymlink
+		Export-Command "vlc" "./app/vlc.exe"
 		Export-Shortcut "VLC Player" "./app/vlc.exe"
 	}
 

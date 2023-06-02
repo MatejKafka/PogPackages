@@ -14,6 +14,6 @@
 
 	Enable = {
 		# TODO: dependency on python, which is currently globally installed
-		Export-Command "meson" "./.pog/meson_launcher.cmd" -NoSymlink
+		Export-Command "meson" "./.pog/meson_launcher.cmd"
 	}
 }

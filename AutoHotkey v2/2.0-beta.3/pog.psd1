@@ -10,7 +10,7 @@
 	
 	Enable = {
 		# TODO: deal with UI Access on normal machines
-		Export-Command "AutoHotkey_v2" "./app/AutoHotkey64.exe"
+		Export-Command "AutoHotkey_v2" "./app/AutoHotkey64.exe" -Symlink
 		Export-Shortcut "AutoHotkey v2" "./app/AutoHotkey64.exe"
 	}
 }

@@ -11,7 +11,7 @@
 	Enable = {
 		Assert-Directory "./config"
 
-		Export-Command "biodiff" "./.pog/biodiff.cmd" -NoSymlink
-		Export-Command "git-biodiff" "./.pog/git-biodiff.cmd" -NoSymlink # git-biodiff.exe depends on finding biodiff.exe
+		Export-Command "biodiff" "./.pog/biodiff.cmd"
+		Export-Command "git-biodiff" "./.pog/git-biodiff.cmd" # do not symlink, git-biodiff.exe depends on finding biodiff.exe
 	}
 }

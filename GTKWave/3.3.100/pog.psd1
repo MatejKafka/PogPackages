@@ -11,7 +11,7 @@
 	Enable = {
 		Assert-File "./config/gtkwave.ini"
 
-		Export-Command "gtkwave" "./.pog/GTKWave.cmd" -NoSymlink
+		Export-Command "gtkwave" "./.pog/GTKWave.cmd"
 		Export-Shortcut "GTKWave" "./app/bin/gtkwave.exe" -Arguments ("--rcfile=" + (Resolve-Path "./config/gtkwave.ini"))
 	}
 }

@@ -12,6 +12,6 @@
 		# do NOT export the GUI apps, as they write to the registry
 		
 		# 7z is looking for 7z.dll in its directory, so we cannot use symlink
-		Export-Command "7z" "./app/7z.exe" -NoSymlink
+		Export-Command "7z" "./app/7z.exe"
 	}
 }

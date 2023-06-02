@@ -16,7 +16,7 @@
 
 		Disable-DisplayScaling "./app/RegView.exe"
 
-		Export-Command "RegView" "./app/RegView.exe" -NoSymlink
+		Export-Command "RegView" "./app/RegView.exe"
 		Export-Shortcut "RegView" "./app/RegView.exe"
 	}
 }

@@ -10,6 +10,6 @@
 	
 	Enable = {
 		# TODO: missing less.exe, whole delta is mysteriously broken even if less.exe is supplied manually
-		Export-Command "delta" "./app/delta.exe"
+		Export-Command "delta" "./app/delta.exe" -Symlink
 	}
 }

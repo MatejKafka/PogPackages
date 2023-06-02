@@ -9,7 +9,7 @@
 	}
 	
 	Enable = {
-		Export-Command "qpdf" "./app/bin/qpdf.exe" -NoSymlink
-		Export-Command "fix-qdf" "./app/bin/fix-qdf.exe" -NoSymlink
+		Export-Command "qpdf" "./app/bin/qpdf.exe"
+		Export-Command "fix-qdf" "./app/bin/fix-qdf.exe"
 	}
 }

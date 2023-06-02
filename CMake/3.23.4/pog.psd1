@@ -9,10 +9,10 @@
 	}
 	
 	Enable = {
-		Export-Command "cmake" "./app/bin/cmake.exe"
-		Export-Command "cpack" "./app/bin/cpack.exe"
-		Export-Command "ctest" "./app/bin/ctest.exe"
-		Export-Command "cmcldeps" "./app/bin/cmcldeps.exe"
+		Export-Command "cmake" "./app/bin/cmake.exe" -Symlink
+		Export-Command "cpack" "./app/bin/cpack.exe" -Symlink
+		Export-Command "ctest" "./app/bin/ctest.exe" -Symlink
+		Export-Command "cmcldeps" "./app/bin/cmcldeps.exe" -Symlink
 		
 		Export-Shortcut "CMake (cmake-gui)" "./app/bin/cmake-gui.exe"
 	}

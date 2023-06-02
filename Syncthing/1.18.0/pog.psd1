@@ -20,6 +20,6 @@
 			Write-Verbose "Config is already initialized."
 		}
 	
-		Export-Command "syncthing" "./.pog/syncthing_wrapper.cmd" -NoSymlink
+		Export-Command "syncthing" "./.pog/syncthing_wrapper.cmd"
 	}
 }

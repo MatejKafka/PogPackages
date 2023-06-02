@@ -12,6 +12,6 @@
 	Enable = {
 		Assert-Directory "./cache"
 
-		Export-Command "zig" "./.pog/zig_wrapper.cmd" -NoSymlink
+		Export-Command "zig" "./.pog/zig_wrapper.cmd"
 	}
 }

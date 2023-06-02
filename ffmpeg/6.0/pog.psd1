@@ -10,8 +10,8 @@
 	}
 	
 	Enable = {
-		Export-Command "ffmpeg" "./app/bin/ffmpeg.exe"
-		Export-Command "ffplay" "./app/bin/ffplay.exe"
-		Export-Command "ffprobe" "./app/bin/ffprobe.exe"
+		Export-Command "ffmpeg" "./app/bin/ffmpeg.exe" -Symlink
+		Export-Command "ffplay" "./app/bin/ffplay.exe" -Symlink
+		Export-Command "ffprobe" "./app/bin/ffprobe.exe" -Symlink
 	}
 }

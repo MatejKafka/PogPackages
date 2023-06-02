@@ -11,8 +11,8 @@
 	}
 	
 	Enable = {
-		Export-Command "nmap" "./app/nmap.exe" -NoSymlink
-		Export-Command "ncat" "./app/ncat.exe" -NoSymlink
-		Export-Command "nc" "./app/ncat.exe" -NoSymlink
+		Export-Command "nmap" "./app/nmap.exe"
+		Export-Command "ncat" "./app/ncat.exe"
+		Export-Command "nc" "./app/ncat.exe"
 	}
 }

@@ -9,6 +9,6 @@
 	}
 	
 	Enable = {
-		Export-Command "zstd" "./app/zstd.exe" # Symlink
+		Export-Command "zstd" "./app/zstd.exe" -Symlink
 	}
 }

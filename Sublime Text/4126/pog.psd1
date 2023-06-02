@@ -15,7 +15,7 @@
 		Assert-Directory "./data"
 		Set-SymlinkedPath "./app/Data" (Resolve-Path "./data") Directory
 		
-		Export-Command "subl" "./app/subl.exe" -NoSymlink
+		Export-Command "subl" "./app/subl.exe"
 		Export-Shortcut "Sublime Text" "./app/sublime_text.exe"
 	}
 }

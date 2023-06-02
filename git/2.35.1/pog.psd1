@@ -21,7 +21,7 @@
 		
 		Assert-Directory "./config"
 		
-		Export-Command "git" "./.pog/git_wrapper.cmd" -NoSymlink
-		Export-Command "gitk" "./.pog/gitk_wrapper.cmd" -NoSymlink
+		Export-Command "git" "./.pog/git_wrapper.cmd"
+		Export-Command "gitk" "./.pog/gitk_wrapper.cmd"
 	}
 }

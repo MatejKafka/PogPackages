@@ -9,6 +9,6 @@
 	}
 
 	Enable = {
-		Export-Command "yrewind" "./app/yrewind.exe" -NoSymlink
+		Export-Command "yrewind" "./app/yrewind.exe"
 	}
 }
