@@ -9,9 +9,8 @@
 	}
 	
 	Enable = {
-		# TODO: when I figure out a way to sensibly support exporting a lot of commands with reasonable semantics,
-		#  and or the dependency system, export all the commands from ./app/bin
-		#  (currently, the best candidate seems to be to have designated bin dir, which we'll optionally scrape and copy to pkg_bin),
-		echo "Nothing to do."
+		foreach ($c in (ls "./app/bin" -Filter *.exe)) {
+			Export-Command $c.BaseName "./app/bin/$($c.Name)"
+		}
 	}
 }

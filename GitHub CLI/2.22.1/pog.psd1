@@ -12,6 +12,10 @@
 		Assert-Directory "./config"
 		Assert-Directory "./data"
 
-		Export-Command "gh" "./.pog/gh.cmd"
+		Export-Command "gh" "./app/bin/gh.exe" -Environment @{
+			GH_CONFIG_DIR = "./config"
+			XDG_DATA_HOME = "./data"
+			XDG_STATE_HOME = "./data"
+		}
 	}
 }

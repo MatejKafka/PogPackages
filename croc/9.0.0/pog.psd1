@@ -11,6 +11,6 @@
 	Enable = {
 		Assert-Directory "./config"
 		
-		Export-Command "croc" "./.pog/croc_wrapper.cmd"
+		Export-Command "croc" "./app/croc.exe" -Environment @{CROC_CONFIG_DIR = "./config"}
 	}
 }

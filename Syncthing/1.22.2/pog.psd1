@@ -11,15 +11,19 @@
 	Enable = {
 		Assert-Directory "./config"
 		Assert-Directory "./data"
-		Assert-Directory "./logs"
+		Assert-File "./logs/syncthing.log"
 	
+		$CmdArgs = @("-data", (Resolve-Path "./data"), "-config", (Resolve-Path "./config"), "-logfile", (Resolve-Path "./logs/syncthing.log"))
+		$SyncthingCmd = Export-Command "syncthing" "./app/syncthing.exe" -Arguments $CmdArgs -Environment @{
+			STNODEFAULTFOLDER = "true"
+			STNOUPGRADE = "true"
+		} -PassThru
+
 		if (-not (Test-Path "./config/config.xml")) {
 			Write-Verbose "Generating initial config..."
-			$null = & "./.pog/syncthing_wrapper.cmd" -generate="./config"
+			$null = & $SyncthingCmd -generate="./config"
 		} else {
 			Write-Verbose "Config is already initialized."
 		}
-	
-		Export-Command "syncthing" "./.pog/syncthing_wrapper.cmd"
 	}
 }

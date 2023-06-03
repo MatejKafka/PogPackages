@@ -2,8 +2,11 @@
 # for example, Bower will happily throw its packages to AppData
 # only solution to this would probably be redirecting $HOME and $APPDATA to custom locations,
 #  which seems too much like shotgunning it to me
-
 # TODO: do something about this
+
+# TODO: add nodejs/data/npm to PATH
+# TODO: optional dependency - git (allows downloading modules from git repo)
+#   - can be set explicitly with `npm config set git <path-to-git.exe>`
 
 @{
 	Name = "nodejs"
@@ -26,15 +29,23 @@
 		
 		# this is the user-level npmrc file; the global npmrc is in the same directory, but it's called npmrc_global and it's not created by default
 		Assert-File "./config/npmrc" {
-			"Pog: disable update-notifier, at least until configstore is updated to respect a custom config location"
+			"# Pog: disable update-notifier, at least until configstore is updated to respect a custom config location"
 			(& $this._GetNpmrcSettings).GetEnumerator() | % {
 				$_.Key + "=" + $_.Value
 			}
 		} $this._UpdateNpmrc
 		
-		Export-Command "node" "./.pog/node_wrapper.cmd"
-		Export-Command "npm" "./.pog/npm_wrapper.cmd"
-		Export-Command "npx" "./.pog/npx_wrapper.cmd"
+		
+		$CmdEnv = @{
+			# set these for all entry points, as they might call each other internally
+			NODE_REPL_HISTORY = "./data/node/node_repl_history.txt"
+			NPM_CONFIG_USERCONFIG = "./config/npmrc"
+			NPM_CONFIG_GLOBALCONFIG = "./config/npmrc_global"
+		}
+
+		Export-Command "node" "./app/node.exe" -Environment $CmdEnv
+		Export-Command "npm" "./app/npm.cmd" -Environment $CmdEnv
+		Export-Command "npx" "./app/npx.cmd" -Environment $CmdEnv
 	}
 	
 	_GetNpmrcSettings = {[ordered]@{
@@ -76,7 +87,3 @@
 		$c | Set-Content $Npmrc
 	}
 }
-
-# TODO: add nodejs/data/npm to PATH
-# TODO: optional dependency - git (allows downloading modules from git repo)
-#   - can be set explicitly with `npm config set git <path-to-git.exe>`

@@ -21,7 +21,7 @@
 	
 		Assert-Directory "./config"
 		# ensure auto-updates are disabled
-		Assert-File $SettingsRelPath {$this._DefaultConfig} "./.pog/DisableAutoUpdate.ps1"
+		Assert-File $SettingsRelPath {$this._DefaultConfig} $this._DisableAutoUpdate
 		Assert-File $SettingsRelPath
 
 		# `-settings` CLI argument was removed in 2022, dunno why
@@ -41,4 +41,40 @@ _DefaultConfig = @'
   <setting name="DisabledPlugins">Updater.dll</setting>
 </settings>
 '@
+
+	_DisableAutoUpdate = {
+		param(
+                [Parameter(Mandatory)]
+            $File
+        )
+
+        $File = Resolve-Path $File
+
+        $d = [XML](Get-Content -Raw $File)
+        $settings = $d.settings
+        $elem = $settings.setting | ? {$_.name -eq "DisabledPlugins"}
+
+        if ($null -eq $elem) {
+            $elem = $d.CreateElement("setting")
+            $null = $elem.Attributes.Append($d.CreateAttribute("name"))
+            $elem.name = "DisabledPlugins"
+            $null = $settings.AppendChild($elem)
+        }
+
+        $disabledList = if ("" -eq $elem.InnerText) {
+            @()
+        } else {
+            $elem.InnerText.Split("|")
+        }
+
+        if ("Updater.dll" -in $disabledList) {
+            return $false
+        }
+
+        $disabledList += "Updater.dll"
+        $elem.InnerText = $disabledList -join "|"
+
+        $null = $d.Save($File)
+        return $true
+	}
 }

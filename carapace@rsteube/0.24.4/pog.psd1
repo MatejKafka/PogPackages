@@ -12,6 +12,9 @@
 		Assert-Directory "./data"
 		Assert-Directory "./cache"
 
-		Export-Command "carapace" "./.pog/carapace.cmd"
+		Export-Command "carapace" "./app/carapace.exe" -Environment @{
+			APPDATA = "./data"
+			LOCALAPPDATA = "./cache"
+		}
 	}
 }

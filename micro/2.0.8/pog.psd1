@@ -12,6 +12,6 @@
 	Enable = {
 		Assert-Directory "./config"
 	
-		Export-Command "micro" "./.pog/micro_wrapper.cmd"
+		Export-Command "micro" "./app/micro.exe" -Environment @{MICRO_CONFIG_HOME = "./config"}
 	}
 }

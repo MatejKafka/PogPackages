@@ -13,10 +13,14 @@
 		Assert-Directory "./cache/symcache"
 		Assert-Directory "./logs"
 
-		Export-Command "drmemory" "./.pog/drmemory.cmd"
-		Export-Command "drltrace" "./.pog/drltrace.cmd"
-		Export-Command "drstrace" "./.pog/drstrace.cmd"
-		Export-Command "drconfig" "./.pog/drconfig.cmd"
-		Export-Command "symquery" "./.pog/symquery.cmd"
+
+		$CmdEnv = @{DYNAMORIO_CONFIGDIR = "./data"}
+		$CmdArgs = @("-logdir", (Resolve-Path "./logs"), "-symcache_dir", (Resolve-Path "./cache/symcache"))
+		
+		Export-Command "drmemory" "./app/bin64/drmemory.exe" -Environment $CmdEnv -Arguments $CmdArgs
+		Export-Command "drltrace" "./app/bin64/drltrace.exe" -Environment $CmdEnv -Arguments $CmdArgs
+		Export-Command "drstrace" "./app/bin64/drstrace.exe" -Environment $CmdEnv -Arguments $CmdArgs
+		Export-Command "drconfig" "./app/bin64/drconfig.exe" -Environment $CmdEnv
+		Export-Command "symquery" "./app/bin64/symquery.exe" -Environment $CmdEnv
 	}
 }

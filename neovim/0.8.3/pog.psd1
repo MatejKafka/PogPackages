@@ -14,8 +14,11 @@
 		Assert-Directory "./config"
 		Assert-Directory "./data"
 		
-		Export-Command "vim" "./.pog/nvim_wrapper.cmd"
-		Export-Command "nvim" "./.pog/nvim_wrapper.cmd"
+		Export-Command @("nvim", "vim") "./app/bin/nvim.exe" -Environment @{
+			XDG_CONFIG_HOME = Resolve-Path "./config"
+			XDG_DATA_HOME = Resolve-Path "./data"
+			XDG_STATE_HOME = Resolve-Path "./data"
+		}
 		Export-Shortcut "NeoVim" "./.pog/nvim-qt_wrapper.cmd" -Icon "./app/bin/nvim-qt.exe"
 	}
 }
