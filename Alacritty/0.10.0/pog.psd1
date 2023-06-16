@@ -16,6 +16,7 @@
 	Enable = {
 		Assert-File "./config/alacritty.yml"
 
-		Export-Shortcut "Alacritty" "./.pog/Alacritty_wrapper.cmd" -Icon "./app/Alacritty.exe"
+		Export-Shortcut "Alacritty" "./app/Alacritty.exe" `
+			-Arguments @("--config-file", (Resolve-Path "./config/alacritty.yml"))
 	}
 }
