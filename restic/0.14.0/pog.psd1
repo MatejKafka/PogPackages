@@ -19,6 +19,6 @@
 	Enable = {
 		Assert-Directory "./cache"
 	
-		Export-Command "restic" "./.pog/restic_wrapper.cmd"
+		Export-Command "restic" "./app/restic.exe" -Arguments @("--cache-dir", (Resolve-Path "./cache"))
 	}
 }
