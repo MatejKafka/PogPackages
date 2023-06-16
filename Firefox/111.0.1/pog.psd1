@@ -6,13 +6,11 @@
 	Install = @{
 		# the installer is .exe, but actually it's a self-extracting 7zip archive
 		Url = {$V = $this.Version; "https://releases.mozilla.org/pub/firefox/releases/${V}/win64/en-US/Firefox Setup ${V}.exe"}
-		Hash = "3A2440CA290A6C9DB96DB38146B7C7EFC4935A631F371F7CF860FAE586EE6CB8"
+		Hash = "E926DF6FA25ED0829B3F7A6D70D39139B36E6260B0A5CEFF020CCA7DC9A4A512"
 		Subdirectory = "core"
 	}
 	
 	Enable = {
-		Write-Warning "Firefox crash reporter writes to registry (HKCU\Software\Mozilla\Firefox)."
-
 		Assert-Directory "./data"
 		Assert-Directory "./cache"
 
@@ -21,7 +19,17 @@
 		Set-SymlinkedPath "./data/datareporting" "./cache/datareporting" Directory
 		Set-SymlinkedPath "./data/cache2" "./cache/cache2" Directory
 
-		Export-Shortcut "Firefox" "./.pog/firefox_wrapper.cmd" -IconPath "./app/firefox.exe"
+		Export-Shortcut "Firefox" "./app/firefox.exe" `
+			-Arguments @("-profile", (Resolve-Path "./data"), "--allow-downgrade") `
+			-Environment @{
+				# disable crash reporter, it writes to AppData
+				MOZ_CRASHREPORTER_DISABLE = 1
+
+				# FIXME: these are apparently internal, and Firefox overrides them when starting the crash reporter
+				#MOZ_CRASHREPORTER_DATA_DIRECTORY = "./cache/crashreporter"
+				#MOZ_CRASHREPORTER_EVENTS_DIRECTORY = "./cache/events"
+				#MOZ_CRASHREPORTER_PING_DIRECTORY = "./cache/pings"
+			}
 	}
 
 	_PolicyJson = @'
