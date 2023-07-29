@@ -22,7 +22,6 @@
 		Assert-Directory "./config"
 		# ensure auto-updates are disabled
 		Assert-File $SettingsRelPath {$this._DefaultConfig} $this._DisableAutoUpdate
-		Assert-File $SettingsRelPath
 
 		# `-settings` CLI argument was removed in 2022, dunno why
 		Set-SymlinkedPath "./app/SystemInformer.exe.settings.xml" $SettingsRelPath File
@@ -43,12 +42,7 @@ _DefaultConfig = @'
 '@
 
 	_DisableAutoUpdate = {
-		param(
-                [Parameter(Mandatory)]
-            $File
-        )
-
-        $File = Resolve-Path $File
+        $File = Resolve-Path $_
 
         $d = [XML](Get-Content -Raw $File)
         $settings = $d.settings

@@ -15,7 +15,7 @@
 			"[application]"
 			"automatic_check_updates=false"
 		} {
-			param($File)
+			$File = $_
 			$Changed = $false
 			$Section = $null
 			$c = Get-Content $File | % {

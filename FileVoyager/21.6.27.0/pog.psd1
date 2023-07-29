@@ -10,13 +10,9 @@
 	
 	Enable = {
 		Set-SymlinkedPath "./app/Ini" "./data" Directory
-		Assert-File "./data/Portable.ini" {} {
-			param($File)
-			# make the file empty, otherwise it opens a Thank You page on first start
-			if ((Get-Content -Raw $File) -ne "") {
-				Set-Content $File "" -NoNewline
-			}
-		}
+
+		# make the file empty, otherwise it opens a Thank You page on first start
+		Assert-File "./data/Portable.ini" -FixedContent ""
 		# TODO: disable update checks even for existing FileVoyager.ini file
 		Assert-File "./data/FileVoyager.ini" {$this._DefaultConfig}
 

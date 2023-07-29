@@ -59,7 +59,7 @@
 	}}
 	
 	_UpdateNpmrc = {
-		param($Npmrc)
+		$Npmrc = $_
 		
 		$NpmrcSettings = & $this._GetNpmrcSettings
 		$Remaining = [Collections.Generic.HashSet[string]]::new([string[]]$NpmrcSettings.Keys)

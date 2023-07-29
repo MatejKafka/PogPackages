@@ -16,10 +16,7 @@
 		Assert-Directory "./config"
 		
 		# TODO: setup session storage paths
-		Assert-File "./config/php.ini" {
-			if ($ProductionMode) {Get-Content -Raw "./app/php.ini-production"}
-			else {Get-Content -Raw "./app/php.ini-development"}
-		}
+		Assert-File "./config/php.ini" "./app/php.ini-$(if ($ProductionMode) {"production"} else {"development"})"
 	
 		Export-Command "php" "./app/php.exe"
 		Export-Command "php-cgi" "./app/php-cgi.exe"

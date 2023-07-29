@@ -13,13 +13,7 @@
 		Assert-Directory "./cache"
 
 		# this makes npp store its config in the provided directory
-		$ConfigPath = [string](Resolve-Path "./config")
-		Assert-File "./app/cloud/choice" {$ConfigPath} {
-			param($File)
-			if ($ConfigPath -eq (Get-Content -Raw $File)) {return $false}
-			$ConfigPath | Set-Content $File -NoNewline
-			return $true
-		}
+		Assert-File "./app/cloud/choice" -FixedContent ([string](Resolve-Path "./config"))
 
 		Set-SymlinkedPath "./config/backup" "./cache/backup" Directory
 		Set-SymlinkedPath "./app/plugins/Config" "./config/plugins" Directory -Merge

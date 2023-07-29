@@ -18,7 +18,24 @@
 		Set-SymlinkedPath "./config/profiler_data" "./cache/profiler_data" Directory
 		
 		# disable auto-updater
-		& ./.pog/DisableAutoUpdater.ps1
+		Assert-File "./config/global.ini" {
+			"[General]`n" +`
+			"EnableAutoUpdates=false`n"
+		} {
+			$File = $_
+			# TODO: FIXME: not very robust, ideally would use .ini parser
+			$c = Get-Content -Raw $File
+			if ($c.Contains("`nEnableAutoUpdates=")) {
+				if ($c.Contains("`nEnableAutoUpdates=false")) {return}
+				# change true to false
+				$c = $c.Replace("`nEnableAutoUpdates=true", "`nEnableAutoUpdates=false")
+			} else {
+				# add config option to [General]
+				$c = $c.Replace("[General]`n", "[General]`nEnableAutoUpdates=false`n")
+			}
+			$c | Set-Content $File
+			return
+		}
 		
 		Export-Shortcut "OBS Studio" "./app/bin/64bit/obs64.exe"
 	}

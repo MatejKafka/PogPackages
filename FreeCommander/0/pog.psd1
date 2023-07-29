@@ -13,7 +13,7 @@
 			param($Dir)
 			Copy-Item -Recurse "./app/Settings" $Dir
 		}
-		Assert-File "./app/fcStart.ini" -FixedContent {$this._fcStartIni}
+		Assert-File "./app/fcStart.ini" -FixedContent $this._fcStartIni
 		Assert-File "./data/Settings/FreeCommander.ini" -DefaultContent {$this._defaultConfig}
 
 		Export-Shortcut "FreeCommander" "./app/FreeCommander.exe"

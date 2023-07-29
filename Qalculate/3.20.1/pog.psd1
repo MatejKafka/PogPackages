@@ -12,7 +12,7 @@
 		Set-SymlinkedPath "./app/user" "./data" Directory
 		
 		Export-Command qalc "./app/qalc.exe"
-		Export-Shortcut Qalculate "./app/qalculate.exe"
-		Export-Shortcut Qalculate-Qt "./app/qalculate-qt.exe"
+		Export-Shortcut "Qalculate (Basic)" "./app/qalculate.exe"
+		Export-Shortcut "Qalculate (Console)" "./app/qalculate-qt.exe"
 	}
 }

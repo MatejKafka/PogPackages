@@ -18,7 +18,7 @@
 
 		# ensure auto-update is disabled
 		Assert-File "./data/user-data/User/settings.json" {'{"update.mode": "none"}'} {
-			param($File)
+			$File = $_
 			$settings = Get-Content -Raw $File | ConvertFrom-Json -AsHashtable
 			if ($settings.ContainsKey("update.mode") -and $settings."update.mode" -eq "none") {
 				return $false

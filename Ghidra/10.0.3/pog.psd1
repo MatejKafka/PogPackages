@@ -16,7 +16,7 @@
 		Assert-File "./app/support/launch.properties" {
 			throw "Missing file (should be present by-default): ./app/support/launch.properties"
 		} {
-			param($File)
+			$File = $_
 			$Changed = $false
 			$Found = $false
 			$CachedirLine = "VMARGS=-Dapplication.cachedir=" + (Resolve-Path ./cache)

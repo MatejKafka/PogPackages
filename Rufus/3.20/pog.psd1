@@ -7,10 +7,7 @@
 		Url = {$V = $this.Version; "https://github.com/pbatard/rufus/releases/download/v${V}/rufus-${V}p.exe"}
 		Hash = "042F0B284AF6E3316BAF6235A4F0141966A051873B5631C7E5A724CF1F5E7973"
 		NoArchive = $true
-		SetupScript = {
-			# the Rufus file name is versioned, drop the version to get a consistent name
-			mv ./* ./rufus-p.exe
-		}
+		Target = "rufus-p.exe"
 	}
 
 	Enable = {

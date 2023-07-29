@@ -35,7 +35,7 @@
 		}
 		
 		Assert-File "./config/npmrc" {
-			echo "Pkg: disable update-notifier, at least until configstore is updated to respect a custom config location"
+			echo "Pog: disable update-notifier, at least until configstore is updated to respect a custom config location"
 			echo $NpmrcSettings.GetEnumerator() | % {
 				$_.Key + "=" + $_.Value
 			}
@@ -48,7 +48,7 @@
 	
 	
 	_UpdateNpmrc = {
-		param($Npmrc)
+		$Npmrc = $_
 		
 		$Remaining = [Collections.Generic.HashSet[string]]::new([string[]]$NpmrcSettings.Keys)
 		$Changed = $false

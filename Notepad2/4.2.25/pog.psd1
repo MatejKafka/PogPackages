@@ -10,10 +10,7 @@
 	
 	Enable = {
 		Assert-Directory "./config"
-	
-		# move config file, but without symlinking, or keep the existing one if present
-		Assert-File "./config/Notepad2.ini" {cat "./app/Notepad2.ini"}
-		if (Test-Path "./app/Notepad2.ini") {rm "./app/Notepad2.ini"}
+		Assert-File "./config/Notepad2.ini" "./app/Notepad2.ini"
 		
 		Export-Shortcut "Notepad2" "./app/Notepad2.exe" -ArgumentList @("/f", (Resolve-Path "./config/Notepad2.ini"))
 	}

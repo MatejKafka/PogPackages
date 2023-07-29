@@ -6,8 +6,6 @@
 	# there's an update API at
 	#  https://update.code.visualstudio.com/api/update/win32-x64-archive/stable/2af051012b66169dde0c4dfae3f5ef48f787ff69
 	# but I couldn't figure out how to pull out the hash for a given version
-	# TODO: check hash
-
 	Install = @{
 		Url = {"https://update.code.visualstudio.com/$($this.Version)/win32-x64-archive/stable"}
 		Hash = "C16E589C60BC4FC33113C14D8D1B46E8E26A23716BD7ED3DBE6A38C9D435EE04"
@@ -20,7 +18,7 @@
 
 		# ensure auto-update is disabled
 		Assert-File "./data/user-data/User/settings.json" {'{"update.mode": "none"}'} {
-			param($File)
+			$File = $_
 			$settings = Get-Content -Raw $File | ConvertFrom-Json -AsHashtable
 			if ($settings.ContainsKey("update.mode") -and $settings."update.mode" -eq "none") {
 				return $false
