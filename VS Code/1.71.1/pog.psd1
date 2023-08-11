@@ -16,15 +16,14 @@
 		Assert-Directory "./config"
 
 		# ensure auto-update is disabled
-		Assert-File "./data/user-data/User/settings.json" {'{"update.mode": "none"}'} {
-			$File = $_
-			$settings = Get-Content -Raw $File | ConvertFrom-Json -AsHashtable
-			if ($settings.ContainsKey("update.mode") -and $settings."update.mode" -eq "none") {
-				return $false
+		Assert-File "./config/settings.json" {'{"update.mode": "none"}'} {
+			# VS Code JSON parser is quite liberal and accepts trailing commas, comments,...
+			# therefore we cannot use ConvertFrom-Json to reliably parse the file
+			$SettingsStr = cat -Raw $_
+			$NewSettingsStr = $SettingsStr -replace '("update.mode"\s*:\s*)"([a-z][A-Z]+)"', '$1"none"'
+			if ($NewSettingsStr -ne $SettingsStr) {
+				Set-Content $_ $NewSettingsStr
 			}
-			$settings."update.mode" = "none"
-			ConvertTo-Json -Depth 64 $settings | Out-File $File
-			return $true
 		}
 
 		Set-SymlinkedPath "./data/user-data/User/keybindings.json" "./config/keybindings.json" File

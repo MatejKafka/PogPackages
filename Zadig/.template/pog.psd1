@@ -14,6 +14,8 @@
 	}
 
 	Enable = {
+		Write-Warning "Zadig updater writes to 'HKEY_CURRENT_USER\SOFTWARE\Akeo Consulting\Zadig'."
+
 		Assert-Directory "./config"
 		Set-SymlinkedPath "./app/zadig.ini" "./config/zadig.ini" File
 
