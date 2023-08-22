@@ -22,12 +22,13 @@ expressiveness, and elegance (in that order of priority).
 					"`n"
 
 				# this file configures implicit arguments for the Nim compiler
-				$Cfg = cat -Raw "config/nim.cfg"
+				$Cfg = cat -Raw "./config/nim.cfg"
 
 				# remove default nimble paths, add custom config
 				$Cfg = $Prefix + $Cfg.Replace("nimblepath=", "#nimblepath=")
 
-				Set-Content "config/nim.cfg" $Cfg
+				Set-Content "./config/nim.cfg" $Cfg
+				Write-Information "Patched './config/nim.cfg'."
 			}
 		}
 		@{ # mingw, required by Nim

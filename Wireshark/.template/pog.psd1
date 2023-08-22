@@ -3,8 +3,9 @@
 	Version = "{{TEMPLATE:Version}}"
 	Architecture = "x64"
 
+	# hashes can be found at https://www.wireshark.org/download/SIGNATURES-${V}.txt
 	Install = @{
-		Url = {"https://2.na.dl.wireshark.org/win64/all-versions/Wireshark-win64-$($this.Version).exe"}
+		Url = {"https://www.wireshark.org/download/win64/all-versions/Wireshark-win64-$($this.Version).exe"}
 		Hash = "{{TEMPLATE:Hash}}"
 		NsisInstaller = $true
 	}
