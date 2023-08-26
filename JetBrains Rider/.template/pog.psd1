@@ -16,15 +16,39 @@
 		Assert-Directory "./data/plugins"
 		Assert-Directory "./logs"
 
-
+		# TODO: check content for existing file
 		Assert-File "./config/idea.properties" {$this._IdeaProperties}
 		Assert-File "./config/rider64.exe.vmoptions" "./app/bin/rider64.exe.vmoptions"
 
 		# ensure auto-updates are disabled
-		Assert-File "./config/config/options/updates.xml" {$this._UpdatesXml} {& "./.pog/DisableAutoUpdate.ps1" $_}
+		Assert-File "./config/config/options/updates.xml" {$this._UpdatesXml} $this._DisableAutoUpdate
 
-		Export-Shortcut "JetBrains Rider" "./.pog/rider_shortcut.cmd" -IconPath "./app/bin/rider.ico"
-		Export-Command "rider" "./.pog/rider_command.cmd"
+		$Env = @{
+			RIDER_PROPERTIES = "./config/idea.properties"
+			RIDER_VM_OPTIONS = "./config/rider64.exe.vmoptions"
+		}
+
+		Export-Shortcut "JetBrains Rider" "./app/bin/rider64.exe" -Environment $Env
+		Export-Command "rider" "./app/bin/rider64.exe" -Environment $Env
+	}
+
+	_DisableAutoUpdate = {
+		param([Parameter(Mandatory)]$File)
+
+		$d = [XML](Get-Content -Raw $File)
+		$c = $d.application.component
+		$options = $c.option
+		$prop = $options | ? {$_.name -eq "CHECK_NEEDED"}
+		if ($null -eq $prop) {
+			$prop = $d.CreateElement("option")
+			$null = $prop.Attributes.Append($d.CreateAttribute("name"))
+			$null = $prop.Attributes.Append($d.CreateAttribute("value"))
+			$prop.name = "CHECK_NEEDED"
+			$null = $c.AppendChild($prop)
+		}
+		if ($prop.value -eq "false") {return}
+		$prop.value = "false"
+		$null = $d.Save($File)
 	}
 
 # content of generated idea.properties

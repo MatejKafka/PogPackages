@@ -10,10 +10,21 @@
 
 	Enable = {
 		Assert-Directory "./config"
-		Assert-Directory "./cache"
-		Assert-Directory "./data"
+		Assert-Directory "./cache/build-cache"
+		Assert-Directory "./cache/mod-cache"
+		Assert-Directory "./data/go-bin"
 		Assert-Directory "./data/packages"
 
-		Export-Command "go" "./.pog/go_wrapper.cmd"
+		# TODO: switch to writing ./config/goenv file in manifest and only set GOENV here
+		#  however, if user runs with GOENV disabled, go will start writing globally, which might be and issue
+		Export-Command "go" "./app/bin/go.exe" -Environment @{
+			GOROOT = "./app"
+			GOBIN = "./data/go-bin"
+			GOENV = "./config/goenv"
+			GOCACHE = "./cache/build-cache"
+			GOMODCACHE = "./cache/mod-cache"
+			# TODO: GOPATH is like PATH, a list of paths; we should prepend/append insted of overwriting
+			GOPATH = "./data/packages"
+		}
 	}
 }
