@@ -23,8 +23,7 @@
 			GOENV = "./config/goenv"
 			GOCACHE = "./cache/build-cache"
 			GOMODCACHE = "./cache/mod-cache"
-			# TODO: GOPATH is like PATH, a list of paths; we should prepend/append insted of overwriting
-			GOPATH = "./data/packages"
+			GOPATH = "%GOPATH%", "./data/packages"
 		}
 	}
 }

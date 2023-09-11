@@ -14,6 +14,8 @@
 	Enable = {
 		param(
 				[switch]
+			$Elevate,
+				[switch]
 			$NoKernelDriver
 		)
 	
@@ -28,10 +30,9 @@
 		Set-SymlinkedPath "./app/usernotesdb.xml" "./config/usernotesdb.xml" File
 
 		# args list here: https://wj32.org/processhacker/forums/viewtopic.php?t=75
-		$Args = @("-elevate")
-		if ($NoKernelDriver) {
-			$Args += "-nokph"
-		}
+		$Args = @()
+		if ($Elevate) {$Args += "-elevate"}
+		if ($NoKernelDriver) {$Args += "-nokph"}
 		Export-Shortcut "SystemInformer" "./app/SystemInformer.exe" -Arguments $Args
 	}
 

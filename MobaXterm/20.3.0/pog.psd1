@@ -9,9 +9,9 @@
 	}
 	
 	Enable = {
-		Assert-Directory .\config
-		Assert-File .\config\MobaXterm.ini
+		Assert-Directory "./config"
+		Assert-File "./config/MobaXterm.ini"
 		
-		Export-Shortcut "MobaXterm" "./.pog/launcher.cmd" -IconPath "./app/MobaXterm_Personal_20.3.exe"
+		Export-Shortcut "MobaXterm" "./app/MobaXterm_Personal_20.3.exe" -Arguments @("-i", (Resolve-Path "./config/MobaXterm.ini"))
 	}
 }

@@ -6,7 +6,7 @@
 	
 	Install = @{
 		Url = {$V = $this.Version; "https://github.com/GyanD/codexffmpeg/releases/download/${V}/ffmpeg-${V}-full_build.7z"}
-		Hash = "75ACDF3AFE0409B294CB2B76216ECBE5299782970688617259FFBC22679872E8"
+		Hash = "EB65985ADBB6AB1C93DEC2B22A3628F6D6A309D0BC5BBDD1E3696F0980905CAD"
 	}
 	
 	Enable = {

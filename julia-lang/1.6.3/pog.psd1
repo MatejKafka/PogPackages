@@ -13,6 +13,8 @@
 	}
 
 	Enable = {
-		Export-Command "julia" "./.pog/julia.cmd"
+		Export-Command "julia" "./app/bin/julia.exe" -Environment @{
+			JULIA_DEPOT_PATH = "%JULIA_DEPOT_PATH%", "./data", "./app/local/share/julia", "./app/share/julia"
+		}
 	}
 }
