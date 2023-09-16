@@ -14,7 +14,7 @@
 		# TODO: todo figure out how to move log.txt to separate directory
 
 		Export-Shortcut "Telegram" "./app/Telegram.exe" -ArgumentList @(
-				"-workdir", (Resolve-Path "./data")
+				"-workdir", "./data"
 				"-noupdate"
 				"-externalupdater"
 		)

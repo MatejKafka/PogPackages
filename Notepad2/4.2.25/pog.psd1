@@ -12,6 +12,6 @@
 		Assert-Directory "./config"
 		Assert-File "./config/Notepad2.ini" "./app/Notepad2.ini"
 		
-		Export-Shortcut "Notepad2" "./app/Notepad2.exe" -ArgumentList @("/f", (Resolve-Path "./config/Notepad2.ini"))
+		Export-Shortcut "Notepad2" "./app/Notepad2.exe" -ArgumentList @("/f", "./config/Notepad2.ini")
 	}
 }

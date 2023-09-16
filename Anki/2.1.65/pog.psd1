@@ -12,6 +12,6 @@
 	Enable = {
 		Assert-Directory "./data"
 
-		Export-Shortcut Anki "./app/anki.exe" -Arguments @("-b", (Resolve-Path "./data"))
+		Export-Shortcut Anki "./app/anki.exe" -Arguments @("-b", "./data")
 	}
 }

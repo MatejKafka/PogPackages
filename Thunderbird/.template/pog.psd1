@@ -27,7 +27,7 @@
 		Set-SymlinkedPath "./data/cache2" "./cache/cache2" Directory
 
 		Export-Shortcut "Thunderbird" "./app/thunderbird.exe" `
-			-Arguments @("-profile", (Resolve-Path "./data"), "--allow-downgrade") `
+			-Arguments @("-profile", "./data", "--allow-downgrade") `
 			-Environment @{
 				# FIXME: this does not seem to work, unlike with Firefox
 				# disable crash reporter, it writes to AppData

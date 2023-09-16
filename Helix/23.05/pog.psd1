@@ -18,7 +18,7 @@
 		Assert-File "./config/config.toml"
 
 		Export-Command "hx" "./app/hx.exe" `
-			-Arguments @("--config", (Resolve-Path "./config/config.toml")) `
+			-Arguments @("--config", "./config/config.toml") `
 			-Environment @{
 				"APPDATA" = "./data"
 				"LOCALAPPDATA" = "./cache"

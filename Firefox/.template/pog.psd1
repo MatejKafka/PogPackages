@@ -24,7 +24,7 @@
 		Set-SymlinkedPath "./data/datareporting" "./cache/datareporting" Directory
 		Set-SymlinkedPath "./data/cache2" "./cache/cache2" Directory
 
-		$Arg = @("-profile", (Resolve-Path "./data"), "--allow-downgrade")
+		$Arg = @("-profile", "./data", "--allow-downgrade")
 		$EnvVars = @{
 			# disable crash reporter, it writes to AppData
 			MOZ_CRASHREPORTER_DISABLE = 1

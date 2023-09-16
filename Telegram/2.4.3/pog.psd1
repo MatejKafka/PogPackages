@@ -15,7 +15,7 @@
 		Write-Warning "Everything is stored in ./data, because Telegram directory structure is completely fucked."
 		
 		Export-Shortcut "Telegram" "./app/Telegram.exe" -ArgumentList @(
-				"-workdir", (Resolve-Path "./data")
+				"-workdir", "./data"
 				"-noupdate"
 				"-externalupdater"
 		)

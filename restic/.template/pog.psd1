@@ -20,6 +20,6 @@
 	Enable = {
 		Assert-Directory "./cache"
 	
-		Export-Command "restic" "./app/restic.exe" -Arguments @("--cache-dir", (Resolve-Path "./cache"))
+		Export-Command "restic" "./app/restic.exe" -Arguments @("--cache-dir", "./cache")
 	}
 }

@@ -11,6 +11,6 @@
 	Enable = {
 		Assert-Directory "./data"
 		
-		Export-Shortcut "MultiMC" "./.pog/multimc.cmd" -Icon "./app/MultiMC.exe"
+		Export-Shortcut "MultiMC" "./app/MultiMC.exe" -Arguments @("--dir", "./data")
 	}
 }

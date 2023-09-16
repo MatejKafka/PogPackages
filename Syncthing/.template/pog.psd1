@@ -13,11 +13,13 @@
 		Assert-Directory "./data"
 		Assert-File "./logs/syncthing.log"
 	
-		$CmdArgs = @("-data", (Resolve-Path "./data"), "-config", (Resolve-Path "./config"), "-logfile", (Resolve-Path "./logs/syncthing.log"))
-		$SyncthingCmd = Export-Command "syncthing" "./app/syncthing.exe" -Arguments $CmdArgs -Environment @{
+		$CmdArgs = @("-data", "./data", "-config", "./config", "-logfile", "./logs/syncthing.log")
+		$CmdEnv = @{
 			STNODEFAULTFOLDER = "true"
 			STNOUPGRADE = "true"
-		} -PassThru
+		}
+
+		$SyncthingCmd = Export-Command "syncthing" "./app/syncthing.exe" -Arguments $CmdArgs -Environment $CmdEnv -PassThru
 
 		Assert-File "./config/config.xml" {
 			Write-Verbose "Generating initial config..."

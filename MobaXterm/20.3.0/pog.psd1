@@ -12,6 +12,6 @@
 		Assert-Directory "./config"
 		Assert-File "./config/MobaXterm.ini"
 		
-		Export-Shortcut "MobaXterm" "./app/MobaXterm_Personal_20.3.exe" -Arguments @("-i", (Resolve-Path "./config/MobaXterm.ini"))
+		Export-Shortcut "MobaXterm" "./app/MobaXterm_Personal_20.3.exe" -Arguments @("-i", "./config/MobaXterm.ini")
 	}
 }

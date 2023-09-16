@@ -11,6 +11,6 @@
 	Enable = {
 		Assert-Directory "./data"
 
-		Export-Shortcut "Drawpile" "./app/drawpile.exe" -Arguments @("--portable-data-dir", (Resolve-Path "./data"))
+		Export-Shortcut "Drawpile" "./app/drawpile.exe" -Arguments @("--portable-data-dir", "./data")
 	}
 }

@@ -10,6 +10,14 @@
 	}
 	
 	Enable = {
-		Export-Shortcut "jPDF Tweak" "./.pog/jPDF Tweak.cmd" -Icon "./app/icon.ico"
+		Write-Warning "jPDF Tweak uses an external Java installation."
+
+		# FIXME: the javaw lookup is not nice
+		Export-Shortcut "jPDF Tweak" (Get-Command javaw).Path -Icon "./app/icon.ico" `
+			-Arguments @("-jar", "./app/jpdftweak.jar") `
+			-Environment @{
+				# the app dir must be added to PATH, otherwise the program won't find the jmupdf64.dll library
+				PATH = "./app", "%PATH%"
+			}
 	}
 }

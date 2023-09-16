@@ -16,6 +16,6 @@
 		
 		# disable built-in updater and redirect config dir
 		Export-Shortcut "Shotcut" "./app/Shotcut.exe" `
-				-ArgumentList @("--noupgrade", "--appdata", (Resolve-Path "./data"))
+				-ArgumentList @("--noupgrade", "--appdata", "./data")
 	}
 }

@@ -15,7 +15,7 @@
 
 
 		$CmdEnv = @{DYNAMORIO_CONFIGDIR = "./data"}
-		$CmdArgs = @("-logdir", (Resolve-Path "./logs"), "-symcache_dir", (Resolve-Path "./cache/symcache"))
+		$CmdArgs = @("-logdir", "./logs", "-symcache_dir", "./cache/symcache")
 		
 		Export-Command "drmemory" "./app/bin64/drmemory.exe" -Environment $CmdEnv -Arguments $CmdArgs
 		Export-Command "drltrace" "./app/bin64/drltrace.exe" -Environment $CmdEnv -Arguments $CmdArgs

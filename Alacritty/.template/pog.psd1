@@ -23,7 +23,7 @@
 		Assert-File "./config/alacritty.yml" "./app/alacritty-default.yml"
 
 		Export-Shortcut "Alacritty" "./app/Alacritty.exe" `
-			-Arguments @("--config-file", (Resolve-Path "./config/alacritty.yml")) `
+			-Arguments @("--config-file", "./config/alacritty.yml") `
 			-VcRedist
 	}
 }

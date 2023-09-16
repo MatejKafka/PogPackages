@@ -10,6 +10,9 @@
 
 	Enable = {
 		Assert-Directory "./config"
-		Export-Command "spicetify" "./.pog/spicetify.cmd"
+
+		Export-Command "spicetify" "./app/spicetify.exe" -Environment @{
+			SPICETIFY_CONFIG = "./config"
+		}
 	}
 }
