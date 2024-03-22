@@ -15,12 +15,19 @@
 
 
 		$CmdEnv = @{DYNAMORIO_CONFIGDIR = "./data"}
-		$CmdArgs = @("-logdir", "./logs", "-symcache_dir", "./cache/symcache")
 		
-		Export-Command "drmemory" "./app/bin64/drmemory.exe" -Environment $CmdEnv -Arguments $CmdArgs
-		Export-Command "drltrace" "./app/bin64/drltrace.exe" -Environment $CmdEnv -Arguments $CmdArgs
-		Export-Command "drstrace" "./app/bin64/drstrace.exe" -Environment $CmdEnv -Arguments $CmdArgs
-		Export-Command "drconfig" "./app/bin64/drconfig.exe" -Environment $CmdEnv
-		Export-Command "symquery" "./app/bin64/symquery.exe" -Environment $CmdEnv
+		# TODO: should we pass logdir? if the default is always the CWD, probably drop it
+
+		Export-Command "drmemory" "./app/bin64/drmemory.exe" -ReplaceArgv0 -Environment $CmdEnv `
+			-Arguments @("-logdir", "./logs", "-symcache_dir", "./cache/symcache")
+		Export-Command "drltrace" "./app/bin64/drltrace.exe" -ReplaceArgv0 -Environment $CmdEnv `
+			-Arguments @("-logdir", "./logs", "-symcache_dir", "./cache/symcache")
+		# TODO: arg handling: https://github.com/DynamoRIO/drmemory/blob/b083b08bffbd78ab49373c829bf6f7d79cdf7a4f/drstrace/drstrace_frontend.c#L643
+		Export-Command "drstrace" "./app/bin64/drstrace.exe" -ReplaceArgv0 -Environment $CmdEnv `
+			-Arguments @("-symcache_path", "./cache/symcache")
+		Export-Command "drconfig" "./app/bin64/drconfig.exe" -ReplaceArgv0 -Environment $CmdEnv `
+			-Arguments @("-root", "./app")
+		Export-Command "symquery" "./app/bin64/symquery.exe" -ReplaceArgv0 -Environment $CmdEnv
+
 	}
 }
