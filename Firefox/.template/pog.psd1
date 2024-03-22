@@ -24,7 +24,8 @@
 		Set-SymlinkedPath "./data/datareporting" "./cache/datareporting" Directory
 		Set-SymlinkedPath "./data/cache2" "./cache/cache2" Directory
 
-		$Arg = @("-profile", "./data", "--allow-downgrade")
+		# originally, `--allow-downgrade` was also passed, but that breaks opening files/URLs by passing them as aguments
+		$Arg = @("-profile", "./data")
 		$EnvVars = @{
 			# disable crash reporter, it writes to AppData
 			MOZ_CRASHREPORTER_DISABLE = 1

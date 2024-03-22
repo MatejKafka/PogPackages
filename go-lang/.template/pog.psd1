@@ -16,7 +16,7 @@
 		Assert-Directory "./data/packages"
 
 		# TODO: switch to writing ./config/goenv file in manifest and only set GOENV here
-		#  however, if user runs with GOENV disabled, go will start writing globally, which might be and issue
+		#  however, if user runs with GOENV disabled, go will start writing globally, which might be an issue
 		Export-Command "go" "./app/bin/go.exe" -Environment @{
 			GOROOT = "./app"
 			GOBIN = "./data/go-bin"
