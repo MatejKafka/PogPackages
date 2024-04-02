@@ -23,13 +23,9 @@ jobs:
       - name: Install Pog
         shell: pwsh
         run: |
-          # workaround, since Pog 0.6.0 does not ignore dot-files, but ignores hidden files
-          # TODO: when next version is released, remove this
-          (gi .github).Attributes += "Hidden"
-
           # fixed Pog release, otherwise when we switch to remote repo by default in the next release, this would break
           # TODO: when next version is released, use it, but override the repository to use a local one
-          iwr "https://github.com/MatejKafka/Pog/releases/download/v0.6.0/Pog-v0.6.0.zip" -OutFile D:\Pog.zip
+          iwr "https://github.com/MatejKafka/Pog/releases/download/v0.7.0/Pog-v0.7.0.zip" -OutFile D:\Pog.zip
 
           # unpack Pog, tar is much faster than Expand-Archive
           $null = mkdir D:\Pog
