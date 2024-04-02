@@ -1,0 +1,56 @@
+name: Pog remote repository build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+permissions:
+  pages: write      # to deploy to Pages
+  id-token: write   # to verify the deployment originates from an appropriate source
+
+jobs:
+  github-pages:
+    runs-on: windows-latest
+    steps:
+      - name: Configure git to preserve line endings
+        run: git config --global core.autocrlf false
+
+      - uses: actions/checkout@v4
+
+      - name: Install Pog
+        shell: pwsh
+        run: |
+          # workaround, since Pog 0.6.0 does not ignore dot-files, but ignores hidden files
+          # TODO: when next version is released, remove this
+          (gi .github).Attributes += "Hidden"
+
+          # fixed Pog release, otherwise when we switch to remote repo by default in the next release, this would break
+          # TODO: when next version is released, use it, but override the repository to use a local one
+          iwr "https://github.com/MatejKafka/Pog/releases/download/v0.6.0/Pog-v0.6.0.zip" -OutFile D:\Pog.zip
+
+          # unpack Pog, tar is much faster than Expand-Archive
+          $null = mkdir D:\Pog
+          tar -xf D:\Pog.zip --directory D:\Pog
+
+          # symlink local repo to our repository to avoid redownloading it
+          $null = mkdir D:\Pog\Pog\data
+          $null = [System.IO.Directory]::CreateSymbolicLink("D:\Pog\Pog\data\manifests", (pwd))
+
+          # setup Pog
+          D:\Pog\Pog\setup.ps1
+
+          # propagate PATH and PSModulePath for the following steps
+          Add-Content $env:GITHUB_PATH (Resolve-Path D:\Pog\Pog\data\package_bin)
+          Add-Content $env:GITHUB_ENV "PSModulePath=$env:PSModulePath"
+
+      - name: Build remote repository
+        run: pwsh -noprofile .github\build-remote-repo.ps1 D:\remote-repo
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: D:\remote-repo
+
+      - uses: actions/deploy-pages@v4
