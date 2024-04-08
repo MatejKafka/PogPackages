@@ -3,6 +3,8 @@
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
+# use the local repository, instead of the default remote repo
+$env:POG_LOCAL_REPOSITORY_PATH = pwd
 Import-Module Pog
 
 $null = mkdir -Force $RemoteRepoDir
