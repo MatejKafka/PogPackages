@@ -2,14 +2,9 @@
 	Name = 'Windows Terminal'
 	Architecture = 'x64'
 	Version = '{{TEMPLATE:Version}}'
-	_IsPreview = '{{TEMPLATE:IsPreview}}'
 
 	Install = @{
-		Url = {
-			$V = $this.Version;
-			$FileName = "Microsoft.WindowsTerminal$(if ($this._IsPreview) {"Preview"})_${V}_x64.zip"
-			"https://github.com/microsoft/terminal/releases/download/v${V}/${FileName}"
-		}
+		Url = '{{TEMPLATE:Url}}'
 		Hash = '{{TEMPLATE:Hash}}'
 	}
 
