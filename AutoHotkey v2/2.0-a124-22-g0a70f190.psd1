@@ -1,5 +1,5 @@
 ﻿@{
     Version = '2.0-a124-22-g0a70f190'
-    Url = 'https://www.autohotkey.com/download/2.0/AutoHotkey_2.0-a124-22-g0a70f190.zip.sha256'
-    Hash = '91C0AFA8E03B52CB4B08FD8B707F27C38F7DC3C1C00A0CB9B340FDD44F81B3BC'
+    Url = 'https://www.autohotkey.com/download/2.0/AutoHotkey_2.0-a124-22-g0a70f190.zip'
+    Hash = '7C9E28E148BC1E4D14EABABDEDE921A76E4B01C74EBC7C4AAB494E96F045BEC1'
 }

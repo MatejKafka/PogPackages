@@ -1,5 +1,5 @@
 ﻿@{
     Version = '2.0.2'
-    Url = 'https://www.autohotkey.com/download/2.0/AutoHotkey_2.0.2.zip.sha256'
-    Hash = '7E75FB09373CC5B8153D3678D9918ECF4878639ADE3BAB2238024C15A1D24C3B'
+    Url = 'https://www.autohotkey.com/download/2.0/AutoHotkey_2.0.2.zip'
+    Hash = '8F28C38A0B2AF6AC96C4A7E1A2C0F296B2410F845D9ACA8487843A1EDAC4271D'
 }

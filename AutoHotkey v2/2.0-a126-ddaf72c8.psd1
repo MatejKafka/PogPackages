@@ -1,5 +1,5 @@
 ﻿@{
     Version = '2.0-a126-ddaf72c8'
-    Url = 'https://www.autohotkey.com/download/2.0/AutoHotkey_2.0-a126-ddaf72c8.zip.sha256'
-    Hash = '8EDABBEBBA63799CB86E869E0CBFF28F826DA9AEC20C529304D6CFC7005EE9E9'
+    Url = 'https://www.autohotkey.com/download/2.0/AutoHotkey_2.0-a126-ddaf72c8.zip'
+    Hash = '8C8F9D4985DB9E32BC59BF69BED9FE6EA0F3EC1F434C7780A1B34E656F02A6C9'
 }

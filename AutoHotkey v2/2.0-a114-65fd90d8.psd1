@@ -1,5 +1,5 @@
 ﻿@{
     Version = '2.0-a114-65fd90d8'
-    Url = 'https://www.autohotkey.com/download/2.0/AutoHotkey_2.0-a114-65fd90d8.zip.sha256'
-    Hash = '61039F470038C435ED50BB0C391C1397660FDA4481007D1F6AC2DFE28A3A56E4'
+    Url = 'https://www.autohotkey.com/download/2.0/AutoHotkey_2.0-a114-65fd90d8.zip'
+    Hash = 'B887C45F8C11DC96E9BF890BFDC4EF94058E21FD8D143E6E2765A9F552FCF51F'
 }
