@@ -9,6 +9,6 @@
 	}
 
 	Enable = {
-		Export-Shortcut "Neovide" "./app/neovide.exe"
+		Export-Shortcut "Neovide" "./app/neovide.exe" -VcRedist
 	}
 }

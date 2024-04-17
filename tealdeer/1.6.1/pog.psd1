@@ -18,7 +18,7 @@
 		# TODO: fix existing config
 		Assert-File "./config/config.toml" $this._GetDefaultConfig
 
-		Export-Command @("tealdeer", "tldr") "./app/tealdeer.exe" -Environment @{
+		Export-Command @("tealdeer", "tldr") "./app/tealdeer.exe" -VcRedist -Environment @{
 			TEALDEER_CONFIG_DIR = "./config"
 		}
 	}

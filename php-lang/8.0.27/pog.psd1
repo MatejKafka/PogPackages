@@ -18,9 +18,9 @@
 		# TODO: setup session storage paths
 		Assert-File "./config/php.ini" "./app/php.ini-$(if ($ProductionMode) {"production"} else {"development"})"
 	
-		Export-Command "php" "./app/php.exe"
-		Export-Command "php-cgi" "./app/php-cgi.exe"
-		Export-Command "phpw" "./app/php-win.exe"
+		Export-Command "php" "./app/php.exe" -VcRedist
+		Export-Command "php-cgi" "./app/php-cgi.exe" -VcRedist
+		Export-Command "phpw" "./app/php-win.exe" -VcRedist
 		
 		# TODO: when optional dependencies are implemented, detect apache and optionally setup PHP support
 	}

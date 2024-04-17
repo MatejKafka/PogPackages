@@ -9,6 +9,6 @@
 	}
 	
 	Enable = {
-		Export-Command "hyperfine" "./app/hyperfine.exe" #-Symlink
+		Export-Command "hyperfine" "./app/hyperfine.exe" -VcRedist
 	}
 }

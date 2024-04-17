@@ -15,7 +15,7 @@
 
 		Assert-Directory "./data"
 
-		Export-Shortcut "Wireshark" "./app/Wireshark.exe" `
+		Export-Shortcut "Wireshark" "./app/Wireshark.exe" -VcRedist `
 			-Arguments @("-o", "gui.update.enabled:FALSE") `
 			-Environment @{WIRESHARK_CONFIG_DIR = "./data"}
 	}

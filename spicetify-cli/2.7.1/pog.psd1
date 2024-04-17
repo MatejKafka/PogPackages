@@ -11,7 +11,7 @@
 	Enable = {
 		Assert-Directory "./config"
 
-		Export-Command "spicetify" "./app/spicetify.exe" -Environment @{
+		Export-Command "spicetify" "./app/spicetify.exe" -VcRedist -Environment @{
 			SPICETIFY_CONFIG = "./config"
 		}
 	}

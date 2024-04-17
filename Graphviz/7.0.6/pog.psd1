@@ -11,7 +11,7 @@
 
 	Enable = {
 		ls ./app/*.exe -File | % {
-			Export-Command ([IO.Path]::GetFileNameWithoutExtension($_)) (Resolve-Path -Relative $_)
+			Export-Command ([IO.Path]::GetFileNameWithoutExtension($_)) (Resolve-Path -Relative $_) -VcRedist
 		}
 	}
 }

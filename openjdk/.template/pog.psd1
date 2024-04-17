@@ -11,7 +11,7 @@
 	Enable = {
 		# export all .exe commands in ./app/bin
 		ls ./app/bin/*.exe -File | % {
-			Export-Command ([IO.Path]::GetFileNameWithoutExtension($_)) (Resolve-Path -Relative $_) -VcRedist
+			Export-Command ([IO.Path]::GetFileNameWithoutExtension($_)) (Resolve-Path -Relative $_)
 		}
 		
 		# TODO: should we set JAVA_HOME?

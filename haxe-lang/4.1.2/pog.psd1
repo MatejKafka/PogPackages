@@ -9,7 +9,7 @@
 	}
 
 	Enable = {
-		Export-Command "haxe" "./app/haxe.exe"
+		Export-Command "haxe" "./app/haxe.exe" -VcRedist
 		# TODO: export haxelib binary
 	}
 }

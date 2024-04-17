@@ -9,6 +9,6 @@
 	}
 
 	Enable = {
-		Export-Command typst "./app/typst.exe" -Symlink
+		Export-Command typst "./app/typst.exe" -VcRedist
 	}
 }

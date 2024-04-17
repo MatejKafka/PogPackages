@@ -9,6 +9,6 @@
 	}
 
 	Enable = {
-		Export-Command "VBinDiff" "./app/VBinDiff.exe" -Symlink
+		Export-Command "VBinDiff" "./app/VBinDiff.exe" -VcRedist
 	}
 }

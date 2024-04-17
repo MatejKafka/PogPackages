@@ -20,7 +20,7 @@
 			XDG_STATE_HOME = Resolve-Path "./data"
 		}
 
-		Export-Command @("nvim", "vim") "./app/bin/nvim.exe" -Environment $Env
-		Export-Shortcut "NeoVim" "./app/bin/nvim-qt.exe" -Environment $Env
+		Export-Command @("nvim", "vim") "./app/bin/nvim.exe" -Environment $Env -VcRedist
+		Export-Shortcut "NeoVim" "./app/bin/nvim-qt.exe" -Environment $Env -VcRedist
 	}
 }

@@ -37,6 +37,6 @@
 			return
 		}
 		
-		Export-Shortcut "OBS Studio" "./app/bin/64bit/obs64.exe"
+		Export-Shortcut "OBS Studio" "./app/bin/64bit/obs64.exe" -VcRedist
 	}
 }

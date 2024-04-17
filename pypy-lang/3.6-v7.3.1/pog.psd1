@@ -9,8 +9,8 @@
 	}
 
 	Enable = {
-		Export-Command "pypy" "./app/pypy3.exe"
-		Export-Command "pypy3" "./app/pypy3.exe"
+		Export-Command "pypy" "./app/pypy3.exe" -VcRedist
+		Export-Command "pypy3" "./app/pypy3.exe" -VcRedist
 	}
 }
 

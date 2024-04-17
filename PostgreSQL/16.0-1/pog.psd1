@@ -13,7 +13,7 @@
 
 		ls ./app/bin -File -Filter *.exe | % {
 			$Name = [IO.Path]::GetFileNameWithoutExtension($_)
-			Export-Command $Name (Resolve-Path -Relative $_) -ReplaceArgv0 -Environment @{
+			Export-Command $Name (Resolve-Path -Relative $_) -ReplaceArgv0 -VcRedist -Environment @{
 				PGDATA = "./data"
 			}
 		}

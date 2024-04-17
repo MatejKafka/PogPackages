@@ -9,6 +9,6 @@
 	}
 
 	Enable = {
-		Export-Command gping "./app/gping.exe" -Symlink
+		Export-Command gping "./app/gping.exe" -VcRedist
 	}
 }
