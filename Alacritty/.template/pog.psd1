@@ -5,14 +5,14 @@
 	
 	Install = @(
 		@{
-			Url = {$V = $this.Version; "https://github.com/alacritty/alacritty/releases/download/v${V}/Alacritty-v${V}-portable.exe"}
-			Hash = "{{TEMPLATE:HashExe}}"
+			Url = "{{TEMPLATE:ExeUrl}}"
+			Hash = "{{TEMPLATE:ExeHash}}"
 			NoArchive = $true
 			Target = "Alacritty.exe"
 		}
 		@{
-			Url = {$V = $this.Version; "https://github.com/alacritty/alacritty/releases/download/v${V}/alacritty.yml"}
-			Hash = "{{TEMPLATE:HashYml}}"
+			Url = "{{TEMPLATE:ConfigUrl}}"
+			Hash = "{{TEMPLATE:ConfigHash}}"
 			NoArchive = $true
 			Target = "alacritty-default.yml"
 		}
