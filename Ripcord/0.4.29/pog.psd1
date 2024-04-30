@@ -2,16 +2,16 @@
 	Name = "Ripcord"
 	Architecture = "x64"
 	Version = "0.4.29"
-	
+
 	Install = @{
 		Url = {"https://cancel.fm/dl/Ripcord_Win_$($this.Version).zip"}
 		Hash = "C7A393AC669D02C16828706521833DF06B690554368049545E47A1420FA8F04F"
 	}
-	
+
 	Enable = {
-		Set-SymlinkedPath "./app/portable_data" "./config" Directory
-		
-		Assert-File "./config/settings.ini" {
+		New-Symlink "./app/portable_data" "./config" Directory
+
+		New-File "./config/settings.ini" {
 			"[application]"
 			"automatic_check_updates=false"
 		} {
@@ -35,7 +35,7 @@
 			if (-not $Changed) {return}
 			$c | Set-Content $File
 		}
-		
+
 		Export-Shortcut "Ripcord" "./app/Ripcord.exe"
 	}
 }

@@ -17,9 +17,9 @@
 
 		$Env = $null
 		if (-not $NoEnvModifications) {
-			Assert-File "./config/gdb/gdbearlyinit"
-			Assert-File "./config/gdb/gdbinit"
-			Assert-File "./config/.inputrc"
+			New-File "./config/gdb/gdbearlyinit"
+			New-File "./config/gdb/gdbinit"
+			New-File "./config/.inputrc"
 			$Env = @{
 				XDG_CONFIG_HOME = "./config"
 				INPUTRC = "./config/.inputrc"

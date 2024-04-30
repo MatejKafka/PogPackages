@@ -11,7 +11,7 @@
 	}
 
 	Enable = {
-		Set-SymlinkedPath "./app/OpenedFilesView.cfg" "./config/OpenedFilesView.cfg" File
+		New-Symlink "./app/OpenedFilesView.cfg" "./config/OpenedFilesView.cfg" File
 
 		Export-Command "OpenedFilesView" "./app/OpenedFilesView.exe"
 		Export-Shortcut "OpenedFilesView" "./app/OpenedFilesView.exe"

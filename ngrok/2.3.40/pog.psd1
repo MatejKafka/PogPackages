@@ -10,8 +10,8 @@
 	}
 
 	Enable = {
-		Assert-Directory "./config"
-		Assert-File "./config/ngrok.yml"
+		New-Directory "./config"
+		New-File "./config/ngrok.yml"
 
 		Export-Command "ngrok" "./.pog/ngrok_wrapper.cmd"
 	}

@@ -9,9 +9,9 @@
 	}
 
 	Enable = {
-		Set-SymlinkedPath "./app/wwwroot" "./data/wwwroot" Directory
-		Set-SymlinkedPath "./app/dhcpsrv.ini" "./config/dhcpsrv.ini" File
-		Set-SymlinkedPath "./app/dhcptrc.txt" "./logs/dhcptrc.txt" File
+		New-Symlink "./app/wwwroot" "./data/wwwroot" Directory
+		New-Symlink "./app/dhcpsrv.ini" "./config/dhcpsrv.ini" File
+		New-Symlink "./app/dhcptrc.txt" "./logs/dhcptrc.txt" File
 
 		Disable-DisplayScaling "./app/dhcpsrv.exe"
 		Disable-DisplayScaling "./app/dhcpwiz.exe"

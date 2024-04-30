@@ -9,7 +9,7 @@
 	}
 
 	Enable = {
-		Assert-Directory "./data"
+		New-Directory "./data"
 
 		# TODO: todo figure out how to move log.txt to separate directory
 

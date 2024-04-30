@@ -12,8 +12,8 @@
 
 	# https://github.com/portapps/insomnia-portable/blob/master/main.go
 	Enable = {
-		Assert-Directory "./data"
-		Assert-Directory "./cache/AppData/Roaming/Insomnia"
+		New-Directory "./data"
+		New-Directory "./cache/AppData/Roaming/Insomnia"
 
 		Export-Shortcut "Insomnia" "./app/insomnia.exe" -Environment @{
 			INSOMNIA_DATA_PATH = "./data"

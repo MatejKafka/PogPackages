@@ -11,9 +11,9 @@
 	}
 
 	Enable = {
-		Set-SymlinkedPath "./app/conf" "./config" Directory
-		Assert-Directory "./data"
-		Assert-Directory "./data/repository"
+		New-Symlink "./app/conf" "./config" Directory
+		New-Directory "./data"
+		New-Directory "./data/repository"
 
 
 		# set local repository path

@@ -10,7 +10,7 @@
 	}
 
 	Enable = {
-		Assert-Directory "./cache"
+		New-Directory "./cache"
 
 		Export-Command "zig" "./app/zig.exe" -Environment @{
 			# https://ziglang.org/download/0.8.0/release-notes.html#Environment-Variable-Alternatives-to-CLI-Options

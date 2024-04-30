@@ -9,9 +9,9 @@
 	}
 
 	Enable = {
-		Assert-Directory "./data"
-		Set-SymlinkedPath "./app/language.ini" "./data/language.ini" File
-		Set-SymlinkedPath "./app/regshot.ini" "./data/regshot.ini" File
+		New-Directory "./data"
+		New-Symlink "./app/language.ini" "./data/language.ini" File
+		New-Symlink "./app/regshot.ini" "./data/regshot.ini" File
 
 		if ([Environment]::Is64BitOperatingSystem) {
 			Export-Shortcut "Regshot" "./app/Regshot-x64-Unicode.exe"

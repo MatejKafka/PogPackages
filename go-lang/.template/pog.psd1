@@ -9,11 +9,11 @@
 	}
 
 	Enable = {
-		Assert-Directory "./config"
-		Assert-Directory "./cache/build-cache"
-		Assert-Directory "./cache/mod-cache"
-		Assert-Directory "./data/go-bin"
-		Assert-Directory "./data/packages"
+		New-Directory "./config"
+		New-Directory "./cache/build-cache"
+		New-Directory "./cache/mod-cache"
+		New-Directory "./data/go-bin"
+		New-Directory "./data/packages"
 
 		# TODO: switch to writing ./config/goenv file in manifest and only set GOENV here
 		#  however, if user runs with GOENV disabled, go will start writing globally, which might be an issue

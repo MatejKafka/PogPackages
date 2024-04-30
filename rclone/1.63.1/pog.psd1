@@ -9,7 +9,7 @@
 	}
 
 	Enable = {
-		Assert-File "./config/rclone.conf"
+		New-File "./config/rclone.conf"
 
 		Export-Command "rclone" "./app/rclone.exe" -Arguments @("--config=" + (Resolve-Path "./config/rclone.conf"))
 	}

@@ -9,8 +9,8 @@
 	}
 
 	Enable = {
-		Assert-Directory "./config"
-		Set-SymlinkedPath "./app/WizTree3.ini" "./config/WizTree3.ini" File
+		New-Directory "./config"
+		New-Symlink "./app/WizTree3.ini" "./config/WizTree3.ini" File
 
 		Export-Shortcut "WizTree" "./app/WizTree64.exe"
 	}

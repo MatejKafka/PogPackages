@@ -13,7 +13,7 @@ expressiveness, and elegance (in that order of priority).
 		@{
 			Url = {"https://nim-lang.org/download/nim-$($this.Version)_x64.zip"}
 			Hash = "{{TEMPLATE:Hash}}"
-			SetupScript = {	
+			SetupScript = {
 				# use a fixed mingw path, custom nimblepath and custom compiler cache path
 				$Prefix = '# PATCHED OPTIONS FOR POG' + "`n" +`
 					'gcc.path = r"$nim\dist\mingw\bin"' + "`n" +`
@@ -39,20 +39,20 @@ expressiveness, and elegance (in that order of priority).
 	)
 
 	Enable = {
-		Assert-Directory "./config/nim"
-		Assert-Directory "./data/nimble"
-		Assert-Directory "./cache"
+		New-Directory "./config/nim"
+		New-Directory "./data/nimble"
+		New-Directory "./cache"
 
 		# https://github.com/nim-lang/Nim/blob/873eaa3f65f9ef96f3dc4430e8938d273f04f8e9/compiler/nimconf.nim#L232
 		# Nim looks for a user config dir at `%APPDATA%/nim`
 		Export-Command "nim" "./app/bin/nim.exe" -Environment @{APPDATA = "./config"}
-		
+
 		# https://github.com/nim-lang/nimble/blob/412af022a44157dd17118432fba825da9f204125/src/nimblepkg/config.nim#L41
 		# Nimble looks for a config file at `%APPDATA%/nimble/nimble.ini`
 		Export-Command "nimble" "./app/bin/nimble.exe" `
 			-Arguments @("--nimbleDir:$(Resolve-Path "./data/nimble")") `
 			-Environment @{APPDATA = "./data"}
-		
+
 		# TODO: add other commands
 	}
 }

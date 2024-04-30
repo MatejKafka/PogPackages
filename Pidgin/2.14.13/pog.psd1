@@ -22,7 +22,7 @@
 	)
 
 	Enable = {
-		Set-SymlinkedPath "./app/.purple" "./data" Directory
+		New-Symlink "./app/.purple" "./data" Directory
 		Disable-DisplayScaling "./app/pidgin/pidgin.exe"
 
 		Export-Shortcut "Pidgin" "./app/pidgin/pidgin.exe" -Environment @{

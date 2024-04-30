@@ -9,9 +9,9 @@
 	}
 
 	Enable = {
-		Set-SymlinkedPath "./app/zeal.ini" "./data/zeal.ini" File
-		Set-SymlinkedPath "./app/docsets" "./data/docsets" Directory
-		Set-SymlinkedPath "./app/cache" "./cache" Directory
+		New-Symlink "./app/zeal.ini" "./data/zeal.ini" File
+		New-Symlink "./app/docsets" "./data/docsets" Directory
+		New-Symlink "./app/cache" "./cache" Directory
 
 		Export-Shortcut Zeal "./app/zeal.exe"
 	}

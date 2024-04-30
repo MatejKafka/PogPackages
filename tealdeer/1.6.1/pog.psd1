@@ -11,12 +11,12 @@
 	}
 
 	Enable = {
-		Assert-Directory "./config"
-		Assert-Directory "./config/custom_pages"
-		Assert-Directory "./cache"
+		New-Directory "./config"
+		New-Directory "./config/custom_pages"
+		New-Directory "./cache"
 
 		# TODO: fix existing config
-		Assert-File "./config/config.toml" $this._GetDefaultConfig
+		New-File "./config/config.toml" $this._GetDefaultConfig
 
 		Export-Command @("tealdeer", "tldr") "./app/tealdeer.exe" -VcRedist -Environment @{
 			TEALDEER_CONFIG_DIR = "./config"

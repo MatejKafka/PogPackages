@@ -9,7 +9,7 @@
 	}
 
 	Enable = {
-		Assert-File "./config/aria2.conf"
+		New-File "./config/aria2.conf"
 
 		Export-Command "aria2c" "./app/aria2c.exe" -Arguments @("--conf-path=" + (Resolve-Path "./config/aria2.conf"))
 	}

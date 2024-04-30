@@ -13,7 +13,7 @@
 	Enable = {
 		Write-Warning "Wireshark updater currently writes to registry (HKCU/Software/Wireshark)."
 
-		Assert-Directory "./data"
+		New-Directory "./data"
 
 		Export-Shortcut "Wireshark" "./app/Wireshark.exe" -VcRedist `
 			-Arguments @("-o", "gui.update.enabled:FALSE") `

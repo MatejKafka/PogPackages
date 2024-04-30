@@ -9,7 +9,7 @@
 	}
 
 	Enable = {
-		Assert-Directory "./data"
+		New-Directory "./data"
 
 		Export-Shortcut "Drawpile" "./app/drawpile.exe" -Arguments @("--portable-data-dir", "./data") -VcRedist
 	}

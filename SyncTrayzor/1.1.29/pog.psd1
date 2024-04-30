@@ -9,15 +9,15 @@
 	}
 
 	Enable = {
-		Assert-Directory "./data"
-		Assert-Directory "./logs"
+		New-Directory "./data"
+		New-Directory "./logs"
 
 		& $this._UpdateXmlFile "./app/SyncTrayzor.exe.config" {
 			param($Config)
 
 			# disable autoupdate
 			$Config.configuration.settings.DefaultUserConfiguration.NotifyOfNewVersions = "false"
-			
+
 			# configure data/logs paths; by default, all paths are inside the ./app directory, by adding ..\, we move them one level up;
 			#  conveniently, all directory names match the Pog convention
 			foreach ($PathNode in $Config.configuration.settings.PathConfiguration.ChildNodes | ? NodeType -eq Element) {

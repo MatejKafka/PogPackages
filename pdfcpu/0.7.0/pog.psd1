@@ -9,7 +9,7 @@
 	}
 
 	Enable = {
-		Assert-Directory "./config"
+		New-Directory "./config"
 
 		Export-Command "pdfcpu" "./app/pdfcpu.exe" -Environment @{APPDATA = "./config"}
 	}

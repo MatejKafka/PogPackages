@@ -13,9 +13,9 @@
 	# TODO: open PRs to add env vars for other paths
 	#  https://github.com/helix-editor/helix/blob/master/helix-loader/src/lib.rs#L135
 	Enable = {
-		Assert-Directory "./data/helix/runtime"
-		Assert-Directory "./cache/helix"
-		Assert-File "./config/config.toml"
+		New-Directory "./data/helix/runtime"
+		New-Directory "./cache/helix"
+		New-File "./config/config.toml"
 
 		Export-Command "hx" "./app/hx.exe" -VcRedist `
 			-Arguments @("--config", "./config/config.toml") `

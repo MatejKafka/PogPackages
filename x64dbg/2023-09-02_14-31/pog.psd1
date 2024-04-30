@@ -10,11 +10,11 @@
 	}
 
 	Enable = {
-		Assert-Directory "./data"
+		New-Directory "./data"
 
 		# see https://github.com/x64dbg/x64dbg/blob/dd91e4376a6d9e6cd3f2a6058e4e85d67ed1c54f/src/bridge/bridgemain.cpp#L99
-		Assert-File "./app/x64/userdir" -FixedContent "../../data"
-		Assert-File "./app/x86/userdir" -FixedContent "../../data"
+		New-File "./app/x64/userdir" -FixedContent "../../data"
+		New-File "./app/x86/userdir" -FixedContent "../../data"
 
 		Export-Shortcut "x64dbg" "./app/x64/x64dbg.exe"
 	}

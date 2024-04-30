@@ -2,17 +2,17 @@
 	Name = "Inkscape"
 	Architecture = "x64"
 	Version = "{{TEMPLATE:Version}}"
-	
+
 	Install = @{
 		Url = "{{TEMPLATE:Url}}"
 		Hash = "{{TEMPLATE:Hash}}"
 	}
-	
-	Enable = {
-		Assert-Directory "./data"
-		Assert-Directory "./cache"
 
-		Assert-File "./data/fontconfig.conf.xml" -FixedContent $this._FontConfig
+	Enable = {
+		New-Directory "./data"
+		New-Directory "./cache"
+
+		New-File "./data/fontconfig.conf.xml" -FixedContent $this._FontConfig
 
 		Export-Shortcut "Inkscape" "./app/bin/inkscape.exe" -Environment @{
 			# directory for Inkscape data

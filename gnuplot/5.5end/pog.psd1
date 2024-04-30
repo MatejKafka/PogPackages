@@ -9,8 +9,8 @@
 	}
 
 	Enable = {
-		Assert-File "./config/gnuplot.ini"
-		Assert-File "./config/wgnuplot.ini"
+		New-File "./config/gnuplot.ini"
+		New-File "./config/wgnuplot.ini"
 
 		Export-Command "gnuplot" "./app/bin/gnuplot.exe" -Environment @{GNUPLOT = "./config"}
 	}

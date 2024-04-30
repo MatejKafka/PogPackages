@@ -11,7 +11,7 @@
 	}
 
 	Enable = {
-		Assert-File "./config/jjconfig.toml"
+		New-File "./config/jjconfig.toml"
 
 		Export-Command "jj" "./app/jj.exe" -Environment @{JJ_CONFIG = "./config/jjconfig.toml"} -VcRedist
 	}

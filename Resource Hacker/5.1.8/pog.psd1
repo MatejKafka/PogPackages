@@ -10,8 +10,8 @@
 	}
 
 	Enable = {
-		Assert-Directory "./config"
-		Set-SymlinkedPath "./app/ResourceHacker.ini" "./config/ResourceHacker.ini" File
+		New-Directory "./config"
+		New-Symlink "./app/ResourceHacker.ini" "./config/ResourceHacker.ini" File
 
 		Export-Shortcut "Resource Hacker" "./app/ResourceHacker.exe"
 	}

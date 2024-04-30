@@ -9,7 +9,7 @@
 	}
 
 	Enable = {
-		Assert-Directory "./config"
+		New-Directory "./config"
 
 		Export-Command "emacs" "./app/bin/emacs.exe" -Environment @{HOME = "./config"}
 		Export-Shortcut "Emacs" "./app/bin/runemacs.exe" -Environment @{HOME = "./config"}

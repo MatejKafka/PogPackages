@@ -2,7 +2,7 @@
 	Name = "SystemInformer"
 	Version = "3.0.5578"
 	Architecture = "x64"
-	
+
 	# NOTE: to unlock the kernel driver file, use `fltmc unload KSystemInformer`;
 	#  then there's ksi.dll, I did not find any good way to unlock it, you'll probably need to restart
 	Install = @{
@@ -18,16 +18,16 @@
 				[switch]
 			$NoKernelDriver
 		)
-	
+
 		$SettingsRelPath = "./config/SystemInformer.exe.settings.xml"
-	
-		Assert-Directory "./config"
+
+		New-Directory "./config"
 		# ensure auto-updates are disabled
-		Assert-File $SettingsRelPath {$this._DefaultConfig} $this._DisableAutoUpdate
+		New-File $SettingsRelPath {$this._DefaultConfig} $this._DisableAutoUpdate
 
 		# `-settings` CLI argument was removed in 2022, dunno why
-		Set-SymlinkedPath "./app/SystemInformer.exe.settings.xml" $SettingsRelPath File
-		Set-SymlinkedPath "./app/usernotesdb.xml" "./config/usernotesdb.xml" File
+		New-Symlink "./app/SystemInformer.exe.settings.xml" $SettingsRelPath File
+		New-Symlink "./app/usernotesdb.xml" "./config/usernotesdb.xml" File
 
 		# args list here: https://wj32.org/processhacker/forums/viewtopic.php?t=75
 		$Args = @()

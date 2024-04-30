@@ -9,8 +9,8 @@
 	}
 
 	Enable = {
-		Assert-Directory "./data"
-		Assert-Directory "./cache"
+		New-Directory "./data"
+		New-Directory "./cache"
 
 		Export-Command "carapace" "./app/carapace.exe" -Environment @{
 			APPDATA = "./data"

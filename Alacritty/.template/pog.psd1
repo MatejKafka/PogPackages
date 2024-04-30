@@ -2,7 +2,7 @@
 	Name = "Alacritty"
 	Architecture = "x64"
 	Version = "{{TEMPLATE:Version}}"
-	
+
 	Install = @(
 		@{
 			Url = "{{TEMPLATE:ExeUrl}}"
@@ -17,10 +17,10 @@
 			Target = "alacritty-default.yml"
 		}
 	)
-	
+
 	Enable = {
 		# if config file does not exist, use the default one
-		Assert-File "./config/alacritty.yml" "./app/alacritty-default.yml"
+		New-File "./config/alacritty.yml" "./app/alacritty-default.yml"
 
 		Export-Shortcut "Alacritty" "./app/Alacritty.exe" `
 			-Arguments @("--config-file", "./config/alacritty.yml") `

@@ -9,7 +9,7 @@
 	}
 
 	Enable = {
-		Set-SymlinkedPath "./app/res/conf" "./config" Directory
+		New-Symlink "./app/res/conf" "./config" Directory
 
 		Export-Command "pea" "./app/pea.exe"
 		Export-Command "peazip" "./app/peazip.exe"

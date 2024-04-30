@@ -9,8 +9,8 @@
 	}
 
 	Enable = {
-		Assert-Directory "./config"
-		
+		New-Directory "./config"
+
 		Export-Command "lazygit" "./app/lazygit.exe" -Environment @{CONFIG_DIR = "./config"}
 	}
 }

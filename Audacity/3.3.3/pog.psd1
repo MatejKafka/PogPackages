@@ -12,10 +12,10 @@
 		# https://github.com/audacity/audacity/blob/51febec851647ccc2d5c0a96723d2532b7f4077c/libraries/lib-files/PathList.cpp#L144
 		Write-Warning "Audacity always creates 'AppData/Local/Audacity', even though it does not write anything there."
 
-		Assert-Directory "./cache"
-		Set-SymlinkedPath "./app/Portable Settings" "./data" Directory
+		New-Directory "./cache"
+		New-Symlink "./app/Portable Settings" "./data" Directory
 		# TODO: updater
-		Assert-File "./data/Audacity.cfg" $this._DefaultConfigSb
+		New-File "./data/Audacity.cfg" $this._DefaultConfigSb
 
 		Disable-DisplayScaling "./app/Audacity.exe"
 		Export-Shortcut "Audacity" "./app/Audacity.exe"

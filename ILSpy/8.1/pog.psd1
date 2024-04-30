@@ -9,9 +9,9 @@
 	}
 
 	Enable = {
-		Assert-File "./config/ILSpy.xml" {$this._DefaultConfig}
+		New-File "./config/ILSpy.xml" {$this._DefaultConfig}
 		# ILSpy uses a local config file if it exists
-		Set-SymlinkedPath "./app/ILSpy.xml" "./config/ILSpy.xml" File
+		New-Symlink "./app/ILSpy.xml" "./config/ILSpy.xml" File
 
 		Export-Shortcut "ILSpy" "./app/ILSpy.exe"
 	}

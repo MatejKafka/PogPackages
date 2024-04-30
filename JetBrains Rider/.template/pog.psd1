@@ -9,19 +9,19 @@
 	}
 
 	Enable = {
-		Assert-Directory "./config"
-		Assert-Directory "./config/config"
-		Assert-Directory "./cache"
-		Assert-Directory "./data"
-		Assert-Directory "./data/plugins"
-		Assert-Directory "./logs"
+		New-Directory "./config"
+		New-Directory "./config/config"
+		New-Directory "./cache"
+		New-Directory "./data"
+		New-Directory "./data/plugins"
+		New-Directory "./logs"
 
 		# TODO: check content for existing file
-		Assert-File "./config/idea.properties" {$this._IdeaProperties}
-		Assert-File "./config/rider64.exe.vmoptions" "./app/bin/rider64.exe.vmoptions"
+		New-File "./config/idea.properties" {$this._IdeaProperties}
+		New-File "./config/rider64.exe.vmoptions" "./app/bin/rider64.exe.vmoptions"
 
 		# ensure auto-updates are disabled
-		Assert-File "./config/config/options/updates.xml" {$this._UpdatesXml} $this._DisableAutoUpdate
+		New-File "./config/config/options/updates.xml" {$this._UpdatesXml} $this._DisableAutoUpdate
 
 		$Env = @{
 			RIDER_PROPERTIES = "./config/idea.properties"

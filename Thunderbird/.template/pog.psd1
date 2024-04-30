@@ -20,18 +20,18 @@
 	Enable = {
 		Write-Warning "Thunderbird crash reporter writes to registry."
 
-		Assert-Directory "./data"
-		Assert-Directory "./cache"
+		New-Directory "./data"
+		New-Directory "./cache"
 
-		Set-SymlinkedPath "./data/datareporting" "./cache/datareporting" Directory
-		Set-SymlinkedPath "./data/cache2" "./cache/cache2" Directory
+		New-Symlink "./data/datareporting" "./cache/datareporting" Directory
+		New-Symlink "./data/cache2" "./cache/cache2" Directory
 
 		Export-Shortcut "Thunderbird" "./app/thunderbird.exe" `
 			-Arguments @("-profile", "./data", "--allow-downgrade") `
 			-Environment @{
 				# FIXME: this does not seem to work, unlike with Firefox
 				# disable crash reporter, it writes to AppData
-				MOZ_CRASHREPORTER_DISABLE = 1				
+				MOZ_CRASHREPORTER_DISABLE = 1
 			}
 	}
 

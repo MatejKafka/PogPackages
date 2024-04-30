@@ -9,8 +9,8 @@
 	}
 
 	Enable = {
-		Assert-Directory "./config"
-		Assert-Directory "./data"
+		New-Directory "./config"
+		New-Directory "./data"
 
 		Export-Command "gh" "./app/bin/gh.exe" -Environment @{
 			GH_CONFIG_DIR = "./config"

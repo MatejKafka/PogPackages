@@ -15,8 +15,8 @@
 	}
 
 	Enable = {
-		Assert-Directory "./config"
-		
+		New-Directory "./config"
+
 		$Env = [ordered]@{
 			# prevent Git from looking for systemwide config
 			GIT_CONFIG_NOSYSTEM = 1

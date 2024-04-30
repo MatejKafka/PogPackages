@@ -12,7 +12,7 @@
 	Enable = {
 		# https://bugs.launchpad.net/qemu/+bug/1766841
 		# seems this file has to exist, even if empty, otherwise qemu-system-... binaries print a warning
-		Assert-File "./app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache"
+		New-File "./app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache"
 
 		# export all emulator binaries compiled for console (no -w sufix) as commands
 		ls ./app -File | ? {$_.Name -match "qemu-system-.+[^w]\.exe"} | % {

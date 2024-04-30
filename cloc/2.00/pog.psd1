@@ -11,7 +11,7 @@
 	}
 
 	Enable = {
-		Assert-File "./config/options.txt"
+		New-File "./config/options.txt"
 
 		Export-Command "cloc" "./app/cloc.exe" -Arguments @("--config", "./config/options.txt")
 	}

@@ -9,9 +9,9 @@
 	}
 
 	Enable = {
-		Assert-Directory "./data"
+		New-Directory "./data"
 
-		Set-SymlinkedPath "./app/lessmsi-gui.exe.config" "./data/lessmsi-gui.exe.config" File
+		New-Symlink "./app/lessmsi-gui.exe.config" "./data/lessmsi-gui.exe.config" File
 
 		Disable-DisplayScaling "./app/lessmsi-gui.exe"
 

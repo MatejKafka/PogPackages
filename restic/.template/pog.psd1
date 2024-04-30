@@ -2,7 +2,7 @@
 	Name = "restic"
 	Architecture = "x64"
 	Version = "{{TEMPLATE:Version}}"
-	
+
 	Install = @{
 		Url = {$V = $this.Version; "https://github.com/restic/restic/releases/download/v${V}/restic_${V}_windows_amd64.zip"}
 		Hash = "{{TEMPLATE:Hash}}"
@@ -18,8 +18,8 @@
 	}
 
 	Enable = {
-		Assert-Directory "./cache"
-	
+		New-Directory "./cache"
+
 		Export-Command "restic" "./app/restic.exe" -Arguments @("--cache-dir", "./cache")
 	}
 }

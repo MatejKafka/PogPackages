@@ -15,12 +15,13 @@
 		# sigh, they're somehow managing to do everything wrong, even as an official extension from MS
 		Write-Warning "vscode-cpptools creates empty subdirectories at AppData/Local/Microsoft/vscode-cpptools."
 
-		Assert-Directory "./config"
-		Assert-Directory "./data"
-		Assert-Directory "./cache/cpptools"
+		New-Directory "./config"
+		New-Directory "./data"
+		New-Directory "./data/cli"
+		New-Directory "./cache/cpptools"
 
 		# ensure auto-update is disabled and vscode-cpptools use our cache directory
-		Assert-File "./config/settings.json" {
+		New-File "./config/settings.json" {
 			ConvertTo-Json @{
 				"update.mode" = "none"
 				"C_Cpp.intelliSenseCachePath" = '${env:VSCODE_CPPTOOLS_CACHE}'
@@ -39,9 +40,9 @@
 			}
 		}
 
-		Set-SymlinkedPath "./data/user-data/User/keybindings.json" "./config/keybindings.json" File
-		Set-SymlinkedPath "./data/user-data/User/settings.json" "./config/settings.json" File
-		Set-SymlinkedPath "./data/user-data/logs" "./logs" Directory
+		New-Symlink "./data/user-data/User/keybindings.json" "./config/keybindings.json" File
+		New-Symlink "./data/user-data/User/settings.json" "./config/settings.json" File
+		New-Symlink "./data/user-data/logs" "./logs" Directory
 
 		$Env = @{VSCODE_PORTABLE = "./data"; VSCODE_CLI_DATA_DIR = "./data/cli"; VSCODE_CPPTOOLS_CACHE = "./cache/cpptools"}
 		Export-Command "Code" "./app/Code.exe" -Environment $Env

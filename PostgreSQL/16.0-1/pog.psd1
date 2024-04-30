@@ -9,7 +9,7 @@
 	}
 
 	Enable = {
-		Assert-Directory "./data"
+		New-Directory "./data"
 
 		ls ./app/bin -File -Filter *.exe | % {
 			$Name = [IO.Path]::GetFileNameWithoutExtension($_)

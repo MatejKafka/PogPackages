@@ -8,9 +8,9 @@
 	}
 
 	Enable = {
-		Set-SymlinkedPath "./app/Settings" "./data/Settings" Directory
-		Set-SymlinkedPath "./app/Bookmarks/User" "./data/UserBookmarks" Directory
-		Set-SymlinkedPath "./app/logs" "./logs" Directory
+		New-Symlink "./app/Settings" "./data/Settings" Directory
+		New-Symlink "./app/Bookmarks/User" "./data/UserBookmarks" Directory
+		New-Symlink "./app/logs" "./logs" Directory
 
 		Disable-DisplayScaling "./app/RegistryExplorer.exe"
 

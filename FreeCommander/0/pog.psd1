@@ -9,12 +9,12 @@
 	}
 
 	Enable = {
-		Assert-Directory "./data" {
+		New-Directory "./data" {
 			param($Dir)
 			Copy-Item -Recurse "./app/Settings" $Dir
 		}
-		Assert-File "./app/fcStart.ini" -FixedContent $this._fcStartIni
-		Assert-File "./data/Settings/FreeCommander.ini" -DefaultContent {$this._defaultConfig}
+		New-File "./app/fcStart.ini" -FixedContent $this._fcStartIni
+		New-File "./data/Settings/FreeCommander.ini" -DefaultContent {$this._defaultConfig}
 
 		Export-Shortcut "FreeCommander" "./app/FreeCommander.exe"
 	}

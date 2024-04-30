@@ -9,9 +9,9 @@
 	}
 
 	Enable = {
-		Assert-Directory "./config"
+		New-Directory "./config"
 		# the config file must be a valid JSON (e.g. not empty)
-		Assert-File "./config/config.json" {"{}"}
+		New-File "./config/config.json" {"{}"}
 
 		Export-Command "qrcp" "./app/qrcp.exe" -Arguments @("--config", "./config/config.json")
 	}

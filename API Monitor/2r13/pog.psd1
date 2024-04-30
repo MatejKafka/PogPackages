@@ -9,8 +9,8 @@
 	}
 
 	Enable = {
-		Set-SymlinkedPath "./app/Settings.ini" "./config/Settings.ini" File
-		Set-SymlinkedPath "./app/Filters.xml" "./config/Filters.xml" File
+		New-Symlink "./app/Settings.ini" "./config/Settings.ini" File
+		New-Symlink "./app/Filters.xml" "./config/Filters.xml" File
 
 		Export-Shortcut "API Monitor" "./app/apimonitor-x64.exe"
 		Export-Shortcut "API Monitor (x86)" "./app/apimonitor-x86.exe"

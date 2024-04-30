@@ -17,9 +17,9 @@ any type of process which can be described in terms of targets and tasks.
 	}
 
 	Enable = {
-		Assert-Directory "./data/lib"
-		Assert-File "./data/antrc_pre.bat"
-		Assert-File "./data/antrc_post.bat"
+		New-Directory "./data/lib"
+		New-File "./data/antrc_pre.bat"
+		New-File "./data/antrc_post.bat"
 
 		# TODO: probably run the .jar directly, or with a small custom launcher,
 		#       so that we don't need to override so many env vars

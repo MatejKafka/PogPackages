@@ -9,13 +9,13 @@
 	}
 
 	Enable = {
-		Assert-Directory "./data"
-		Assert-Directory "./cache/symcache"
-		Assert-Directory "./logs"
+		New-Directory "./data"
+		New-Directory "./cache/symcache"
+		New-Directory "./logs"
 
 
 		$CmdEnv = @{DYNAMORIO_CONFIGDIR = "./data"}
-		
+
 		# TODO: should we pass logdir? if the default is always the CWD, probably drop it
 
 		Export-Command "drmemory" "./app/bin64/drmemory.exe" -ReplaceArgv0 -Environment $CmdEnv `

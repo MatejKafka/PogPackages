@@ -2,14 +2,14 @@
 	Name = "QtRVSim"
 	Architecture = "x64"
 	Version = "{{TEMPLATE:Version}}"
-	
+
 	Install = @{
 		Url = {$V = $this.Version; "https://github.com/cvut/qtrvsim/releases/download/v${V}/qtrvsim-mingw32-v${V}.zip"}
 		Hash = "{{TEMPLATE:Hash}}"
 	}
-	
+
 	Enable = {
-		Assert-Directory "./data"
+		New-Directory "./data"
 
 		# qtrvsim commands don't access the config, no need to override
 		Export-Command "qtrvsim" "./app/qtrvsim_cli.exe"

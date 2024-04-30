@@ -10,7 +10,7 @@
 	}
 
 	Enable = {
-		Assert-Directory "./data"
+		New-Directory "./data"
 
 		Export-Shortcut Anki "./app/anki.exe" -Arguments @("-b", "./data")
 	}

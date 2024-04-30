@@ -11,8 +11,8 @@
 	}
 
 	Enable = {
-		Assert-Directory "./config"
-		Set-SymlinkedPath "./app/RegView.ini" "./config/RegView.ini" File
+		New-Directory "./config"
+		New-Symlink "./app/RegView.ini" "./config/RegView.ini" File
 
 		Disable-DisplayScaling "./app/RegView.exe"
 

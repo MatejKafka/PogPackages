@@ -9,7 +9,7 @@
 	}
 
 	Enable = {
-		Assert-File "./config/gtkwave.ini"
+		New-File "./config/gtkwave.ini"
 
 		Export-Command "gtkwave" "./app/bin/gtkwave.exe" -Arguments @("--rcfile=" + (Resolve-Path "./config/gtkwave.ini"))
 		Export-Shortcut "GTKWave" "./app/bin/gtkwave.exe" -Arguments @("--rcfile=" + (Resolve-Path "./config/gtkwave.ini"))

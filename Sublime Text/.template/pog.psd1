@@ -12,13 +12,13 @@
 		Write-Warning "TODO: Disable autoupdate"
 
 		if ([int]$this.Version -ge 4035) {
-			Set-SymlinkedPath "./app/Data" "./data" Directory
+			New-Symlink "./app/Data" "./data" Directory
 		} else {
 			# have to force an absolute path for the ./app/Data symlink due to https://github.com/sublimehq/sublime_text/issues/5525
-			Assert-Directory "./data"
-			Set-SymlinkedPath "./app/Data" (Resolve-Path "./data") Directory
+			New-Directory "./data"
+			New-Symlink "./app/Data" (Resolve-Path "./data") Directory
 		}
-		
+
 		Export-Command "subl" "./app/subl.exe"
 		Export-Shortcut "Sublime Text" "./app/sublime_text.exe"
 	}
