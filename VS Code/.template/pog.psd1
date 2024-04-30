@@ -43,7 +43,7 @@
 		Set-SymlinkedPath "./data/user-data/User/settings.json" "./config/settings.json" File
 		Set-SymlinkedPath "./data/user-data/logs" "./logs" Directory
 
-		$Env = @{VSCODE_PORTABLE = "./data"; VSCODE_CPPTOOLS_CACHE = "./cache/cpptools"}
+		$Env = @{VSCODE_PORTABLE = "./data"; VSCODE_CLI_DATA_DIR = "./data/cli"; VSCODE_CPPTOOLS_CACHE = "./cache/cpptools"}
 		Export-Command "Code" "./app/Code.exe" -Environment $Env
 		Export-Shortcut "Visual Studio Code (VS Code)" "./app/Code.exe" -Environment $Env
 	}
