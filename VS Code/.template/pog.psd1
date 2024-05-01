@@ -36,7 +36,7 @@
 			$NewSettingsStr = $NewSettingsStr -replace '("C_Cpp.intelliSenseCachePath"\s*:\s*)".*?(?<!\\)"', '$1"${env:VSCODE_CPPTOOLS_CACHE}"'
 			$NewSettingsStr = $NewSettingsStr -replace '("C_Cpp.default.browse.databaseFilename"\s*:\s*)".*?(?<!\\)"', '$1"${env:VSCODE_CPPTOOLS_CACHE}/.BROWSE.VC.DB"'
 			if ($NewSettingsStr -ne $SettingsStr) {
-				Set-Content $_ $NewSettingsStr
+				Set-Content $_ $NewSettingsStr -NoNewline
 			}
 		}
 
