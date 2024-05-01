@@ -4,7 +4,7 @@
 	Version = "{{TEMPLATE:Version}}"
 
 	Install = @{
-		Url = {$V = $this.Version; "https://github.com/restic/restic/releases/download/v${V}/restic_${V}_windows_amd64.zip"}
+		Url = "{{TEMPLATE:Url}}"
 		Hash = "{{TEMPLATE:Hash}}"
 
 		SetupScript = {
