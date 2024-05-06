@@ -4,7 +4,7 @@
 	Architecture = "x64"
 
 	Install = @{
-		Url = {$V = $this.Version; "https://github.com/syncthing/syncthing/releases/download/v${V}/syncthing-windows-amd64-v${V}.zip"}
+		Url = "{{TEMPLATE:Url}}"
 		Hash = "{{TEMPLATE:Hash}}"
 	}
 
