@@ -14,7 +14,7 @@
 	Version = "{{TEMPLATE:Version}}"
 
 	Install = @{
-		Url = {$V = $this.Version; "https://nodejs.org/dist/v${V}/node-v${V}-win-x64.zip"}
+		Url = "{{TEMPLATE:Url}}"
 		Hash = "{{TEMPLATE:Hash}}"
 	}
 
