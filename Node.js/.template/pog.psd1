@@ -4,12 +4,12 @@
 #  which seems too much like shotgunning it to me
 # TODO: do something about this
 
-# TODO: add nodejs/data/npm to PATH
+# TODO: add Node.js/data/npm to PATH
 # TODO: optional dependency - git (allows downloading modules from git repo)
 #   - can be set explicitly with `npm config set git <path-to-git.exe>`
 
 @{
-	Name = "nodejs"
+	Name = "Node.js"
 	Architecture = "x64"
 	Version = "{{TEMPLATE:Version}}"
 
