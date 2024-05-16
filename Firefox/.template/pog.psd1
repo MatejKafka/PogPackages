@@ -24,20 +24,22 @@
 		New-Symlink "./data/datareporting" "./cache/datareporting" Directory
 		New-Symlink "./data/cache2" "./cache/cache2" Directory
 
-		# originally, `--allow-downgrade` was also passed, but that breaks opening files/URLs by passing them as aguments
-		$Arg = @("-profile", "./data")
-		$EnvVars = @{
-			# disable crash reporter, it writes to AppData
-			MOZ_CRASHREPORTER_DISABLE = 1
-
-			# FIXME: these are apparently internal, and Firefox overrides them when starting the crash reporter
-			#MOZ_CRASHREPORTER_DATA_DIRECTORY = "./cache/crashreporter"
-			#MOZ_CRASHREPORTER_EVENTS_DIRECTORY = "./cache/events"
-			#MOZ_CRASHREPORTER_PING_DIRECTORY = "./cache/pings"
+		$Args = @{
+			# originally, `--allow-downgrade` was also passed, but that breaks opening files/URLs by passing them as aguments
+			Arguments = @("-profile", "./data")
+			Environment = @{
+				# disable crash reporter, it writes to AppData
+				MOZ_CRASHREPORTER_DISABLE = 1
+				# FIXME: these are apparently internal, and Firefox overrides them when starting the crash reporter
+				#MOZ_CRASHREPORTER_DATA_DIRECTORY = "./cache/crashreporter"
+				#MOZ_CRASHREPORTER_EVENTS_DIRECTORY = "./cache/events"
+				#MOZ_CRASHREPORTER_PING_DIRECTORY = "./cache/pings"
+			}
 		}
 
-		Export-Shortcut "Firefox" "./app/firefox.exe" -Arguments $Arg -Environment $EnvVars
-		Export-Shortcut "Firefox Private Browsing" "./app/private_browsing.exe" -Arguments $Arg -Environment $EnvVars
+		Export-Command "firefox" "./app/firefox.exe" @Args
+		Export-Shortcut "Firefox" "./app/firefox.exe" @Args
+		Export-Shortcut "Firefox Private Browsing" "./app/private_browsing.exe" @Args
 	}
 
 	_PolicyJson = @'
