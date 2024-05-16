@@ -1,11 +1,11 @@
-﻿param([Parameter(Mandatory)]$RemoteRepoDir)
+﻿param([Parameter(Mandatory)][string]$RemoteRepoDir, [Parameter(Mandatory)][string]$SourceRepoDir)
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
-# use the local repository, instead of the default remote repo
-$env:POG_LOCAL_REPOSITORY_PATH = pwd
 Import-Module Pog
+# use the local repository, instead of the default remote repo
+Set-PogRepository $SourceRepoDir
 
 $null = mkdir -Force $RemoteRepoDir
 cd $RemoteRepoDir
@@ -22,7 +22,7 @@ $Packages | % {
 $VersionMap | ConvertTo-Json -Depth 100 -Compress > index.html
 
 # TODO: build in parallel
-$TmpPackage = New-PogImportedPackage _zip_export
+$TmpPackage = New-PogPackage _zip_export
 try {
     $Packages | % {
         $null = mkdir $_.PackageName

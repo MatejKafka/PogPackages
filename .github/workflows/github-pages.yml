@@ -38,7 +38,7 @@ jobs:
           Add-Content $env:GITHUB_ENV "PSModulePath=$env:PSModulePath"
 
       - name: Build remote repository
-        run: pwsh -noprofile .github\build-remote-repo.ps1 D:\remote-repo
+        run: pwsh -noprofile .github\build-remote-repo.ps1 D:\remote-repo .
 
       - uses: actions/upload-pages-artifact@v3
         with:
