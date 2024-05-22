@@ -16,7 +16,7 @@
 		New-Directory "./cache"
 
 		# TODO: fix existing config
-		New-File "./config/config.toml" $this._GetDefaultConfig
+		New-File "./config/config.toml" $this._GetDefaultConfig $this._PatchConfig
 
 		Export-Command @("tealdeer", "tldr") "./app/tealdeer.exe" -VcRedist -Environment @{
 			TEALDEER_CONFIG_DIR = "./config"
@@ -24,6 +24,35 @@
 	}
 
 	_GetPath = {param($p) (Resolve-Path $p) -replace "\\", "\\" -replace '"', '\"'}
+
+	# FIXME: not very robust
+	_PatchConfig = {
+		$Config = cat -Raw $_
+		$NewConfig = $Config
+
+		$ValI = $NewConfig.IndexOf("`ncache_dir")
+		if ($ValI -ne -1) {
+			$EndLine = $NewConfig.IndexOf("`n", $ValI + 1)
+			if ($EndLine -eq -1) {$EndLine = $NewConfig.Length}
+			$NewConfig = $NewConfig.Substring(0, $ValI + 1) +`
+				"cache_dir = `"$(& $this._GetPath "./cache")`"" +`
+				$NewConfig.Substring($EndLine, $NewConfig.Length - $EndLine)
+		}
+
+		$ValI = $NewConfig.IndexOf("`ncustom_pages_dir")
+		if ($ValI -ne -1) {
+			$EndLine = $NewConfig.IndexOf("`n", $ValI + 1)
+			if ($EndLine -eq -1) {$EndLine = $NewConfig.Length}
+			$NewConfig = $NewConfig.Substring(0, $ValI + 1) +`
+				"custom_pages_dir = `"$(& $this._GetPath "./config/custom_pages")`"" +`
+				$NewConfig.Substring($EndLine, $NewConfig.Length - $EndLine)
+		}
+
+		if ($NewConfig -ne $Config) {
+			Set-Content $_ $NewConfig -NoNewline
+		}
+	}
+
 	_GetDefaultConfig = {@"
 [style.description]
 underline = false
