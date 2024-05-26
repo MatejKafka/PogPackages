@@ -9,7 +9,7 @@
 	}
 
 	Enable = {
-		New-Directory "./data"
+		New-File "./data/qtrvsim_gui.ini"
 
 		# qtrvsim commands don't access the config, no need to override
 		Export-Command "qtrvsim" "./app/qtrvsim_cli.exe"

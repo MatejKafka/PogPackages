@@ -4,8 +4,7 @@
 	Version = "{{TEMPLATE:Version}}"
 
 	Install = @{
-		Url = {$V = $this.Version; "https://downloads.sourceforge.net/project/qbittorrent/qbittorrent-win32/" +`
-			"qbittorrent-${V}/qbittorrent_${V}_x64_setup.exe"}
+		Url = "{{TEMPLATE:Url}}"
 		Hash = "{{TEMPLATE:Hash}}"
 		UserAgent = "Wget"
 		NsisInstaller = $true
