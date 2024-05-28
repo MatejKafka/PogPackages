@@ -31,7 +31,7 @@ jobs:
           tar -xf D:\Pog.zip --directory D:\Pog
 
           # setup Pog
-          D:\Pog\Pog\setup.ps1
+          D:\Pog\Pog\setup.ps1 -Enable None
 
           # propagate PATH and PSModulePath for the following steps
           Add-Content $env:GITHUB_PATH (Resolve-Path D:\Pog\Pog\data\package_bin)
