@@ -1,11 +1,11 @@
 @{
 	Name = 'Audacity'
 	Architecture = 'x64'
-	Version = '3.4.2'
+	Version = '{{TEMPLATE:Version}}'
 
 	Install = @{
-		Url = "https://github.com/audacity/audacity/releases/download/Audacity-3.4.2/audacity-win-3.4.2-64bit.zip"
-		Hash = "0DF85EDA8B79EBCCECA673A7F7DEC32C4FCB4625342B91995217F3124B57F7D4"
+		Url = '{{TEMPLATE:Url}}'
+		Hash = '{{TEMPLATE:Hash}}'
 	}
 
 	Enable = {
