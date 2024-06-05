@@ -1,7 +1,7 @@
 @{
 	Name = 'Ant'
 	Architecture = '*'
-	Version = '1.10.14'
+	Version = '{{TEMPLATE:Version}}'
 	Description = @"
 Apache Ant is a Java library and command-line tool whose mission is to drive processes described
 in build files as targets and extension points dependent upon each other. The main known usage
@@ -12,8 +12,8 @@ any type of process which can be described in terms of targets and tasks.
 "@
 
 	Install = @{
-		Url = {"https://dlcdn.apache.org/ant/binaries/apache-ant-$($this.Version)-bin.zip"}
-		Hash = "34468FA049E7101E7D1A19979DF04681DEE093ACE1E462B244D9896C41338EF4"
+		Url = '{{TEMPLATE:Url}}'
+		Hash = '{{TEMPLATE:Hash}}'
 	}
 
 	Enable = {
