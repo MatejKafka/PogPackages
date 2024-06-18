@@ -15,7 +15,6 @@
 		New-Directory "./config/custom_pages"
 		New-Directory "./cache"
 
-		# TODO: fix existing config
 		New-File "./config/config.toml" $this._GetDefaultConfig $this._PatchConfig
 
 		Export-Command @("tealdeer", "tldr") "./app/tealdeer.exe" -VcRedist -Environment @{
