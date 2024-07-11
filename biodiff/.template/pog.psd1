@@ -4,7 +4,7 @@
 	Version = "{{TEMPLATE:Version}}"
 
 	Install = @{
-		Url = {$V = $this.Version; "https://github.com/8051Enthusiast/biodiff/releases/download/v${V}/biodiff-windows-${V}.zip"}
+		Url = "{{TEMPLATE:Url}}"
 		Hash = "{{TEMPLATE:Hash}}"
 	}
 
