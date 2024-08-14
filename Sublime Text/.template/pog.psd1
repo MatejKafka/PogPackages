@@ -9,7 +9,7 @@
 	}
 
 	Enable = {
-		Write-Warning "TODO: Disable autoupdate"
+		Write-Warning 'TODO: Disable autoupdate by setting {"update-check": false}, but that only has an effect on licensed installs.'
 
 		if ([int]$this.Version -ge 4035) {
 			New-Symlink "./app/Data" "./data" Directory
