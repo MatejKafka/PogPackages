@@ -9,6 +9,9 @@
 	}
 
 	Enable = {
+		# NOTE: when setting a license key, it is automatically encrypted using DPAPI; for portable usage, open
+		#       `data/Local/License.sublime_license` and store the plaintext license key here, overwriting the encrypted key
+
 		Write-Warning 'TODO: Disable autoupdate by setting {"update-check": false}, but that only has an effect on licensed installs.'
 
 		if ([int]$this.Version -ge 4035) {
