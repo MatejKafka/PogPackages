@@ -1,13 +1,13 @@
 @{
 	Name = "WinSCP"
 	Architecture = "x64"
-	Version = "5.17.8"
+	Version = "{{TEMPLATE:Version}}"
 
 	Install = @{
 		# WinSCP authors don't want people to automate downloads directly from WinSCP site, and are trying to block it
 		#  with generated one-time download URLs, so we'll use sourceforge instead
 		Url = {$V = $this.Version; "https://downloads.sourceforge.net/project/winscp/WinSCP/${V}/WinSCP-${V}-Portable.zip"}
-		Hash = "bfe8709a90ad3b03618c1856c4f7c70948f045d39c8783ddfe4fe24f69efecb2"
+		Hash = "{{TEMPLATE:Hash}}"
 		UserAgent = "Wget"
 	}
 
