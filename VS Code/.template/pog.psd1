@@ -45,7 +45,7 @@
 		New-Symlink "./data/user-data/logs" "./logs" Directory
 
 		$Env = @{VSCODE_PORTABLE = "./data"; VSCODE_CLI_DATA_DIR = "./data/cli"; VSCODE_CPPTOOLS_CACHE = "./cache/cpptools"}
-		Export-Command "Code" "./app/Code.exe" -Environment $Env
+		Export-Command "Code" "./app/bin/code.cmd" -Environment $Env
 		Export-Shortcut "Visual Studio Code (VS Code)" "./app/Code.exe" -Environment $Env
 	}
 }

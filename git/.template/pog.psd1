@@ -16,6 +16,7 @@
 
 	Enable = {
 		New-Directory "./config"
+		New-File "./config/.gitconfig"
 
 		$Env = [ordered]@{
 			# prevent Git from looking for systemwide config
