@@ -1,0 +1,64 @@
+name: Daily Update-PogManifest
+
+on:
+  # allow manual trigger
+  workflow_dispatch:
+  # run every day at 17:42 (more-or-less randomly picked)
+  schedule:
+    - cron: '42 17 * * *'
+
+jobs:
+  update:
+    runs-on: windows-latest
+    steps:
+      - name: Configure git to preserve line endings
+        run: git config --global core.autocrlf false
+
+      - uses: actions/checkout@v4
+
+      - name: Install Pog
+        shell: pwsh
+        run: |
+          $ReleaseUrl = (Invoke-RestMethod https://api.github.com/repos/MatejKafka/Pog/releases/latest).assets.browser_download_url
+          iwr $ReleaseUrl -OutFile D:\Pog.zip
+
+          # unpack Pog, tar is much faster than Expand-Archive
+          $null = mkdir D:\Pog
+          tar -xf D:\Pog.zip --directory D:\Pog
+
+          # setup Pog
+          D:\Pog\Pog\setup.ps1 -Enable None
+
+          # propagate PATH and PSModulePath for the following steps
+          Add-Content $env:GITHUB_PATH (Resolve-Path D:\Pog\Pog\data\package_bin)
+          Add-Content $env:GITHUB_ENV "PSModulePath=$env:PSModulePath"
+
+      - name: Clone Pog manifest generator repo
+        run: git clone https://github.com/MatejKafka/PogManifestGenerators D:\Pog\Pog\data\manifest_generators
+
+      - name: Run Update-PogManifest
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $GitHubToken = ConvertTo-SecureString -AsPlainText -Force "${{ secrets.GITHUB_TOKEN }}"
+          Set-PogRepository .
+          Update-PogManifest -GitHubToken $GitHubToken
+
+      - name: Commit & Push
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+
+          git add --all
+          if (git diff --staged) {
+            # https://github.com/actions/checkout?tab=readme-ov-file#push-a-commit-using-the-built-in-token
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+            git commit -m "Add automatically generated manifests`n`nGenerated from CI."
+            git push
+            Write-Host "Changes pushed."
+          } else {
+            Write-Host "No changes."
+          }
