@@ -13,6 +13,8 @@
 	Enable = {
 		New-Symlink "./app/OpenedFilesView.cfg" "./config/OpenedFilesView.cfg" File
 
+		Disable-DisplayScaling "./app/OpenedFilesView.exe"
+
 		Export-Command "OpenedFilesView" "./app/OpenedFilesView.exe"
 		Export-Shortcut "OpenedFilesView" "./app/OpenedFilesView.exe"
 	}
