@@ -21,21 +21,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install Pog
-        shell: pwsh
-        run: |
-          $ReleaseUrl = (Invoke-RestMethod https://api.github.com/repos/MatejKafka/Pog/releases/latest).assets.browser_download_url
-          iwr $ReleaseUrl -OutFile D:\Pog.zip
-
-          # unpack Pog, tar is much faster than Expand-Archive
-          $null = mkdir D:\Pog
-          tar -xf D:\Pog.zip --directory D:\Pog
-
-          # setup Pog
-          D:\Pog\Pog\setup.ps1 -Enable None
-
-          # propagate PATH and PSModulePath for the following steps
-          Add-Content $env:GITHUB_PATH (Resolve-Path D:\Pog\Pog\data\package_bin)
-          Add-Content $env:GITHUB_ENV "PSModulePath=$env:PSModulePath"
+        run: pwsh -noprofile .github\install-pog.ps1 D:\Pog
 
       - name: Build remote repository
         run: pwsh -noprofile .github\build-remote-repo.ps1 D:\remote-repo .
