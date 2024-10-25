@@ -32,7 +32,19 @@ jobs:
           $ErrorActionPreference = "Stop"
           $GitHubToken = ConvertTo-SecureString -AsPlainText -Force "${{ secrets.GITHUB_TOKEN }}"
           Set-PogRepository .
-          Update-PogManifest -GitHubToken $GitHubToken
+          Update-PogManifest -GitHubToken $GitHubToken -OutVariable NewPackages
+
+          # render a summary for the workflow
+          $(if ($NewPackages) {
+            $Count = @($NewPackages).Count
+            "# $Count new package$(if ($Count -gt 1) {"s"})"
+            ""
+            '```'
+            $NewPackages | Out-String | % Trim
+            '```'
+          } else {
+            "# No new packages"
+          }) > $env:GITHUB_STEP_SUMMARY
 
       - name: Commit & Push
         shell: pwsh
