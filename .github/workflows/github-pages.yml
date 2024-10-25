@@ -2,9 +2,8 @@ name: Pog remote repository build
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    # this is also triggered when a PR is merged into main
+    branches: ["main"]
 
 # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
 permissions:
