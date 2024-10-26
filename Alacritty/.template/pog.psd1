@@ -33,5 +33,9 @@ Note that Alacritty typically does not work in virtual machines, due to missing 
 		Export-Shortcut "Alacritty" "./app/Alacritty.exe" `
 			-Arguments @("--config-file", "./config/alacritty.yml") `
 			-VcRedist
+
+		Export-Command "alacritty" "./app/Alacritty.exe" `
+			-Arguments @("--config-file", "./config/alacritty.yml") `
+			-VcRedist
 	}
 }
