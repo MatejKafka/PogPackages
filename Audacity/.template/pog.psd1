@@ -6,6 +6,8 @@
 	Install = @{
 		Url = '{{TEMPLATE:Url}}'
 		Hash = '{{TEMPLATE:Hash}}'
+		# archive for 3.7.0 includes a random __MACOSX dir
+		Subdirectory = 'Audacity-win-*'
 	}
 
 	Enable = {
