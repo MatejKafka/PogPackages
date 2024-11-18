@@ -4,7 +4,7 @@
 	Architecture = "x64"
 
 	Install = @{
-		Url = {"https://github.com/git-for-windows/git/releases/download/v$($this.Version).windows.1/PortableGit-$($this.Version)-64-bit.7z.exe"}
+		Url = "{{TEMPLATE:Url}}"
 		Hash = "{{TEMPLATE:Hash}}"
 		SetupScript = {
 			Write-Information "Running git post-install.bat..."
