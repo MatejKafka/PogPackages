@@ -12,7 +12,7 @@
 
 	Enable = {
 		Write-Warning "StraceNT writes to registry (HKCU\Software\IntellectualHeaven\StraceNT)."
-		Export-Command "stracent" "./app/stracent.exe" -Symlink
-		Export-Shortcut "StractNT" "./app/straceui.exe"
+		Export-Command "stracent" "./app/stracent.exe" -VcRedist
+		Export-Shortcut "StractNT" "./app/straceui.exe" -VcRedist
 	}
 }
