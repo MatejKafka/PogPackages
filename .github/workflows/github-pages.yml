@@ -22,6 +22,14 @@ jobs:
       - name: Install Pog
         run: pwsh -noprofile .github\install-pog.ps1 D:\Pog
 
+      - name: Validate manifests
+        shell: pwsh
+        run: |
+          Import-Module Pog
+          # use the local repository, instead of the default remote repo
+          Set-PogRepository .
+          Confirm-PogRepositoryPackage
+
       - name: Build remote repository
         run: pwsh -noprofile .github\build-remote-repo.ps1 D:\remote-repo .
 
