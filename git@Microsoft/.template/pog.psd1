@@ -35,6 +35,7 @@
 
 		Export-Command "git" "./app/cmd/git.exe" -Environment $Env
 		Export-Command "gitk" "./app/cmd/gitk.exe" -Environment $Env
+		Export-Command "scalar" "./app/cmd/scalar.exe" -Environment $Env
 
 		Export-Command "git-upload-pack" "./app/cmd/git-upload-pack.exe"
 		Export-Command "git-receive-pack" "./app/cmd/git-receive-pack.exe"
