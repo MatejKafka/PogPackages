@@ -1,5 +1,5 @@
 @{
-	Name = 'Ant'
+	Name = 'Apache Ant'
 	Architecture = '*'
 	Version = '{{TEMPLATE:Version}}'
 	Description = @"
