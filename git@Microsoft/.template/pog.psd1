@@ -1,5 +1,5 @@
 @{
-	Name = "git"
+	Name = "git@Microsoft"
 	Version = "{{TEMPLATE:Version}}"
 	Architecture = "x64"
 
