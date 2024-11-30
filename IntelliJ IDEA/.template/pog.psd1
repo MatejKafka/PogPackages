@@ -31,6 +31,12 @@
 
 		Export-Shortcut "IntelliJ IDEA" "./app/bin/idea64.exe" -Environment $Env
 		Export-Command "idea" "./app/bin/idea64.exe" -Environment $Env
+
+		# the decompiler plugin is usable from CLI
+		$FernflowerPath = "./app/plugins/java-decompiler/lib/java-decompiler.jar"
+		if (Test-Path $FernflowerPath) {
+			Export-Command "fernflower" "./app/jbr/bin/java.exe" -Arguments @("-jar", $FernflowerPath)
+		}
 	}
 
 	_DisableAutoUpdate = {
