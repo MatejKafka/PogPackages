@@ -7,6 +7,9 @@ Import-Module Pog
 # use the local repository, instead of the default remote repo
 Set-PogRepository $SourceRepoDir
 
+# validate the repository before building the remote repo
+Confirm-PogRepository -IgnoreMissingHash
+
 $null = mkdir -Force $RemoteRepoDir
 cd $RemoteRepoDir
 
