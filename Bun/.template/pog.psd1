@@ -17,6 +17,7 @@
 			BUN_RUNTIME_TRANSPILER_CACHE_PATH = "./cache/transpiler"
 			BUN_INSTALL_CACHE_DIR = "./cache/install"
 			XDG_CONFIG_HOME = "./config"
+			BUN_REPL_NO_HISTORY = "1"
 		}
 	}
 }
