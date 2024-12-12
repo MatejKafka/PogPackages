@@ -8,7 +8,10 @@ Import-Module Pog
 Set-PogRepository $SourceRepoDir
 
 # validate the repository before building the remote repo
-Confirm-PogRepository -IgnoreMissingHash
+#Confirm-PogRepository -IgnoreMissingHash
+if ((Get-Module Pog).Version -ne "0.10.0") {
+    throw "Enable the check above. ^"
+}
 
 $null = mkdir -Force $RemoteRepoDir
 cd $RemoteRepoDir
