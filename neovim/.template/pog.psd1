@@ -14,6 +14,8 @@
 		New-Directory "./config"
 		New-Directory "./data"
 
+		New-File "./config/nvim/init.vim"
+
 		$Env = @{
 			XDG_CONFIG_HOME = Resolve-Path "./config"
 			XDG_DATA_HOME = Resolve-Path "./data"
