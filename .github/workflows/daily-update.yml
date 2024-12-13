@@ -32,7 +32,7 @@ jobs:
           $ErrorActionPreference = "Stop"
           $GitHubToken = ConvertTo-SecureString -AsPlainText -Force "${{ secrets.GITHUB_TOKEN }}"
           Set-PogRepository .
-          Update-PogManifest -GitHubToken $GitHubToken -OutVariable NewPackages
+          Update-PogManifest -GitHubToken $GitHubToken -OutVariable NewPackages -ErrorAction Stop
 
           # render a summary for the workflow
           $(if ($NewPackages) {
