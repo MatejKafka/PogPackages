@@ -59,7 +59,7 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
             $ChangedFiles = git diff --cached --name-only
-            git commit -m "Add automatically generated manifests (CI)`n`n$($ChangedFiles -join "`n")"
+            git commit -m "daily-update.yml: Add automatically generated manifests (CI)`n`n$($ChangedFiles -join "`n")"
             git push
             Write-Host "Changes pushed."
           } else {
