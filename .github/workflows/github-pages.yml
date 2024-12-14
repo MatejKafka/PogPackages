@@ -22,16 +22,17 @@ jobs:
       - name: Install Pog
         run: pwsh -noprofile .github\install-pog.ps1 D:\Pog
 
-      - name: Validate manifests
-        # necessary until v0.11.0
-        continue-on-error: true
+      - name: Validate local repository
         shell: pwsh
         run: |
           Import-Module Pog
           # use the local repository, instead of the default remote repo
           Set-PogRepository .
-          if (-not (Confirm-PogRepositoryPackage)) {
-            throw "Package validation failed."
+
+          # allow missing hashes, since some upstream projects do not version their releases,
+          #  making it impossible to check for a fixed hash
+          if (-not (Confirm-PogRepository -IgnoreMissingHash)) {
+            throw "Repository validation failed (see warnings above)."
           }
 
       - name: Build remote repository

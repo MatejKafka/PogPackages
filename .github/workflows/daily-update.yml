@@ -1,4 +1,4 @@
-name: Daily Update-PogManifest
+name: Daily Update-PogRepository
 
 on:
   # allow manual trigger
@@ -26,13 +26,13 @@ jobs:
       - name: Clone Pog manifest generator repo
         run: git clone https://github.com/MatejKafka/PogManifestGenerators D:\Pog\Pog\data\manifest_generators
 
-      - name: Run Update-PogManifest
+      - name: Run Update-PogRepository
         shell: pwsh
         run: |
           $ErrorActionPreference = "Stop"
           $GitHubToken = ConvertTo-SecureString -AsPlainText -Force "${{ secrets.GITHUB_TOKEN }}"
           Set-PogRepository .
-          Update-PogManifest -GitHubToken $GitHubToken -OutVariable NewPackages -ErrorAction Stop
+          Update-PogRepository -GitHubToken $GitHubToken -OutVariable NewPackages -ErrorAction Stop
 
           # render a summary for the workflow
           $(if ($NewPackages) {
