@@ -4,6 +4,10 @@ param(
     $PogPath
 )
 
+Set-StrictMode -Version 3
+$ErrorActionPreference = "Stop"
+
+
 $ArchivePath = "${PogPath}.zip"
 
 $ReleaseUrl = (Invoke-RestMethod https://api.github.com/repos/MatejKafka/Pog/releases/latest).assets.browser_download_url
