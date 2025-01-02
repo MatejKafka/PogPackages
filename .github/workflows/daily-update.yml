@@ -23,6 +23,13 @@ jobs:
       - name: Install Pog
         run: pwsh -noprofile .github\install-pog.ps1 D:\Pog
 
+      # fail on next release, we need to update the script
+      - name: Break on next release
+        run: |
+          if ((Get-Module Pog -ListAvailable).Version -ne "0.11.0") {
+            throw "Update this."
+          }
+
       - name: Clone Pog manifest generator repo
         run: git clone https://github.com/MatejKafka/PogManifestGenerators D:\Pog\Pog\data\manifest_generators
 
