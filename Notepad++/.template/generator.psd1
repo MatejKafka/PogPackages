@@ -1,16 +1,15 @@
 @{
     ListVersions = {
         Get-GitHubRelease notepad-plus-plus/notepad-plus-plus `
-            | ? {$_.tag_name.StartsWith("v")} `
-            | % {
-                $Asset = $_.assets | ? name -like "npp.*.portable.x64.7z"
-                if ($Asset) {
-                    return [ordered]@{
-                        Version = $_.tag_name.Substring(1)
-                        Url = $Asset.browser_download_url
-                        Hash = Get-HashFromChecksumText $_.body $Asset.name
-                    }
-                }
-            }
+            | ? Version -ge "7.9" `
+            | Get-GitHubAsset "npp.*.portable.x64.7z"
+    }
+
+    Generate = {
+        return [ordered]@{
+            Version = $_.Version
+            Url = $_.Asset.Url
+            Hash = Get-HashFromChecksumText $_.Release.Body $_.Asset.Name
+        }
     }
 }

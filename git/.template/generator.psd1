@@ -1,23 +1,16 @@
 @{
     ListVersions = {
+        # Git uses versions suffixed by .windows.[0-9], where the second number is a Windows-specific patch version
         Get-GitHubRelease git-for-windows/git `
-            | ? {$_.tag_name -match "^v(.*)\.windows\.\d+$"} `
-            | % {
-                $Asset = $_.assets | ? name -like "PortableGit-*-64-bit.7z.exe"
-                if ($Asset) {
-                    return @{
-                        Version = $Matches[1]
-                        Url = $Asset.browser_download_url
-                    }
-                }
-            }
+            | ? TagName -match '^v(.*)\.windows\.\d+$' `
+            | Get-GitHubAsset "PortableGit-*-64-bit.7z.exe" -IgnoreMissing
     }
 
     Generate = {
         return [ordered]@{
             Version = $_.Version
-            Url = $_.Url
-            Hash = Get-UrlHash $_.Url
+            Url = $_.Asset.Url
+            Hash = Get-UrlHash $_.Asset.Url
         }
     }
 }

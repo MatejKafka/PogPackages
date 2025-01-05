@@ -1,18 +1,15 @@
 @{
 	ListVersions = {
 		Get-GitHubRelease microsoft/terminal `
-			| ? {$_.tag_name.StartsWith("v") -and [version]$_.tag_name.Substring(1) -ge [version]"1.17.11391.0"} `
-			| % {@{
-				Version = $_.tag_name.Substring(1) # strip v...
-				Url = $_.assets | ? name -like "*_x64.zip" | % browser_download_url
-			}}
+			| ? {$_.Version -ge "1.17.11391.0" -and $_.TagName -notin "1904.29002", "1810.02002", "1708.14008"} `
+			| Get-GitHubAsset "*_x64.zip"
 	}
 
 	Generate = {
 		return [ordered]@{
             Version = $_.Version
-            Url = $_.Url
-            Hash = Get-UrlHash $_.Url
+            Url = $_.Asset.Url
+            Hash = Get-UrlHash $_.Asset.Url
         }
 	}
 }

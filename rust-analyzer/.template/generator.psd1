@@ -1,23 +1,15 @@
 @{
     ListVersions = {
-        Get-GitHubRelease rust-lang/rust-analyzer `
-            | ? {$_.tag_name -like "????-??-??"} `
-            | % {
-                $ExeAsset = $_.assets | ? {$_.name -eq "rust-analyzer-x86_64-pc-windows-msvc.zip"}
-                if ($ExeAsset) {
-                    return @{
-                        Version = $_.tag_name.Replace("-", ".")
-                        Url = $ExeAsset.browser_download_url
-                    }
-                }
-            }
+        Get-GitHubRelease rust-lang/rust-analyzer -Version {if ($_.TagName -ne "nightly") {$_.TagName.Replace("-", ".")}} `
+            | ? Version -ge "2023.01.09" `
+            | Get-GitHubAsset "rust-analyzer-x86_64-pc-windows-msvc.zip"
     }
 
     Generate = {
         return [ordered]@{
             Version = $_.Version
-            Url = $_.Url
-            Hash = Get-UrlHash $_.Url
+            Url = $_.Asset.Url
+            Hash = Get-UrlHash $_.Asset.Url
         }
     }
 }

@@ -1,23 +1,16 @@
 @{
     ListVersions = {
         Get-GitHubRelease alacritty/alacritty `
-            | ? {$_.tag_name.StartsWith("v")} `
-            | % {
-                $ExeAsset = $_.assets | ? {$_.name -like "Alacritty-v*-portable.exe"}
-                if ($ExeAsset) {
-                    return @{
-                        Version = $_.tag_name.Substring(1)
-                        ExeUrl = $ExeAsset.browser_download_url
-                    }
-                }
-            }
+            | ? TagName -notin "v0.12.1-rc2", "v0.12.1-rc1", "v0.12.0-rc3" `
+            | ? Version -gt "0.5.0" `
+            | Get-GitHubAsset "Alacritty-v*-portable.exe"
     }
 
     Generate = {
         return [ordered]@{
             Version = $_.Version
-            Url = $_.ExeUrl
-            Hash = Get-UrlHash $_.ExeUrl
+            Url = $_.Asset.Url
+            Hash = Get-UrlHash $_.Asset.Url
         }
     }
 }

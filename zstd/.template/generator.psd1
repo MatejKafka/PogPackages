@@ -1,23 +1,15 @@
 @{
     ListVersions = {
         Get-GitHubRelease facebook/zstd `
-            | ? {$_.tag_name.StartsWith("v")} `
-            | % {
-                $Asset = $_.assets | ? browser_download_url -like "*zstd-v*-win64.zip"
-                if ($Asset) {
-                    return @{
-                        Version = $_.tag_name.Substring(1)
-                        Url = $Asset.browser_download_url
-                    }
-                }
-            }
+            | ? {$_.Version -ge "1.2.0"} `
+            | Get-GithubAsset "*zstd-v*-win64.zip"
     }
 
     Generate = {
         return [ordered]@{
             Version = $_.Version
-            Url = $_.Url
-            Hash = Get-UrlHash $_.Url
+            Url = $_.Asset.Url
+            Hash = Get-UrlHash $_.Asset.Url
         }
     }
 }

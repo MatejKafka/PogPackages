@@ -1,21 +1,15 @@
 @{
     ListVersions = {
-        Get-GitHubRelease dandavison/delta | % {
-            $Asset = $_.assets | ? name -like "delta-*-x86_64-pc-windows-msvc.zip"
-            if ($Asset) {
-                return @{
-                    Version = $_.tag_name
-                    Url = $Asset.browser_download_url
-                }
-            }
-        }
+        Get-GitHubRelease dandavison/delta `
+            | ? Version -gt "0.2.0" `
+            | Get-GitHubAsset "delta-*-x86_64-pc-windows-msvc.zip"
     }
 
     Generate = {
         return [ordered]@{
             Version = $_.Version
-            Url = $_.Url
-            Hash = Get-UrlHash $_.Url
+            Url = $_.Asset.Url
+            Hash = Get-UrlHash $_.Asset.Url
         }
     }
 }

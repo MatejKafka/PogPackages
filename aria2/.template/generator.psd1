@@ -1,24 +1,16 @@
 @{
     ListVersions = {
-        Get-GitHubRelease aria2/aria2 `
-            | ? {$_.tag_name.StartsWith("release-")} `
-            | % {
-                # sometimes there's a build1 and build2, select the higher numbered one
-                $Asset = $_.assets | ? name -like "aria2-*-win-64bit-build*.zip" | select -Last 1
-                if ($Asset) {
-                    return @{
-                        Version = $_.tag_name.Substring(8)
-                        Url = $Asset.browser_download_url
-                    }
-                }
-            }
+        # sometimes there's a build1 and build2, always take build1 to be reproducible
+        Get-GitHubRelease aria2/aria2 -TagPrefix "release-" `
+            | ? TagName -notin "release-1.23.0" `
+            | Get-GitHubAsset "aria2-*-win-64bit-build1.zip"
     }
 
     Generate = {
         return [ordered]@{
             Version = $_.Version
-            Url = $_.Url
-            Hash = Get-UrlHash $_.Url
+            Url = $_.Asset.Url
+            Hash = Get-UrlHash $_.Asset.Url
         }
     }
 }

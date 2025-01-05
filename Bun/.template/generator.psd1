@@ -1,24 +1,15 @@
 @{
     ListVersions = {
-        Get-GitHubRelease oven-sh/bun `
-            | ? {$_.tag_name.StartsWith("bun-v")} `
-            | % {
-                $Asset = $_.assets | ? name -eq "bun-windows-x64.zip"
-                if ($Asset) {
-                    return @{
-                        Version = $_.tag_name.Substring(5)
-                        Asset = $Asset
-                        HashUrl = ($_.assets | ? name -eq "SHASUMS256.txt").browser_download_url
-                    }
-                }
-            }
+        Get-GitHubRelease oven-sh/bun -TagPrefix "bun-v" `
+            | ? Version -ge "1.1.0" `
+            | Get-GitHubAsset "bun-windows-x64.zip", "SHASUMS256.txt"
     }
 
     Generate = {
         return [ordered]@{
             Version = $_.Version
-            Url = $_.Asset.browser_download_url
-            Hash = Get-HashFromChecksumFile $_.HashUrl $_.Asset.name
+            Url = $_.Asset[0].Url
+            Hash = Get-HashFromChecksumFile $_.Asset[1].Url $_.Asset[0].Name
         }
     }
 }

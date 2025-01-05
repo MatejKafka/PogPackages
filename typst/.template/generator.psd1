@@ -1,18 +1,15 @@
 @{
     ListVersions = {
         Get-GitHubRelease typst/typst `
-            | ? {$_.tag_name.StartsWith("v") -and $_.tag_name -notlike "v23-03-*"} `
-            | % {@{
-                Version = $_.tag_name.Substring(1)
-                Url = $_.assets | ? browser_download_url -like "*typst-x86_64-pc-windows-msvc.zip" | % browser_download_url
-            }}
+            | ? TagName -notlike "v23-03-*" `
+            | Get-GitHubAsset "typst-x86_64-pc-windows-msvc.zip"
     }
 
     Generate = {
         return [ordered]@{
             Version = $_.Version
-            Url = $_.Url
-            Hash = Get-UrlHash $_.Url
+            Url = $_.Asset.Url
+            Hash = Get-UrlHash $_.Asset.Url
         }
     }
 }
