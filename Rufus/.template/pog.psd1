@@ -1,11 +1,11 @@
 @{
 	Name = 'Rufus'
 	Architecture = 'x64'
-	Version = '3.20'
+	Version = '{{TEMPLATE:Version}}'
 
 	Install = @{
-		Url = {$V = $this.Version; "https://github.com/pbatard/rufus/releases/download/v${V}/rufus-${V}p.exe"}
-		Hash = "042F0B284AF6E3316BAF6235A4F0141966A051873B5631C7E5A724CF1F5E7973"
+		Url = '{{TEMPLATE:Url}}'
+		Hash = '{{TEMPLATE:Hash}}'
 		NoArchive = $true
 		Target = "rufus-p.exe"
 	}
