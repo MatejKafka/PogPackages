@@ -11,7 +11,7 @@
 	Enable = {
 		New-Directory "./config"
 		New-Directory "./data"
-		New-File "./logs/syncthing.log"
+		New-Directory "./logs"
 
 		$CmdArgs = @("-data", "./data", "-config", "./config", "-logfile", "./logs/syncthing.log")
 		$CmdEnv = @{
@@ -19,11 +19,6 @@
 			STNOUPGRADE = "true"
 		}
 
-		$SyncthingCmd = Export-Command "syncthing" "./app/syncthing.exe" -Arguments $CmdArgs -Environment $CmdEnv -PassThru
-
-		New-File "./config/config.xml" {
-			Write-Verbose "Generating initial config..."
-			& $SyncthingCmd -generate="./config"
-		}
+		Export-Command "syncthing" "./app/syncthing.exe" -Arguments $CmdArgs -Environment $CmdEnv
 	}
 }
