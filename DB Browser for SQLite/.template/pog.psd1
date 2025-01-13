@@ -13,8 +13,8 @@
 	}
 
 	Enable = {
-		# do not create the `db4s.ini` file; the settings loader in sqlitebrowser is a bit stupid and if the file is empty, it will ignore it
-		New-Directory "./config"
+		# create a default heading; the settings loader in sqlitebrowser is a bit stupid and if the file is empty, it will ignore it
+		New-File "./config/db4s.ini" {"[%General]`n"}
 
 		Export-Shortcut "DB Browser for SQLite" "./app/DB Browser for SQLite.exe" -Arguments "--settings", "./config/db4s.ini"
 	}
