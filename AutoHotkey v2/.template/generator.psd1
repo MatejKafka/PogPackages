@@ -6,11 +6,10 @@
             try {
                 $Links = (Invoke-WebRequest $BaseUrl).Links.href
             } catch {
-                if ($_ -notlike "*Just a moment...*") {
-                    throw
+                if ($_ -like "*Just a moment...*") {
+                    throw "CloudFlare bot protection on autohotkey.com was triggered."
                 }
-                Write-Warning "CloudFlare bot protection on autohotkey.com was triggered, AutoHotkey will not be updated."
-                return
+                throw
             }
 
             foreach ($_ in $Links) {
