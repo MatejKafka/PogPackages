@@ -7,7 +7,8 @@
                 $Links = (Invoke-WebRequest $BaseUrl).Links.href
             } catch {
                 if ($_ -like "*Just a moment...*") {
-                    throw "CloudFlare bot protection on autohotkey.com was triggered."
+                    Write-Warning "CloudFlare bot protection on autohotkey.com was triggered."
+                    return
                 }
                 throw
             }
