@@ -4,7 +4,7 @@
 	Version = '0'
 
 	Install = @{
-		Url = "https://f001.backblazeb2.com/file/EricZimmermanTools/net6/AppCompatCacheParser.zip"
+		Url = "https://download.ericzimmermanstools.com/AppCompatCacheParser.zip"
 	}
 
 	Enable = {

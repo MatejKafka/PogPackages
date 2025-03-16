@@ -1,13 +1,13 @@
 @{
 	Name = "maven"
-	Version = "3.6.3"
+	Version = "3.9.9"
 	Architecture = "x64"
 
 	Description = "Apache Maven"
 
 	Install = @{
-		Url = "https://dlcdn.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip"
-		Hash = "444522B0AF3A85E966F25C50ADFCD00A1A6FC5FCE79F503BFF096E02B9977C2E"
+		Url = "https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.zip"
+		Hash = "4EC3F26FB1A692473AEA0235C300BD20F0F9FE741947C82C1234CEFD76AC3A3C"
 	}
 
 	Enable = {

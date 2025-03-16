@@ -1,11 +1,11 @@
 @{
 	Name = "FileVoyager"
 	Architecture = "x64"
-	Version = "21.6.27.0"
+	Version = "25.2.4.0"
 
 	Install = @{
 		Url = {"https://www.filevoyager.com/wp-content/uploads/FileVoyager_Portable_$($this.Version)_Full.7z"}
-		Hash = "D5EB78C7EE68169ECB1F8C0B71827492D797A99EA1B69C90F9B85DA61B9DAFCF"
+		Hash = "D6DD8DB57A2AA0453F9B9C6ECFAF95B501120FCB0CC3485848528A2114A02D74"
 	}
 
 	Enable = {

@@ -6,7 +6,7 @@
 	Version = "{{TEMPLATE:Version}}"
 
 	Install = @{
-		Url = {"https://windows.php.net/downloads/releases/php-$($this.Version)-Win32-vs16-x64.zip"}
+		Url = {"https://windows.php.net/downloads/releases/php-$($this.Version)-Win32-vs17-x64.zip"}
 		Hash = "{{TEMPLATE:Hash}}"
 	}
 
