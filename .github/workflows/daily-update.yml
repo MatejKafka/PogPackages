@@ -21,7 +21,7 @@ jobs:
           ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Install Pog
-        run: pwsh -noprofile .github\install-pog.ps1 D:\Pog
+        uses: MatejKafka/Pog/.github/actions/install-pog@main
 
       - name: Run Update-PogRepository
         shell: pwsh
