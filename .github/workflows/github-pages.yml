@@ -19,24 +19,12 @@ jobs:
 
       - uses: actions/checkout@v4
 
-      - name: Install Pog
-        run: pwsh -noprofile .github\install-pog.ps1 D:\Pog
+      - name: "Install Pog"
+        uses: MatejKafka/Pog/.github/actions/install-pog@main
 
-      - name: Validate local repository
-        shell: pwsh
-        run: |
-          Import-Module Pog
-          # use the local repository, instead of the default remote repo
-          Set-PogRepository .
-
-          # allow missing hashes, since some upstream projects do not version their releases,
-          #  making it impossible to check for a fixed hash
-          if (-not (Confirm-PogRepository -IgnoreMissingHash)) {
-            throw "Repository validation failed (see warnings above)."
-          }
-
-      - name: Build remote repository
-        run: pwsh -noprofile .github\build-remote-repo.ps1 D:\remote-repo .
+      - name: "Build remote repository"
+        uses: MatejKafka/Pog/.github/actions/build-pog-repository@main
+        with: {source: ".", output: "D:/remote-repo"}
 
       - uses: actions/upload-pages-artifact@v3
         with:
