@@ -1,6 +1,9 @@
 @{
     ListVersions = {
-        Get-GitHubRelease pbatard/rufus | ? Version -ge "2.0" | Get-GitHubAsset rufus-*p.exe
+        Get-GitHubRelease pbatard/rufus `
+            | ? Version -ge "2.0" `
+            | ? Version -ne "4.7_BETA" `
+            | Get-GitHubAsset rufus-*p.exe
     }
 
     Generate = {
