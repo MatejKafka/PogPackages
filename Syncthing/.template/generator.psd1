@@ -1,6 +1,7 @@
 @{
     ListVersions = {
         Get-GitHubRelease syncthing/syncthing `
+            | ? Version -ge "1.5.0" `
             | ? TagName -notin "v1.23.5-rc.1", "v1.20.0", "v0.14.22" `
             | Get-GitHubAsset "syncthing-windows-amd64-v*.zip", "sha256sum.txt.asc"
     }

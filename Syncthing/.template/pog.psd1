@@ -13,7 +13,7 @@
 		New-Directory "./data"
 		New-Directory "./logs"
 
-		$CmdArgs = @("-data", "./data", "-config", "./config", "-logfile", "./logs/syncthing.log")
+		$CmdArgs = @("--data", "./data", "--config", "./config", "--logfile", "./logs/syncthing.log")
 		$CmdEnv = @{
 			STNODEFAULTFOLDER = "true"
 			STNOUPGRADE = "true"
