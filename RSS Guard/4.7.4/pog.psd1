@@ -9,6 +9,8 @@
 	}
 
 	Enable = {
+		# https://github.com/martinrotter/rssguard/issues/1496
+		# https://bugreports.qt.io/browse/QTBUG-129620
 		Write-Warning "RSS Guard writes web cache data to 'AppData/Roaming/RSS Guard/QtWebEngine'."
 
 		New-Directory "./data"
