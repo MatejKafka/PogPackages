@@ -1,12 +1,11 @@
 @{
 	Name = "Resource Hacker"
 	Architecture = "x86"
-	Version = "5.1.8"
+	Version = "0"
 
 	Install = @{
 		# No URL versioning, unfortunately
 		Url = "http://angusj.com/resourcehacker/resource_hacker.zip"
-		Hash = "D158BEBC2993CF6BEBF2C23A93572A68544C2BA5AE056538F70A58075C9392D6"
 	}
 
 	Enable = {
