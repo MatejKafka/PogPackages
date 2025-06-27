@@ -4,7 +4,7 @@
         Get-GitHubRelease obsproject/obs-studio `
             | ? Version -ge 0.13.1 <# portable mode added and assets are named somewhat consistently from here #> `
             | ? {$_.Assets | ? Name -notlike "obs-mac-*"} <# skip Mac-only releases #> `
-            | Get-GitHubAsset "^OBS-Studio-$VersionRegex(|-Win|-Windows|-Full|-Full-x64)\.zip`$" -Regex
+            | Get-GitHubAsset "^OBS-Studio-$VersionRegex(|-Win|-Windows|-Windows-x64|-Full|-Full-x64)\.zip`$" -Regex
             #                 ^ OBS only started using remotely consistent naming quite recently
     }
 
