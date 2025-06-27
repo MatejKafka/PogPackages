@@ -1,7 +1,11 @@
 @{
     ListVersions = {
+        # since 25.06b6, Anki started using a new installer format that's just a thin launcher which downloads
+        #  necessary packages; there's not really any way for Pog to unpack the app without running the launcher
+        #  https://forums.ankiweb.net/t/new-online-installer-launcher/62745/62
         Get-GitHubRelease ankitects/anki `
             | ? Version -ge "2.1.50" `
+            | ? Version -ne "25.06b6" `
             | Get-GitHubAsset "anki-*-windows-qt6.exe", "anki-*-checksums.txt"
     }
 
