@@ -5,7 +5,7 @@
         #  https://forums.ankiweb.net/t/new-online-installer-launcher/62745/62
         Get-GitHubRelease ankitects/anki `
             | ? Version -ge "2.1.50" `
-            | ? Version -ne "25.06b6" `
+            | ? Version -notin "25.06b6", "25.06b7" `
             | Get-GitHubAsset "anki-*-windows-qt6.exe", "anki-*-checksums.txt"
     }
 
