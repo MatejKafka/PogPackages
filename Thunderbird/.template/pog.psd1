@@ -11,7 +11,7 @@
 
 		SetupScript = {
 			# set fixed defaults (disable auto-update)
-			mkdir "./distribution"
+			$null = mkdir "./distribution"
 			Set-Content "./distribution/policies.json" $this._PolicyJson
 			Write-Information "Created policy file './distribution/policies.json'."
 		}
