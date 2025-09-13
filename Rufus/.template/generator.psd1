@@ -2,7 +2,7 @@
     ListVersions = {
         Get-GitHubRelease pbatard/rufus `
             | ? Version -ge "2.0" `
-            | ? Version -notin "4.7_BETA", "4.8_BETA" `
+            | ? Version -notlike "*_BETA" `
             | Get-GitHubAsset rufus-*p.exe
     }
 

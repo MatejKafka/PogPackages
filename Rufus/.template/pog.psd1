@@ -7,6 +7,7 @@
 		Url = '{{TEMPLATE:Url}}'
 		Hash = '{{TEMPLATE:Hash}}'
 		NoArchive = $true
+		# if the rufus binary is suffixed with a `p`, it runs in portable mode
 		Target = "rufus-p.exe"
 	}
 
