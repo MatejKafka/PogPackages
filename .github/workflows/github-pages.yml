@@ -24,7 +24,7 @@ jobs:
 
       - name: Build remote repository
         uses: MatejKafka/Pog/.github/actions/build-pog-repository@main
-        with: {source: ".", output: "D:/remote-repo"}
+        with: {output: "D:/remote-repo"}
 
       - uses: actions/upload-pages-artifact@v3
         with:
