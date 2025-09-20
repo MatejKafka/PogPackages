@@ -11,17 +11,14 @@
 	Enable = {
 		New-Directory "./data"
 		New-Directory "./cache/symcache"
-		New-Directory "./logs"
 
 
 		$CmdEnv = @{DYNAMORIO_CONFIGDIR = "./data"}
 
-		# TODO: should we pass logdir? if the default is always the CWD, probably drop it
-
 		Export-Command "drmemory" "./app/bin64/drmemory.exe" -ReplaceArgv0 -Environment $CmdEnv `
-			-Arguments @("-logdir", "./logs", "-symcache_dir", "./cache/symcache")
+			-Arguments @("-symcache_dir", "./cache/symcache")
 		Export-Command "drltrace" "./app/bin64/drltrace.exe" -ReplaceArgv0 -Environment $CmdEnv `
-			-Arguments @("-logdir", "./logs", "-symcache_dir", "./cache/symcache")
+			-Arguments @("-symcache_dir", "./cache/symcache")
 		# TODO: arg handling: https://github.com/DynamoRIO/drmemory/blob/b083b08bffbd78ab49373c829bf6f7d79cdf7a4f/drstrace/drstrace_frontend.c#L643
 		Export-Command "drstrace" "./app/bin64/drstrace.exe" -ReplaceArgv0 -Environment $CmdEnv `
 			-Arguments @("-symcache_path", "./cache/symcache")
