@@ -1,7 +1,7 @@
 @{
     ListVersions = {
         Get-GitHubRelease audacity/audacity -TagPrefix "Audacity-" `
-            | ? VersionStr -notin "3.2.4", "3.0.3-RC1", "3.0.2", "3.0.0" `
+            | ? VersionStr -notin "4.0.0-alpha-2", "3.2.4", "3.0.3-RC1", "3.0.2", "3.0.0" `
             | % {
                 $Pattern = if ($_.Version -ge "3.7.5") {"audacity-win-*-64bit.zip"} else {"audacity-win-*-*64*.zip"}
                 $_ | Get-GitHubAsset $Pattern -Optional "CHECKSUMS.txt"
