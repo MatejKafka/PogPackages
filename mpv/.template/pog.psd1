@@ -13,11 +13,15 @@
 	Enable = {
 		New-Directory "./config"
 		New-Directory "./cache/watch_later"
+		New-Directory "./cache/shader_cache"
+		New-Directory "./cache/icc_cache"
 		New-File "./logs/log.txt"
 
 		$Arguments = @(
 			"--config-dir=" + (Resolve-Path ./config)
 			"--watch-later-directory=" + (Resolve-Path ./cache/watch_later)
+			"--gpu-shader-cache-dir=" + (Resolve-Path ./cache/shader_cache)
+			"--icc-cache-dir=" + (Resolve-Path ./cache/icc_cache)
 			"--log-file=" + (Resolve-Path ./logs/log.txt)
 		)
 
