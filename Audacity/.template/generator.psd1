@@ -14,7 +14,7 @@
             Url = $_.Asset.Url
             Hash = if ($_.OptionalAsset) {
                 # Audacity just dumps a PowerShell formatted table to the checksum file
-                $Line = (iwr $_.OptionalAsset.Url) -split "`n" | Select-String $_.Asset.Name -Raw
+                $Line = (Invoke-WebRequest $_.OptionalAsset.Url) -split "`n" | Select-String $_.Asset.Name -Raw
                 $Hash = -split $Line | ? Length -eq 64
                 if (-not $Hash) {throw "Could not find hash."}
                 $Hash.ToUpperInvariant()
