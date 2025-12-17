@@ -1,6 +1,13 @@
 @{
     ListVersions = {
-        Invoke-WebRequest "https://www.nasm.us/pub/nasm/releasebuilds/" `
+        try {
+            $BuildListPage = Invoke-WebRequest "https://www.nasm.us/pub/nasm/releasebuilds/"
+        } catch [System.Net.Sockets.SocketException] {
+            Write-Warning "NASM generator failed, server refused connection (seems that nasm.us is blocking GitHub): $_"
+            return
+        }
+
+        $BuildListPage
             | % Links `
             | % href `
             | ? {$_ -ne "/pub/nasm/"} `
