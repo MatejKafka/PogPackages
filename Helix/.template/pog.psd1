@@ -1,11 +1,11 @@
 @{
 	Name = 'Helix'
 	Architecture = 'x64'
-	Version = '23.05'
+	Version = '{{TEMPLATE:Version}}'
 
 	Install = @{
-		Url = {$V = $this.Version; "https://github.com/helix-editor/helix/releases/download/${V}/helix-${V}-x86_64-windows.zip"}
-		Hash = "27BA9A7EA0CBB5A4DE2378C5D7383405F2AEB254118CFBA1785EB0B32AEE3EF0"
+		Url = '{{TEMPLATE:Url}}'
+		Hash = '{{TEMPLATE:Hash}}'
 	}
 
 	# FIXME: too much shotgunning with overwriting APPDATA and LOCALAPPDATA, especially since
