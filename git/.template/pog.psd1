@@ -3,6 +3,9 @@
 	Version = "{{TEMPLATE:Version}}"
 	Architecture = "x64"
 
+	Website = "https://git-scm.com/"
+	Description = "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency."
+
 	Install = @{
 		Url = "{{TEMPLATE:Url}}"
 		Hash = "{{TEMPLATE:Hash}}"
@@ -11,6 +14,9 @@
 			# the required arguments are given at the top of the post-install.bat file
 			#  (but --no-needs-console seems to break it, and it must not be passed)
 			Start-Process "./git-bash.exe" -Wait -ArgumentList "--hide", "--no-cd", "--command=post-install.bat"
+
+			# see explanation below
+			Set-Content "./pog_ssh_wrapper.cmd" $this._SshWrapper -NoNewline
 		}
 	}
 
@@ -21,11 +27,12 @@
 		$Env = [ordered]@{
 			# prevent Git from looking for systemwide config
 			GIT_CONFIG_NOSYSTEM = 1
-			# set HOME to config dir, otherwise git would pollute our home dir
+			# preserve the original value of HOME so that we can restore it in `pog_ssh_wrapper.cmd`
 			ORIG_HOME = "%HOME%"
+			# set HOME to config dir, otherwise git would pollute our home dir
 			HOME = "./config"
 			# tell git to use our custom SSH wrapper, which resets HOME to original value
-			GIT_SSH = "./.pog/ssh_wrapper.cmd"
+			GIT_SSH = "./app/pog_ssh_wrapper.cmd"
 			# git also adds custom paths to PATH, which changes which SSH is used when ssh.exe is called,
 			#  so we need to reset it before calling ssh in our wrapper
 			ORIG_PATH = "%PATH%"
@@ -45,4 +52,14 @@
 			Export-Command "git-receive-pack" "./app/cmd/git-receive-pack.exe"
 		}
 	}
+
+	# SSH wrapper used by git (configured using `GIT_SSH`)
+	# resets HOME and PATH back to original value for SSH
+	# FIXME: for UNC paths, this shows a warning from cmd, but everything still works
+	_SshWrapper = @'
+@echo off
+set "HOME=%ORIG_HOME%"
+set "PATH=%ORIG_PATH%"
+ssh %*
+'@
 }
