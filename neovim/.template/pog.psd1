@@ -14,12 +14,14 @@
 		New-Directory "./config"
 		New-Directory "./data"
 
-		New-File "./config/nvim/init.vim"
+		if (-not (Test-Path "./config/nvim/init.lua")) {
+			New-File "./config/nvim/init.vim"
+		}
 
 		$Env = @{
-			XDG_CONFIG_HOME = Resolve-Path "./config"
-			XDG_DATA_HOME = Resolve-Path "./data"
-			XDG_STATE_HOME = Resolve-Path "./data"
+			XDG_CONFIG_HOME = "./config"
+			XDG_DATA_HOME = "./data"
+			XDG_STATE_HOME = "./data"
 		}
 
 		Export-Command @("nvim", "vim") "./app/bin/nvim.exe" -Environment $Env -VcRedist
