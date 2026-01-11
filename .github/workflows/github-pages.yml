@@ -27,7 +27,6 @@ jobs:
         with: {output: "D:/remote-repo"}
 
       - uses: actions/upload-pages-artifact@v3
-        with:
-          path: D:\remote-repo
+        with: {path: "D:/remote-repo"}
 
       - uses: actions/deploy-pages@v4
