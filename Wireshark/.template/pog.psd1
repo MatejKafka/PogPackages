@@ -15,8 +15,13 @@
 
 		New-Directory "./data"
 
-		Export-Shortcut "Wireshark" "./app/Wireshark.exe" -VcRedist `
-			-Arguments @("-o", "gui.update.enabled:FALSE") `
-			-Environment @{WIRESHARK_CONFIG_DIR = "./data"}
+		$WsArgs = @{
+			Arguments = @("-o", "gui.update.enabled:FALSE")
+			Environment = @{WIRESHARK_CONFIG_DIR = "./data"}
+			VcRedist = $true
+		}
+
+		Export-Command "wireshark" "./app/Wireshark.exe" @WsArgs
+		Export-Shortcut "Wireshark" "./app/Wireshark.exe" @WsArgs
 	}
 }
