@@ -1,14 +1,20 @@
 @{
     ListVersions = {
+        # the headers are necessary, otherwise the request is refused with "Access Denied"
         Invoke-WebRequest "https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads" `
+            -Headers @{"Accept" = "text/html"; "Accept-Language" = "en-US,en;q=0.9"} `
             | % Links `
-            | ? href -match "^(/-/media/Files/downloads/gnu/([^/]*)/binrel/arm-gnu-toolchain-.*-mingw-w64-i686-arm-none-eabi\.zip)\?" -ErrorAction Ignore `
+            | ? href -match "^(https://developer.arm.com/-/media/Files/downloads/gnu/([^/]*)/binrel/arm-gnu-toolchain-.*-mingw-w64-i686-arm-none-eabi\.zip)\?" -ErrorAction Ignore `
             | % {
                 @{
                     Version = $Matches[2]
-                    Url = "https://developer.arm.com" + $Matches[1]
+                    Url = $Matches[1]
                 }
-            }
+            } -OutVariable Versions
+
+        if (-not $Versions) {
+            throw "Download page structure probably changed, check the download script."
+        }
 
         @{Version = "11.2-2022.02"; Url = "https://developer.arm.com/-/media/Files/downloads/gnu/11.2-2022.02/binrel/gcc-arm-11.2-2022.02-mingw-w64-i686-arm-none-eabi.zip"}
         # older versions, available from `https://developer.arm.com/downloads/-/gnu-a`, with pretty wild format
