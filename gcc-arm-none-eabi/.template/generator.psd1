@@ -1,9 +1,18 @@
 @{
     ListVersions = {
-        # the headers are necessary, otherwise the request is refused with "Access Denied"
-        Invoke-WebRequest "https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads" `
-            -Headers @{"Accept" = "text/html"; "Accept-Language" = "en-US,en;q=0.9"} `
-            | % Links `
+        $Res = try {
+            # the headers are necessary, otherwise the request is always refused with "Access Denied"
+            Invoke-WebRequest "https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads" `
+                -Headers @{"Accept" = "text/html"; "Accept-Language" = "en-US,en;q=0.9"}
+        } catch {
+            if ($_ -like "*Access Denied*") {
+                Write-Warning "Bot protection on developer.arm.com was triggered."
+                return
+            }
+            throw
+        }
+
+        $Res.Links
             | ? href -match "^(https://developer.arm.com/-/media/Files/downloads/gnu/([^/]*)/binrel/arm-gnu-toolchain-.*-mingw-w64-i686-arm-none-eabi\.zip)\?" -ErrorAction Ignore `
             | % {
                 @{
