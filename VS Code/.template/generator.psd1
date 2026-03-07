@@ -1,6 +1,8 @@
 @{
     ListVersions = {
-        Get-GithubRelease microsoft/vscode | % TagName
+        Get-GithubRelease microsoft/vscode `
+        | ? Version -ne "1.110" <# entry missing on update.code.visualstudio.com #> `
+        | % TagName
     }
 
     Generate = {
