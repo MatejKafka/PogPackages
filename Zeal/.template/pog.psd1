@@ -13,6 +13,8 @@
 		New-Symlink "./app/docsets" "./data/docsets" Directory
 		New-Symlink "./app/cache" "./cache" Directory
 
-		Export-Shortcut Zeal "./app/zeal.exe" -VcRedist
+		# need to override working dir due to https://github.com/zealdocs/zeal/issues/1768,
+		#  since shortcuts launched through the Start Menu default to System32 working dir
+		Export-Shortcut Zeal "./app/zeal.exe" -VcRedist -WorkingDirectory "./app"
 	}
 }
