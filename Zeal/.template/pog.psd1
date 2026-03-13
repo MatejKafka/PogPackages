@@ -1,5 +1,5 @@
 @{
-	Name = 'zeal'
+	Name = 'Zeal'
 	Architecture = 'x64'
 	Version = '{{TEMPLATE:Version}}'
 
