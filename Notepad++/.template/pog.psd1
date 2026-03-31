@@ -18,7 +18,10 @@
 
 		# this makes npp store its config in the provided directory
 		New-File "./app/cloud/choice" -FixedContent ([string](Resolve-Path "./config"))
-		New-File "./config/config.xml" -DefaultContent "./app/config.xml" -ContentUpdater $this._FixConfig
+		# npp populates the config on first run if it's missing, do not create it
+		if (Test-Path "./config/config.xml") {
+			New-File "./config/config.xml" -ContentUpdater $this._FixConfig
+		}
 
 		New-Symlink "./config/backup" "./cache/backup" Directory
 		New-Symlink "./app/plugins/Config" "./config/plugins" Directory -Merge
