@@ -8,6 +8,11 @@
 		Hash = '{{TEMPLATE:Hash}}'
 	}
 
+	NonPortablePaths = @(
+		# seems that Qt writes here before the path override used by Zeal takes effect
+		"~/AppData/Local/Zeal"
+	)
+
 	Enable = {
 		New-Symlink "./app/zeal.ini" "./data/zeal.ini" File
 		New-Symlink "./app/docsets" "./data/docsets" Directory
