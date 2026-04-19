@@ -1,7 +1,8 @@
 @{
     ListVersions = {
-        Get-GithubRelease microsoft/vscode `
+        Get-GitHubRelease microsoft/vscode `
         | ? Version -ne "1.110" <# entry missing on update.code.visualstudio.com #> `
+        | ? TagName -ne "v0.44.1" <# accidentally published copilot chat release #> `
         | % TagName
     }
 
