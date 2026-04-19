@@ -17,7 +17,7 @@ jobs:
       - name: Configure git to preserve line endings
         run: git config --global core.autocrlf false
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install Pog
         uses: MatejKafka/Pog/.github/actions/install-pog@main
@@ -26,7 +26,7 @@ jobs:
         uses: MatejKafka/Pog/.github/actions/build-pog-repository@main
         with: {output: "D:/remote-repo"}
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with: {path: "D:/remote-repo"}
 
-      - uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v5

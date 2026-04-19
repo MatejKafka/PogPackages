@@ -14,7 +14,7 @@ jobs:
       - name: Configure git to preserve line endings
         run: git config --global core.autocrlf false
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           # we clone and push using an SSH deploy key, because GitHub does not trigger push workflows
           #  when pushing using the implicit GITHUB_TOKEN (incredibly retarded if you ask me...)
