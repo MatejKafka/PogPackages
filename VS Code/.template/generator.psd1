@@ -1,8 +1,9 @@
 @{
     ListVersions = {
-        Get-GitHubRelease microsoft/vscode `
+        # vscode releases are published with unprefixed tags, copilot chat extension releases
+        #  (from the same repo) have a prefix
+        Get-GitHubRelease microsoft/vscode -TagPrefix "" `
         | ? Version -ne "1.110" <# entry missing on update.code.visualstudio.com #> `
-        | ? TagName -ne "v0.44.1" <# accidentally published copilot chat release #> `
         | % TagName
     }
 
