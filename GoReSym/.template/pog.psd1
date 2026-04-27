@@ -3,8 +3,11 @@
 	Architecture = 'x64'
 	Version = '{{TEMPLATE:Version}}'
 
+	Website = 'https://github.com/mandiant/GoReSym'
+	Description = 'Go symbol recovery tool.'
+
 	Install = @{
-		Url = {"https://github.com/mandiant/GoReSym/releases/download/v$($this.Version)/GoReSym-windows.zip"}
+		Url = '{{TEMPLATE:Url}}'
 		Hash = '{{TEMPLATE:Hash}}'
 	}
 

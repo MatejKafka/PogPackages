@@ -3,8 +3,11 @@
 	Architecture = "x64"
 	Version = "{{TEMPLATE:Version}}"
 
+	Website = "https://github.com/cvut/qtrvsim"
+	Description = "RISC-V CPU simulator for education purposes."
+
 	Install = @{
-		Url = {$V = $this.Version; "https://github.com/cvut/qtrvsim/releases/download/v${V}/qtrvsim-mingw32-v${V}.zip"}
+		Url = '{{TEMPLATE:Url}}'
 		Hash = "{{TEMPLATE:Hash}}"
 	}
 

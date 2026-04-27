@@ -3,8 +3,11 @@
 	Architecture = "x64"
 	Version = "{{TEMPLATE:Version}}"
 
+	Website = "https://neovim.io"
+	Description = "Neovim is a modern, fast and feature-rich editor that is fully compatible with Vim. It supports plugins, GUIs, LSP, Lua, and more."
+
 	Install = @{
-		Url = {"https://github.com/neovim/neovim/releases/download/v$($this.Version)/nvim-win64.zip"}
+		Url = '{{TEMPLATE:Url}}'
 		Hash = "{{TEMPLATE:Hash}}"
 	}
 

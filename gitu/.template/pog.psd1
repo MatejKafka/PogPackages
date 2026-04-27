@@ -3,8 +3,11 @@
 	Architecture = 'x64'
 	Version = '{{TEMPLATE:Version}}'
 
+	Website = 'https://github.com/altsem/gitu'
+	Description = 'A TUI Git client inspired by Magit.'
+
 	Install = @{
-		Url = {$V = $this.Version; "https://github.com/altsem/gitu/releases/download/v${V}/gitu-v${V}-x86_64-pc-windows-msvc.zip"}
+		Url = '{{TEMPLATE:Url}}'
 		Hash = '{{TEMPLATE:Hash}}'
 	}
 

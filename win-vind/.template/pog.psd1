@@ -3,8 +3,11 @@
 	Architecture = 'x64'
 	Version = '{{TEMPLATE:Version}}'
 
+	Website = 'https://pit-ray.github.io/win-vind/'
+	Description = 'Hybrid UI system to operate Windows with Vim-like key bindings.'
+
 	Install = @{
-		Url = {$V = $this.Version; "https://github.com/pit-ray/win-vind/releases/download/v${V}/win-vind_${V}_64bit_portable.zip"}
+		Url = '{{TEMPLATE:Url}}'
 		Hash = '{{TEMPLATE:Hash}}'
 	}
 

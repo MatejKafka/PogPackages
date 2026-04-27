@@ -1,4 +1,5 @@
 @{
-	Version = '4.39.0'
-	Hash = 'D4F1508A538ABEF4ABA7365687D69636D4AF3D030F4EEE652C1640B1FEFBCDC1'
+    Version = '4.39.0'
+    Url = 'https://github.com/crazy-max/WindowsSpyBlocker/releases/download/4.39.0/WindowsSpyBlocker.exe'
+    Hash = 'D4F1508A538ABEF4ABA7365687D69636D4AF3D030F4EEE652C1640B1FEFBCDC1'
 }

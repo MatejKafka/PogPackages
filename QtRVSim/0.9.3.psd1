@@ -1,4 +1,5 @@
 @{
-	Version = "0.9.3"
-	Hash = "0E463717AB3087EB2DF10398AD232DCE8B1CDA74FDA0F954F020D23872BB4B47"
+    Version = '0.9.3'
+    Url = 'https://github.com/cvut/qtrvsim/releases/download/v0.9.3/qtrvsim-mingw32-v0.9.3.zip'
+    Hash = '0E463717AB3087EB2DF10398AD232DCE8B1CDA74FDA0F954F020D23872BB4B47'
 }

@@ -3,8 +3,11 @@
 	Architecture = 'x64'
 	Version = '{{TEMPLATE:Version}}'
 
+	Website = 'https://github.com/horsicq/Detect-It-Easy'
+	Description = 'Program for determining types of files.'
+
 	Install = @{
-		Url = {$V = $this.Version; "https://github.com/horsicq/DIE-engine/releases/download/${V}/die_win64_portable_${V}_x64.zip"}
+		Url = '{{TEMPLATE:Url}}'
 		Hash = '{{TEMPLATE:Hash}}'
 	}
 

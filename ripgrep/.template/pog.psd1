@@ -2,12 +2,15 @@
 	Name = "ripgrep"
 	Architecture = "x64"
 	Version = "{{TEMPLATE:Version}}"
-	
+
+	Website = "https://github.com/BurntSushi/ripgrep"
+	Description = "ripgrep recursively searches directories for a regex pattern while respecting your gitignore."
+
 	Install = @{
-		Url = {$V = $this.Version; "https://github.com/BurntSushi/ripgrep/releases/download/$V/ripgrep-$V-x86_64-pc-windows-msvc.zip"}
+		Url = '{{TEMPLATE:Url}}'
 		Hash = "{{TEMPLATE:Hash}}"
 	}
-	
+
 	Enable = {
 		Export-Command "ripgrep" "./app/rg.exe" -Symlink
 		Export-Command "rg" "./app/rg.exe" -Symlink

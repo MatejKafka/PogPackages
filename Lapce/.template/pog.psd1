@@ -3,8 +3,11 @@
 	Architecture = 'x64'
 	Version = '{{TEMPLATE:Version}}'
 
+	Website = 'https://lapce.dev'
+	Description = 'Lightning-fast and powerful code editor written in Rust.'
+
 	Install = @{
-		Url = {"https://github.com/lapce/lapce/releases/download/v$($this.Version)/Lapce-windows-portable.zip"}
+		Url = '{{TEMPLATE:Url}}'
 		Hash = '{{TEMPLATE:Hash}}'
 	}
 

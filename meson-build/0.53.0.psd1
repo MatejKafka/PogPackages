@@ -1,4 +1,5 @@
 @{
     Version = '0.53.0'
+    Url = 'https://github.com/mesonbuild/meson/releases/download/0.53.0/meson-0.53.0.tar.gz'
     Hash = '035E75993AB6FA6C9EBF902B835C64CF397A763EB8E65C9BB6E1CC9730A9D3F6'
 }

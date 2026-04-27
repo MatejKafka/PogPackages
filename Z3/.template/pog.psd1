@@ -3,8 +3,11 @@
 	Architecture = 'x64'
 	Version = '{{TEMPLATE:Version}}'
 
+	Website = 'https://github.com/Z3Prover/z3'
+	Description = 'The Z3 Theorem Prover'
+
 	Install = @{
-		Url = {$V = $this.Version; "https://github.com/Z3Prover/z3/releases/download/z3-${V}/z3-${V}-x64-win.zip"}
+		Url = '{{TEMPLATE:Url}}'
 		Hash = '{{TEMPLATE:Hash}}'
 	}
 

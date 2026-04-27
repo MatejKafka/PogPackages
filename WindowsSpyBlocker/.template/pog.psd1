@@ -3,8 +3,11 @@
 	Architecture = 'x64'
 	Version = '{{TEMPLATE:Version}}'
 
+	Website = 'https://crazymax.dev/WindowsSpyBlocker/'
+	Description = 'Block spying and tracking on Windows.'
+
 	Install = @{
-		Url = {"https://github.com/crazy-max/WindowsSpyBlocker/releases/download/$($this.Version)/WindowsSpyBlocker.exe"}
+		Url = '{{TEMPLATE:Url}}'
 		Hash = '{{TEMPLATE:Hash}}'
 		NoArchive = $true
 		Target = 'WindowsSpyBlocker.exe'

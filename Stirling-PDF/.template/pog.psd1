@@ -3,8 +3,15 @@
 	Architecture = 'x64'
 	Version = '{{TEMPLATE:Version}}'
 
+	Website = 'https://stirlingpdf.com'
+	Description = @'
+Stirling PDF is a powerful, open-source PDF editing platform. Run it as a personal desktop app,
+in the browser, or deploy it on your own servers with a private API. Edit, sign, redact, convert,
+and automate PDFs without sending documents to external services.
+'@
+
 	Install = @{
-		Url = {"https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v$($this.Version)/Stirling-PDF.jar"}
+		Url = '{{TEMPLATE:Url}}'
 		Hash = '{{TEMPLATE:Hash}}'
 		NoArchive = $true
 		Target = "./Stirling-PDF.jar"

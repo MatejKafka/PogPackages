@@ -3,8 +3,11 @@
 	Architecture = 'x64'
 	Version = '{{TEMPLATE:Version}}'
 
+	Website = 'https://pdftosvg.net'
+	Description = 'Fully managed .NET library for converting PDF files to SVG.'
+
 	Install = @{
-		Url = {"https://github.com/dmester/pdftosvg.net/releases/download/$($this.Version)/pdftosvg.exe"}
+		Url = '{{TEMPLATE:Url}}'
 		Hash = '{{TEMPLATE:Hash}}'
 		NoArchive = $true
 		Target = "pdftosvg.exe"

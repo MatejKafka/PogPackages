@@ -3,9 +3,12 @@
 	Architecture = "x64"
 	Version = "{{TEMPLATE:Version}}"
 
+	Website = "https://mesonbuild.com"
+	Description = "The Meson Build System"
+
 	Install = @(
 		@{
-			Url = {$V = $this.Version; "https://github.com/mesonbuild/meson/releases/download/$V/meson-$V.tar.gz"}
+			Url = '{{TEMPLATE:Url}}'
 			Hash = "{{TEMPLATE:Hash}}"
 			Target = "meson"
 		}

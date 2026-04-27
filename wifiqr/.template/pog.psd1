@@ -3,8 +3,11 @@
 	Architecture = 'x64'
 	Version = '{{TEMPLATE:Version}}'
 
+	Website = 'https://github.com/reugn/wifiqr'
+	Description = 'Create a QR code with your Wi-Fi login details.'
+
 	Install = @{
-		Url = {$V = $this.Version; "https://github.com/reugn/wifiqr/releases/download/v${V}/wifiqr_${V}_windows_x86_64.zip"}
+		Url = '{{TEMPLATE:Url}}'
 		Hash = '{{TEMPLATE:Hash}}'
 	}
 
