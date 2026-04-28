@@ -1,5 +1,5 @@
 @{
-	Name = "ffmpeg"
+	Name = "ffmpeg@gyan.dev"
 	Architecture = "x64"
 	Version = "{{TEMPLATE:Version}}"
 
