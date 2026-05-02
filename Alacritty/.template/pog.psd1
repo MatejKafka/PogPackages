@@ -12,14 +12,12 @@ a flexible set of features with high performance. The supported platforms curren
 Note that Alacritty typically does not work in virtual machines, due to missing OpenGL hardware support.
 "@
 
-	Install = @(
-		@{
-			Url = "{{TEMPLATE:Url}}"
-			Hash = "{{TEMPLATE:Hash}}"
-			NoArchive = $true
-			Target = "Alacritty.exe"
-		}
-	)
+	Install = @{
+		Url = "{{TEMPLATE:Url}}"
+		Hash = "{{TEMPLATE:Hash}}"
+		NoArchive = $true
+		Target = "Alacritty.exe"
+	}
 
 	Enable = {
 		$ConfigExtension = & $this._GetConfigFileExtension

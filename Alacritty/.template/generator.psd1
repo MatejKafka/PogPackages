@@ -10,7 +10,7 @@
         return [ordered]@{
             Version = $_.Version
             Url = $_.Asset.Url
-            Hash = Get-UrlHash $_.Asset.Url
+            Hash = Get-GithubAssetHash $_.Asset
         }
     }
 }
