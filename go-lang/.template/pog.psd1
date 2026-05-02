@@ -24,6 +24,10 @@
 			GOCACHE = "./cache/build-cache"
 			GOMODCACHE = "./cache/mod-cache"
 			GOPATH = "%GOPATH%", "./data/packages"
+			# this is needed to redirect telemetry, since GOTELEMETRYDIR is read-only
+			# hopefully, it doesn't break anything else
+			# https://github.com/golang/go/issues/79158
+			APPDATA = "./data"
 		}
 	}
 }
