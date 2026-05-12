@@ -21,7 +21,8 @@
 			VcRedist = $true
 		}
 
-		Export-Command "wireshark" "./app/Wireshark.exe" @WsArgs
 		Export-Shortcut "Wireshark" "./app/Wireshark.exe" @WsArgs
+		Export-Command "wireshark" "./app/Wireshark.exe" @WsArgs
+		Export-Command "tshark" "./app/tshark.exe" @WsArgs
 	}
 }
