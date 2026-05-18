@@ -12,6 +12,6 @@
 		New-Directory "./config"
 		New-File "./config/Notepad2.ini" "./app/Notepad2.ini"
 
-		Export-Shortcut "Notepad2" "./app/Notepad2.exe" -ArgumentList @("/f", "./config/Notepad2.ini")
+		Export-Shortcut "Notepad2" "./app/Notepad2.exe" -Arguments "/f", "./config/Notepad2.ini"
 	}
 }

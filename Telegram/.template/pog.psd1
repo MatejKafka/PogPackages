@@ -12,10 +12,10 @@
 		New-Directory "./data"
 
 		# TODO: todo figure out how to move log.txt to separate directory
-		Export-Shortcut "Telegram" "./app/Telegram.exe" -ArgumentList @(
-				"-workdir", "./data"
-				"-noupdate"
-				"-externalupdater"
+		Export-Shortcut "Telegram" "./app/Telegram.exe" -Arguments @(
+			"-workdir", "./data"
+			"-noupdate"
+			"-externalupdater"
 		)
 	}
 }
