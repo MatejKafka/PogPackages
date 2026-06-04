@@ -3,7 +3,7 @@
         # vscode releases are published with unprefixed tags, copilot chat extension releases
         #  (from the same repo) have a prefix
         Get-GitHubRelease microsoft/vscode -TagPrefix "" `
-        | ? Version -ne "1.110" <# entry missing on update.code.visualstudio.com #> `
+        | ? Version -notin "1.110", "1.123" <# entry missing on update.code.visualstudio.com #> `
         | % TagName
     }
 
