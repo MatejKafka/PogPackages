@@ -1,14 +1,14 @@
 @{
 	Name = "SystemInformer"
-	Version = "3.0.5578"
+	Version = "{{TEMPLATE:Version}}"
 	Architecture = "x64"
 
 	# NOTE: to unlock the kernel driver file, use `fltmc unload KSystemInformer`;
 	#  then there's ksi.dll, I did not find any good way to unlock it, you'll probably need to restart
 	Install = @{
-		Url = "https://github.com/winsiderss/si-builds/releases/download/3.0.5578/systeminformer-3.0.5578-bin.zip"
-		Hash = "B371788B41C413BD15AE0D69E4D7334338220FF10D521AEA07213C4C3EFA6DEC"
-		Subdirectory = "64bit"
+		Url = "{{TEMPLATE:Url}}"
+		Hash = "{{TEMPLATE:Hash}}"
+		Subdirectory = "amd64"
 	}
 
 	Enable = {
