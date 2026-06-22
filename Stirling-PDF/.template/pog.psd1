@@ -26,9 +26,5 @@ and automate PDFs without sending documents to external services.
 		Export-Command "Stirling-PDF" (Get-Command java).Path `
 			-Arguments @("-jar", "./app/Stirling-PDF.jar") `
 			-WorkingDirectory "./data"
-
-		Export-Shortcut "Stirling-PDF" (Get-Command java).Path `
-			-Arguments @("-jar", "./app/Stirling-PDF.jar") `
-			-WorkingDirectory "./data"
 	}
 }
