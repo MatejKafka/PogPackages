@@ -3,7 +3,7 @@
         Get-GitHubRelease telegramdesktop/tdesktop `
             | ? Version -gt 2.5.6 `
             | ? Version -notin $this._SkippedVersions `
-            | Get-GitHubAsset tportable-x64.*.zip
+            | Get-GitHubAsset -Regex "(tportable-x64\.|td-portable-win-x64-).*\.zip"
     }
 
     Generate = {
