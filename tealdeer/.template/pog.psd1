@@ -1,11 +1,11 @@
 @{
 	Name = 'tealdeer'
 	Architecture = 'x64'
-	Version = '1.6.1'
+	Version = '{{TEMPLATE:Version}}'
 
 	Install = @{
-		Url = {"https://github.com/dbrgn/tealdeer/releases/download/v$($this.Version)/tealdeer-windows-x86_64-msvc.exe"}
-		Hash = "ABF2708B4932BC67BBEE7C194D482146BAD2FC880EE9D54DD0892524601BAD31"
+		Url = '{{TEMPLATE:Url}}'
+		Hash = '{{TEMPLATE:Hash}}'
 		NoArchive = $true
 		Target = "tealdeer.exe"
 	}
