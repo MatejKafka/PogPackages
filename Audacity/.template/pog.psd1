@@ -7,7 +7,7 @@
 		Url = '{{TEMPLATE:Url}}'
 		Hash = '{{TEMPLATE:Hash}}'
 		# archive for 3.7.0 includes a random __MACOSX dir
-		Subdirectory = 'Audacity-win-*'
+		Subdirectory = 'Audacity-*'
 	}
 
 	Enable = {
@@ -19,8 +19,12 @@
 		# TODO: updater
 		New-File "./data/Audacity.cfg" $this._DefaultConfigSb
 
-		Disable-DisplayScaling "./app/Audacity.exe"
-		Export-Shortcut "Audacity" "./app/Audacity.exe"
+		$Audacity4 = [Pog.PackageVersion]$this.Version -ge "4.0.0"
+		$BinPath = if ($Audacity4) {"./app/bin/Audacity4.exe"} else {"./app/Audacity.exe"}
+		if (-not $Audacity4) {
+			Disable-DisplayScaling "./app/Audacity.exe"
+		}
+		Export-Shortcut "Audacity" $BinPath
 	}
 
 	_DefaultConfigSb = {@"

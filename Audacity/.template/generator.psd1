@@ -2,8 +2,15 @@
     ListVersions = {
         Get-GitHubRelease audacity/audacity -TagPrefix "Audacity-" `
             | ? VersionStr -notin "4.0.0", "4.0.0-beta-4", "4.0.0-beta-2", "4.0.0-alpha-2", "3.2.4", "3.0.3-RC1", "3.0.2", "3.0.0" `
+            | ? VersionStr -notin "4.0.1"
             | % {
-                $Pattern = if ($_.Version -ge "3.7.5") {"audacity-win-*-64bit.zip"} else {"audacity-win-*-*64*.zip"}
+                $Pattern = switch ($_.Version) {
+                    # TODO: Audacity 4 does not support portable mode yet, throw error to recheck for newer releases
+                    {$_ -gt "4.0.1"} {throw "Unsupported Audacity release: $_"}
+                    #{$_ -ge "4.0.1"} {"audacity-win-*-x86_64.7z"; continue}
+                    {$_ -ge "3.7.5"} {"audacity-win-*-64bit.zip"; continue}
+                    default {"audacity-win-*-*64*.zip"; continue}
+                }
                 $_ | Get-GitHubAsset $Pattern -Optional "CHECKSUMS.txt"
             }
     }
