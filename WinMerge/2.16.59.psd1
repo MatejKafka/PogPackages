@@ -1,0 +1,5 @@
+@{
+    Version = '2.16.59'
+    Url = 'https://github.com/WinMerge/winmerge/releases/download/v2.16.59/winmerge-2.16.59-x64-exe.zip'
+    Hash = '671B79211C0E6972EBAC4AF67345FAAFED10D11692DE4F9A7542A5EA4AC6909C'
+}
