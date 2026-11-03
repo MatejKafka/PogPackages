@@ -9,6 +9,11 @@
 	}
 
 	Enable = {
+		# https://brandur.org/fragments/go-version-matrix
+		# note that by default, go will automatically install a newer toolchain if requested by go.mod
+		# this doesn't cause issues for Pog since the wrapped go toolchain still respects all paths
+		# to disable this, use $env:GOTOOLCHAIN = "local"
+
 		New-Directory "./config"
 		New-Directory "./cache/build-cache"
 		New-Directory "./cache/mod-cache"

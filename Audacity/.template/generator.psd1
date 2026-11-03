@@ -2,7 +2,7 @@
     ListVersions = {
         Get-GitHubRelease audacity/audacity -TagPrefix "Audacity-" `
             | ? VersionStr -notin "4.0.0", "4.0.0-beta-4", "4.0.0-beta-2", "4.0.0-alpha-2", "3.2.4", "3.0.3-RC1", "3.0.2", "3.0.0" `
-            | ? VersionStr -notin "4.0.1"
+            | ? VersionStr -notin "4.0.2", "4.0.1" `
             | % {
                 $Pattern = switch ($_.Version) {
                     # TODO: Audacity 4 does not support portable mode yet, throw error to recheck for newer releases
