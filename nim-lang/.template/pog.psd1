@@ -3,6 +3,7 @@
 	Architecture = "x64"
 	Version = "{{TEMPLATE:Version}}"
 
+	Website = "https://nim-lang.org/"
 	Description = @"
 Nim is a statically typed compiled systems programming language. It combines successful
 concepts from mature languages like Python, Ada and Modula. Its design focuses on efficiency,

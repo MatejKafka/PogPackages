@@ -1,11 +1,13 @@
 @{
 	Name = "zig-lang"
 	Architecture = "x64"
-	Description = "The Zig language. https://ziglang.org/"
 	Version = "{{TEMPLATE:Version}}"
 
+	Website = "https://ziglang.org/"
+	Description = "Zig is a general-purpose programming language and toolchain for maintaining robust, optimal and reusable software."
+
 	Install = @{
-		Url = {"https://ziglang.org/download/$($this.Version)/zig-windows-x86_64-$($this.Version).zip"}
+		Url = "{{TEMPLATE:Url}}"
 		Hash = "{{TEMPLATE:Hash}}"
 	}
 

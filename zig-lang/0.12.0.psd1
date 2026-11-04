@@ -1,4 +1,5 @@
 @{
     Version = '0.12.0'
+    Url = 'https://ziglang.org/download/0.12.0/zig-windows-x86_64-0.12.0.zip'
     Hash = '2199EB4C2000DDB1FBA85BA78F1FCF9C1FB8B3E57658F6A627A8E513131893F5'
 }
