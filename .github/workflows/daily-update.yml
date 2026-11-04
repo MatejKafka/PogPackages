@@ -31,7 +31,8 @@ jobs:
           Set-PogRepository .
 
           $GitHubToken = ConvertTo-SecureString -AsPlainText -Force "${{ secrets.GITHUB_TOKEN }}"
-          Update-PogRepository -GitHubToken $GitHubToken -OutVariable NewPackages -ErrorAction Stop
+          # continue even if some package is broken
+          Update-PogRepository -GitHubToken $GitHubToken -OutVariable NewPackages -ErrorAction Continue
 
           # render a summary for the workflow
           $(if ($NewPackages) {
@@ -46,6 +47,8 @@ jobs:
           }) > $env:GITHUB_STEP_SUMMARY
 
       - name: Commit & Push
+        # push changes even if part of the generation failed
+        if: '!cancelled()'
         shell: pwsh
         run: |
           $ErrorActionPreference = "Stop"
