@@ -2,7 +2,7 @@
 	ListVersions = {
 		Get-GitHubRelease horsicq/DIE-engine `
 			| ? Version -ge "3.01b" <# older releases have no portable win64 asset #> `
-			| Get-GitHubAsset "die_win64_portable_*.zip"
+			| Get-GitHubAsset -Regex "die_win64_(portable_)?[0-9\.]+.*\.zip"
 	}
 
 	Generate = {
