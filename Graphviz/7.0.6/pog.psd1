@@ -1,6 +1,6 @@
 @{
 	Name = 'Graphviz'
-	Architecture = @('x86', 'x64')
+	Architecture = 'x86'
 	Version = '7.0.6'
 
 	Install = @{
@@ -11,6 +11,7 @@
 
 	Enable = {
 		ls ./app/*.exe -File | % {
+			# TODO: all binaries are 32-bit, Pog does not have 32-bit -VcRedist yet
 			Export-Command ([IO.Path]::GetFileNameWithoutExtension($_)) (Resolve-Path -Relative $_) -VcRedist
 		}
 	}
